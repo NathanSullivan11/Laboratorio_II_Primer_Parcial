@@ -41,6 +41,7 @@ namespace Entidades
         {
             this.crucero = crucero;
             this.crucero.EstaEnUso = true;
+
             this.fechaSalida = fechaSalida;
             this.listaPasajeros = new List<Pasajero>();
             this.origen = origen;
