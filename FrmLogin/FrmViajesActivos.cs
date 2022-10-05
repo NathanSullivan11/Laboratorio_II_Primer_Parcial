@@ -14,14 +14,17 @@ namespace Vista
     public partial class FrmViajesActivos : Form
     {
         private Viaje viajeSeleccionado;
+
         public FrmViajesActivos()
         {
             InitializeComponent();
+
         }
 
         private void FrmViajesActivos_Load(object sender, EventArgs e)
         {
             this.dgvViajesActivos.DataSource = (List<Viaje>)BaseDeDatos.ListaViajesActivos;
+            this.Dock = DockStyle.Fill;
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)

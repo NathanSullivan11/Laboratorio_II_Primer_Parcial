@@ -22,9 +22,6 @@
     <Compile Update="FrmListadoDestinos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmListadoDestinoss.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FrmListadoViajes.cs">
       <SubType>Form</SubType>
     </Compile>

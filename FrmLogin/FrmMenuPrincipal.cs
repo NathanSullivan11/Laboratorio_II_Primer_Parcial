@@ -16,11 +16,11 @@ namespace Vista
         private Usuario usuarioLogueado;
 
         private FrmLogin formLogin;
-        FrmListadoClientes formListadoClientes;
-        FrmListadoViajes formListadoViajes;
-        FrmListadoDestinos formListadoDestinos;
-        FrmListadoCruceros formListadoCruceros;
-        FrmViajesActivos formViajesActivos;
+        private FrmListadoClientes formListadoClientes;
+        private FrmListadoViajes formListadoViajes;      
+        private FrmListadoDestinos formListadoDestinos;
+        private FrmListadoCruceros formListadoCruceros;
+        private FrmViajesActivos formViajesActivos;
 
 
         public FrmMenuPrincipal()
@@ -44,8 +44,12 @@ namespace Vista
         {          
             this.usuarioLogueado = usuarioLogueado;
             SetearMensajeUsuarioYFecha();
-            //this.comboBox1.DataSource = Enum.GetNames(typeof(EDestinoRegional));
             this.formLogin = formLogin;
+        }
+
+        private void FrmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+            this.MostrarFormViajesActivos();
         }
 
         private void SetearMensajeUsuarioYFecha()
@@ -54,19 +58,7 @@ namespace Vista
             this.lblFechaLogueado.Text = DateTime.Now.ToLongDateString();             
         }
 
-        private void btnCerrarSesion_Click(object sender, EventArgs e)
-        {          
-             this.Close();
-        }
-
-        private void btnCuentaUsuario_Click(object sender, EventArgs e)
-        {
-            FrmCuentaUsuario formCuenta = new FrmCuentaUsuario(usuarioLogueado);
-
-            formCuenta.ShowDialog();
-
-        }
-
+ 
         private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(MessageBox.Show("¿Desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
@@ -79,39 +71,37 @@ namespace Vista
             }
         }
 
-        private void btnHistorial_Click(object sender, EventArgs e)
-        {
-            FrmHistorial formHistorial = new FrmHistorial();
-
-            formHistorial.ShowDialog();
-        }
-
-
-        
 
         private void OcultarFormsMDI()
         {
-            formListadoClientes.Hide();
-            formListadoViajes.Hide();
-            formListadoDestinos.Hide();
-            formListadoCruceros.Hide();
-            formViajesActivos.Hide();
+            this.formListadoClientes.Hide();
+            this.formListadoViajes.Hide();
+            this.formListadoDestinos.Hide();
+            this.formListadoCruceros.Hide();
+            this.formViajesActivos.Hide();
+        }
+
+        private void MostrarFormViajesActivos()
+        {
+            this.formViajesActivos.StartPosition = FormStartPosition.CenterScreen;
+            this.formViajesActivos.Show();
         }
 
         private void viajesActivosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            OcultarFormsMDI();
-            formViajesActivos.StartPosition = FormStartPosition.CenterScreen;
-            formViajesActivos.Show();
+            this.OcultarFormsMDI();
+            this.MostrarFormViajesActivos();
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OcultarFormsMDI();
+            this.OcultarFormsMDI();
             formListadoClientes.StartPosition = FormStartPosition.CenterScreen;
             formListadoClientes.Show();
 
         }
+
+        
 
         private void destinosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -133,5 +123,20 @@ namespace Vista
             formListadoCruceros.StartPosition = FormStartPosition.CenterScreen;
             formListadoCruceros.Show();
         }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCuentaUsuario_Click(object sender, EventArgs e)
+        {
+            FrmCuentaUsuario formCuenta = new FrmCuentaUsuario(usuarioLogueado);
+
+            formCuenta.ShowDialog();
+
+        }
+
+       
     }
 }

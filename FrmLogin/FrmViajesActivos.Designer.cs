@@ -34,7 +34,6 @@ namespace Vista
             this.btnVenderPasaje = new System.Windows.Forms.Button();
             this.btnAltaViaje = new System.Windows.Forms.Button();
             this.btnBajaViaje = new System.Windows.Forms.Button();
-            this.btnRegresar = new System.Windows.Forms.Button();
             this.tableLayoutPanel_ContenedorPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel_ContenedorBotones = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViajesActivos)).BeginInit();
@@ -57,7 +56,7 @@ namespace Vista
             // 
             this.btnInspeccionarViaje.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnInspeccionarViaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInspeccionarViaje.Location = new System.Drawing.Point(177, 13);
+            this.btnInspeccionarViaje.Location = new System.Drawing.Point(64, 13);
             this.btnInspeccionarViaje.Name = "btnInspeccionarViaje";
             this.btnInspeccionarViaje.Size = new System.Drawing.Size(166, 41);
             this.btnInspeccionarViaje.TabIndex = 1;
@@ -69,7 +68,7 @@ namespace Vista
             // 
             this.btnVenderPasaje.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnVenderPasaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVenderPasaje.Location = new System.Drawing.Point(438, 13);
+            this.btnVenderPasaje.Location = new System.Drawing.Point(358, 13);
             this.btnVenderPasaje.Name = "btnVenderPasaje";
             this.btnVenderPasaje.Size = new System.Drawing.Size(166, 41);
             this.btnVenderPasaje.TabIndex = 2;
@@ -81,7 +80,7 @@ namespace Vista
             // 
             this.btnAltaViaje.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAltaViaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAltaViaje.Location = new System.Drawing.Point(699, 13);
+            this.btnAltaViaje.Location = new System.Drawing.Point(652, 13);
             this.btnAltaViaje.Name = "btnAltaViaje";
             this.btnAltaViaje.Size = new System.Drawing.Size(166, 41);
             this.btnAltaViaje.TabIndex = 3;
@@ -93,25 +92,13 @@ namespace Vista
             // 
             this.btnBajaViaje.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBajaViaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBajaViaje.Location = new System.Drawing.Point(961, 13);
+            this.btnBajaViaje.Location = new System.Drawing.Point(946, 13);
             this.btnBajaViaje.Name = "btnBajaViaje";
             this.btnBajaViaje.Size = new System.Drawing.Size(166, 41);
             this.btnBajaViaje.TabIndex = 5;
             this.btnBajaViaje.Text = "Dar de baja";
             this.btnBajaViaje.UseVisualStyleBackColor = true;
             this.btnBajaViaje.Click += new System.EventHandler(this.btnBajaViaje_Click);
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.Location = new System.Drawing.Point(43, 11);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(43, 44);
-            this.btnRegresar.TabIndex = 6;
-            this.btnRegresar.Text = "<--";
-            this.btnRegresar.UseVisualStyleBackColor = true;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // tableLayoutPanel_ContenedorPrincipal
             // 
@@ -130,17 +117,16 @@ namespace Vista
             // 
             // tableLayoutPanel_ContenedorBotones
             // 
-            this.tableLayoutPanel_ContenedorBotones.ColumnCount = 5;
-            this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
-            this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
-            this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
-            this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
-            this.tableLayoutPanel_ContenedorBotones.Controls.Add(this.btnInspeccionarViaje, 1, 0);
-            this.tableLayoutPanel_ContenedorBotones.Controls.Add(this.btnRegresar, 0, 0);
-            this.tableLayoutPanel_ContenedorBotones.Controls.Add(this.btnBajaViaje, 4, 0);
-            this.tableLayoutPanel_ContenedorBotones.Controls.Add(this.btnVenderPasaje, 2, 0);
-            this.tableLayoutPanel_ContenedorBotones.Controls.Add(this.btnAltaViaje, 3, 0);
+            this.tableLayoutPanel_ContenedorBotones.ColumnCount = 4;
+            this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel_ContenedorBotones.Controls.Add(this.btnInspeccionarViaje, 0, 0);
+            this.tableLayoutPanel_ContenedorBotones.Controls.Add(this.btnBajaViaje, 3, 0);
+            this.tableLayoutPanel_ContenedorBotones.Controls.Add(this.btnVenderPasaje, 1, 0);
+            this.tableLayoutPanel_ContenedorBotones.Controls.Add(this.btnAltaViaje, 2, 0);
             this.tableLayoutPanel_ContenedorBotones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_ContenedorBotones.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel_ContenedorBotones.Name = "tableLayoutPanel_ContenedorBotones";
@@ -174,7 +160,6 @@ namespace Vista
         private System.Windows.Forms.Button btnVenderPasaje;
         private System.Windows.Forms.Button btnAltaViaje;
         private System.Windows.Forms.Button btnBajaViaje;
-        private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_ContenedorPrincipal;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_ContenedorBotones;
     }

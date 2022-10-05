@@ -18,6 +18,7 @@ namespace Entidades
         static List<Viaje> listaTodosLosViajes;
         static Dictionary<string, float> diccionarioDestinosFacturacion;
         static Dictionary<string, int> diccionarioDestinosCantidadViajes;
+        static Dictionary<string, int> diccionarioHorasViajadasPorCrucero;
 
 
 
@@ -32,6 +33,7 @@ namespace Entidades
             listaTodosLosViajes = new List<Viaje>();
             diccionarioDestinosFacturacion = new Dictionary<string, float>();
             diccionarioDestinosCantidadViajes = new Dictionary<string, int>();
+            diccionarioHorasViajadasPorCrucero = new Dictionary<string, int>();
 
             HardcodearCruceros();
             HardcodearClientes();
@@ -41,7 +43,9 @@ namespace Entidades
             HardcodearViajesActivos();
 
             CargarDiccionarioDestinosCantidadViajes();
-            CargarDiccionarioDestinosFacturacion(); 
+            CargarDiccionarioDestinosFacturacion();
+            CargarDiccionarioHorasViajadasPorCrucero(); 
+
         }
 
         public static List<Crucero> ListaCruceros { get => listaCruceros; }
@@ -49,11 +53,32 @@ namespace Entidades
         public static List<Viaje> ListaViajesActivos { get => listaViajesActivos; }
         public static List<Pasajero> ListaModeloPasajeros { get => listaModeloPasajeros; }
         public static List<Viaje> ListaViajesFinalizados { get => listaViajesFinalizados; }
-        public static List<Viaje> ListaTodosLosViajes 
-        { get => listaViajesFinalizados.Concat(listaViajesActivos).ToList(); 
-            set => listaTodosLosViajes = value; }
+        public static List<Viaje> ListaTodosLosViajes { get => listaViajesFinalizados.Concat(listaViajesActivos).ToList();  set => listaTodosLosViajes = value; }
+       
         public static Dictionary<string, float> DiccionarioDestinosFacturacion { get => diccionarioDestinosFacturacion; set => diccionarioDestinosFacturacion = value; }
         public static Dictionary<string, int> DiccionarioDestinosCantidadViajes { get => diccionarioDestinosCantidadViajes; set => diccionarioDestinosCantidadViajes = value; }
+        public static Dictionary<string, int> DiccionarioHorasViajadasPorCrucero { get => diccionarioHorasViajadasPorCrucero; }
+
+        #region Cargar Diccionarios
+        private static void CargarDiccionarioHorasViajadasPorCrucero()
+        {
+            InicializarDiccionarioHorasViajadasPorCrucero();
+            foreach (Viaje auxViaje in ListaTodosLosViajes)
+            {
+                if(diccionarioHorasViajadasPorCrucero.ContainsKey(auxViaje.ObtenerCrucero().Matricula))
+                { 
+                    diccionarioHorasViajadasPorCrucero[auxViaje.ObtenerCrucero().Matricula] += Int32.Parse(auxViaje.Duracion);
+                }
+            }
+        }
+
+        private static void InicializarDiccionarioHorasViajadasPorCrucero()
+        {
+            foreach (Crucero crucero in listaCruceros)
+            {
+                diccionarioHorasViajadasPorCrucero.Add(crucero.Matricula, 0);
+            }
+        }
 
         public static void InicializarDiccionarioFacturacion()
         {
@@ -111,8 +136,9 @@ namespace Entidades
                 }
             }
         }
+        #endregion
 
-        #region Hardcodeo
+        #region Hardcodeo Listas
         private static void HardcodearCruceros()
         {         
             listaCruceros.Add(new Crucero("AA7893-LS", "Fragata", 300, 7500, true, false, false, false,0));

@@ -18,7 +18,13 @@ namespace Vista
         public FrmListadoDestinos()
         {
             InitializeComponent();
+            
+        }
+
+        private void FrmListadoDestinos_Load(object sender, EventArgs e)
+        {
             this.EstablecerPredeterminados();
+            this.Dock = DockStyle.Fill;
         }
 
         private void EstablecerPredeterminados()
@@ -93,10 +99,7 @@ namespace Vista
             }
         }
 
-        private void FrmListadoDestinos_Load(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

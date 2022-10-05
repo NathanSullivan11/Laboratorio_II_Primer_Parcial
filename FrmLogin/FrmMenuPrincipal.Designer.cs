@@ -159,6 +159,7 @@ namespace Vista
             this.btnCerrarSesion.TabIndex = 0;
             this.btnCerrarSesion.Text = "Cerrar Sesión";
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // btnCuentaUsuario
             // 
@@ -171,6 +172,7 @@ namespace Vista
             this.btnCuentaUsuario.TabIndex = 5;
             this.btnCuentaUsuario.Text = "Mi cuenta";
             this.btnCuentaUsuario.UseVisualStyleBackColor = false;
+            this.btnCuentaUsuario.Click += new System.EventHandler(this.btnCuentaUsuario_Click);
             // 
             // lblFechaLogueado
             // 
@@ -211,6 +213,7 @@ namespace Vista
             this.Name = "FrmMenuPrincipal";
             this.Text = "FrmMenuPrincipal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenuPrincipal_FormClosing);
+            this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -512,5 +512,11 @@ namespace Vista
         {
             this.DialogResult = DialogResult.Cancel;
         }
+
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

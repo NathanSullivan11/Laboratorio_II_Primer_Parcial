@@ -89,6 +89,7 @@ namespace Vista
             // lblNombreCompleto
             // 
             this.lblNombreCompleto.AutoSize = true;
+            this.lblNombreCompleto.BackColor = System.Drawing.Color.Transparent;
             this.lblNombreCompleto.Location = new System.Drawing.Point(27, 63);
             this.lblNombreCompleto.Name = "lblNombreCompleto";
             this.lblNombreCompleto.Size = new System.Drawing.Size(105, 15);
@@ -98,6 +99,7 @@ namespace Vista
             // lblDni
             // 
             this.lblDni.AutoSize = true;
+            this.lblDni.BackColor = System.Drawing.Color.Transparent;
             this.lblDni.Location = new System.Drawing.Point(43, 91);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(73, 15);
@@ -117,6 +119,7 @@ namespace Vista
             // lblMensajeError
             // 
             this.lblMensajeError.AutoSize = true;
+            this.lblMensajeError.BackColor = System.Drawing.Color.Transparent;
             this.lblMensajeError.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMensajeError.ForeColor = System.Drawing.Color.Red;
             this.lblMensajeError.Location = new System.Drawing.Point(189, 23);
@@ -130,6 +133,7 @@ namespace Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Vista.Properties.Resources._1431073805_364256_1431074046_noticia_normal;
             this.ClientSize = new System.Drawing.Size(414, 248);
             this.Controls.Add(this.lblMensajeError);
             this.Controls.Add(this.button1);
@@ -140,7 +144,9 @@ namespace Vista
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtMail);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCuentaUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCuentaUsuario";
             this.Load += new System.EventHandler(this.FrmCuentaUsuario_Load);
             this.ResumeLayout(false);
