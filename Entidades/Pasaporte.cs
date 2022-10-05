@@ -25,5 +25,20 @@ namespace Entidades
         public string Nacionalidad { get => nacionalidad; }
         public string Sexo { get => sexo; set => sexo = value; }
         public string FechaDeCaducidad { get => fechaDeCaducidad.ToShortDateString(); }
+
+        public static bool EstaEnReglaPasaporte(DateTime fechaCaducidad)
+        {
+            if(fechaCaducidad.CompareTo(DateTime.Today) >= 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public override string ToString()
+        {
+            return $"{this.numero} - {this.nacionalidad}";
+        }
+
     }
 }

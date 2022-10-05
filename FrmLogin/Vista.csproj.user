@@ -7,7 +7,25 @@
     <Compile Update="FrmBajaViaje.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmInspeccionViaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmListadoClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmListadoCruceros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmListadoDestinos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmListadoDestinoss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmListadoViajes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmVentaPasaje.cs">

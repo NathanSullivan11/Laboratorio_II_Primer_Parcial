@@ -9,10 +9,12 @@ namespace Entidades
     public class Cliente : Persona
     {
         private int id;
+        private int cantidadViajes;
 
         public Cliente(string nombre, string apellido, int dni, int edad,int id) : base(nombre, apellido, dni, edad)
         {
             this.id = id;
+            this.cantidadViajes = 0;
         }
 
         public override bool Equals(object obj)
@@ -21,8 +23,7 @@ namespace Entidades
             {
                 return this.id == auxCliente.id;
             }
-            return false;
-            
+            return false;           
         }
 
         public override int GetHashCode()
@@ -35,6 +36,13 @@ namespace Entidades
             return $"Nombre: {this.Nombre} \nApellido: {this.Apellido}\nEdad;{this.Edad}\nId: {this.id}";
         }
 
-        public int Id { get => id; }
+        public int Id { get => this.id; }
+
+        public int CantidadViajes { get => this.cantidadViajes; }
+
+        public static void SumarleUnViajeACliente(Cliente cliente)
+        {
+            cliente.cantidadViajes++;
+        }
     }
 }

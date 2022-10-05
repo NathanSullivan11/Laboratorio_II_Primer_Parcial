@@ -27,3 +27,9 @@ C:\Users\DESKTOP\source\repos\Sullivan.Nathan.PrimerParcial\FrmLogin\obj\Debug\n
 C:\Users\DESKTOP\source\repos\Sullivan.Nathan.PrimerParcial\FrmLogin\obj\Debug\net5.0-windows\Vista.FrmInspeccionViaje.resources
 C:\Users\DESKTOP\source\repos\Sullivan.Nathan.PrimerParcial\FrmLogin\obj\Debug\net5.0-windows\Vista.FrmAltaViaje.resources
 C:\Users\DESKTOP\source\repos\Sullivan.Nathan.PrimerParcial\FrmLogin\obj\Debug\net5.0-windows\Vista.FrmBajaViaje.resources
+C:\Users\DESKTOP\source\repos\Sullivan.Nathan.PrimerParcial\FrmLogin\obj\Debug\net5.0-windows\Vista.FrmHistorial.resources
+C:\Users\DESKTOP\source\repos\Sullivan.Nathan.PrimerParcial\FrmLogin\obj\Debug\net5.0-windows\Vista.FrmListadoClientes.resources
+C:\Users\DESKTOP\source\repos\Sullivan.Nathan.PrimerParcial\FrmLogin\obj\Debug\net5.0-windows\Vista.FrmListadoViajes.resources
+C:\Users\DESKTOP\source\repos\Sullivan.Nathan.PrimerParcial\FrmLogin\obj\Debug\net5.0-windows\Vista.FrmListadoDestinos.resources
+C:\Users\DESKTOP\source\repos\Sullivan.Nathan.PrimerParcial\FrmLogin\obj\Debug\net5.0-windows\Vista.FrmListadoCruceros.resources
+C:\Users\DESKTOP\source\repos\Sullivan.Nathan.PrimerParcial\FrmLogin\obj\Debug\net5.0-windows\Vista.FrmListadoDestinoss.resources

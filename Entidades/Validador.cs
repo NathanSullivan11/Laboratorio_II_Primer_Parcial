@@ -29,6 +29,8 @@ namespace Entidades
             return esValida;
         }
 
+        
+
         public static bool EsValidoNumeroPasaporte(string nroPasaporte)
         {
             bool esValido = false;

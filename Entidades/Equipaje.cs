@@ -29,8 +29,19 @@ namespace Entidades
         }
         public override string ToString()
         {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Equipaje de mano:");
+            if (this.equipajeDeMano)
+            {
+                sb.Append(" Si -");
+            }
+            else
+            {
+                sb.Append(" No -");
+            }
+            sb.Append($" {this.cantidadMaletas} - Maletas Peso (kg): {this.pesoEnKg}");
             
-            return $"Equipaje de mano: {this.equipajeDeMano}\nCantidad maleta: {this.cantidadMaletas}\nPeso (kg): {this.pesoEnKg}";
+            return sb.ToString();
         }
     }
 }

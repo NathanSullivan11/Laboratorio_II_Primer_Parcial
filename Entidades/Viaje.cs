@@ -9,7 +9,9 @@ namespace Entidades
     public class Viaje
     {
         private List<Pasajero> listaPasajeros;
-
+        private List<Camarote> camarotesTurista;
+        private List<Camarote> camarotesPremium;
+        private string codigoDeViaje;
         private Crucero crucero;
         private EOrigen origen;
         private DateTime fechaSalida;
@@ -19,36 +21,54 @@ namespace Entidades
         private string destino;
         private float costoBase;
         private float costoPremium;
+        private float gananciasRecaudadas;
+        private int kgActualesEnBodega;
 
         #region propiedades
-        public string Crucero { get => this.crucero.ToString(); }
-        public string Origen { get => this.origen.ToString(); }
-        public string FechaSalida { get => this.fechaSalida.ToString(); }
-        public string Destino { get => this.destino; }
-        public string Duracion { get => $"{this.duracionEnHoras}hs"; }
+        public string Crucero { get => this.crucero.Matricula; }
+        public string CodigoDeViaje { get => this.codigoDeViaje;  }
         public string Estado { get => estado.ToString(); }
-        public string KgBodega { get => $"{this.crucero.KgActualesEnBodega}kg/{this.crucero.CapacidadMaximaBodega}kg"; }
-        public string CamarotesEnUso { get => $"{this.crucero.ObtenerListaCamarotesPremium().Count + this.crucero.ObtenerListaCamarotesTurista().Count}/{this.crucero.CantidadCamarotesPremium + this.crucero.CantidadCamarotesTurista}"; }
+        public string Origen { get => this.origen.ToString(); }       
+        public string Destino { get => this.destino; }
+        public string FechaSalida { get => this.fechaSalida.ToString(); }
+        public string Duracion { get => this.duracionEnHoras.ToString(); }       
+        public string KgBodega { get => $"{this.kgActualesEnBodega}kg/{this.crucero.CapacidadMaximaBodega}kg"; }
+        public string CamarotesEnUso { get => $"{this.ObtenerListaCamarotesPremium().Count + this.ObtenerListaCamarotesTurista().Count}/{this.crucero.CantidadCamarotesPremium + this.crucero.CantidadCamarotesTurista}"; }
         public float CostoBase { get => this.costoBase;  }
         public float CostoPremium { get => this.costoPremium;  }
+        public float GananciasRecaudadas { get => this.gananciasRecaudadas; }
         public bool TieneComedor { get => this.crucero.TieneComedor; }
         public bool TieneGimnasio { get => this.crucero.TieneGimnasio; }
         public bool TienePileta { get => this.crucero.TienePileta; }
         public bool TieneBar { get => this.crucero.TieneBar; }
         #endregion
 
-        private Viaje(Crucero crucero, EOrigen origen, DateTime fechaSalida,bool esRegional, EEstadoViaje estado)
+        private Viaje(Crucero crucero, EOrigen origen, DateTime fechaSalida, bool esRegional, EEstadoViaje estado)
         {
             this.crucero = crucero;
-            this.crucero.EstaEnUso = true;
+            
+            if (estado != EEstadoViaje.Finalizado)
+            {
+                this.crucero.EstaEnUso = true;
+            }
+            else
+            {
+                this.crucero.EstaEnUso = false;
+            }
+            
             this.fechaSalida = fechaSalida;
             this.listaPasajeros = new List<Pasajero>();
             this.origen = origen;
             this.estado = estado;
+            this.camarotesPremium = new List<Camarote>();
+            this.camarotesTurista = new List<Camarote>();
+            this.kgActualesEnBodega = 0;
             this.esRegional = esRegional;
             this.duracionEnHoras = this.CalcularDuracion();
             this.costoBase = this.CalcularCostoBase();
             this.costoPremium = this.costoBase * 1.20f;
+            this.gananciasRecaudadas = 0;
+            this.codigoDeViaje = this.GenerarCodigoDeViajeAleatorio();
             this.AgregarABaseDeDatos();
         }
 
@@ -62,6 +82,104 @@ namespace Entidades
             this.destino = destinoExtraRegional.ToString();
         }
 
+        public Pasajero this[int index]
+        {
+            get 
+            { 
+                if(index < this.listaPasajeros.Count)
+                {
+                    return this.listaPasajeros[index];
+                }
+                return null;
+            }
+        }
+
+        public DateTime ObtenerFechaSalida()
+        {
+            return this.fechaSalida;
+        }
+
+        public int ObtenerCantidadCamarotesLibreTurista()
+        {
+            return this.crucero.CantidadCamarotesTurista - this.camarotesTurista.Count;
+        }
+
+        public int ObtenerCantidadCamarotesLibrePremium()
+        {
+            return this.crucero.CantidadCamarotesPremium- this.camarotesPremium.Count;
+        }
+
+        public List<Camarote> ObtenerListaCamarotesPremium()
+        {
+            return this.camarotesPremium;
+        }
+
+        public List<Camarote> ObtenerListaCamarotesTurista()
+        {
+            return this.camarotesTurista;
+        }
+
+        public bool AgregarPasajeroACamarotePremiumDisponible(Pasajero pasajero)
+        {
+            bool seAgrego = false;
+            if (this.ObtenerCantidadCamarotesLibrePremium() > 0)
+            {
+                this.camarotesPremium.Add(new Camarote(pasajero));
+                seAgrego = true;
+            }
+            return seAgrego;
+        }
+
+        public bool AgregarPasajeroACamaroteTuristaDisponible(Pasajero pasajero)
+        {
+            bool seAgrego = false;
+            if (this.ObtenerCantidadCamarotesLibreTurista() > 0)
+            {
+                this.camarotesTurista.Add(new Camarote(pasajero));
+                seAgrego = true;
+            }
+            return seAgrego;
+        }
+
+        public bool AgregarGrupoPasajerosACamarotePremiumDisponible(List<Pasajero> grupoPasajeros)
+        {
+            bool seAgrego = false;
+            if (this.ObtenerCantidadCamarotesLibrePremium() >= grupoPasajeros.Count)
+            {
+                this.camarotesPremium.Add(new Camarote(grupoPasajeros));
+                seAgrego = true;
+            }
+            return seAgrego;
+        }
+
+        public bool AgregarGrupoPasajerosACamaroteTuristaDisponible(List<Pasajero> grupoPasajeros)
+        {
+            bool seAgrego = false;
+            if (this.ObtenerCantidadCamarotesLibreTurista() >= grupoPasajeros.Count)
+            {
+                this.camarotesTurista.Add(new Camarote(grupoPasajeros));
+                seAgrego = true;
+            }
+            return seAgrego;
+        }
+
+
+        public bool HayCapacidadEnBodega(int pesoEquipaje)
+        {
+            int valor = this.kgActualesEnBodega;
+            return (valor + pesoEquipaje) <= this.crucero.CapacidadMaximaBodega;
+        }
+
+        public bool AgregarEquipaje(int pesoEquipaje)
+        {
+            if (this.HayCapacidadEnBodega(pesoEquipaje))
+            {
+                this.kgActualesEnBodega += pesoEquipaje;
+                return true;
+            }
+            return false;
+        }
+
         private void AgregarABaseDeDatos()
         {
             if(Sistema.ViajeExisteEnBaseDeDatos(this))
@@ -70,8 +188,27 @@ namespace Entidades
             }
         }
 
+        public void AcumularGananciasDeVentaMultiple(List<Pasajero> listaPasajeros)
+        {
+            foreach (Pasajero AuxPasajero in listaPasajeros)
+            {
+                this.AcumularGananciaDeUnaVenta(AuxPasajero);
+            }
+        }
+
+        public void AcumularGananciaDeUnaVenta(Pasajero pasajero)
+        {
+            if(pasajero.EsPremium)
+            {
+                this.gananciasRecaudadas += this.costoPremium * 1.21f;
+            }
+            else
+            {
+                this.gananciasRecaudadas += this.costoBase * 1.21f;
+            }     
+        }
         
-        public void CargarListaPasajeros(List<Pasajero> listaPasajeros)
+        public void CargarListaPasajerosHardcodeados(List<Pasajero> listaPasajeros)
         {
             //this.listaPasajeros = listaPasajeros;
             foreach(Pasajero auxPasajero in listaPasajeros)
@@ -123,10 +260,12 @@ namespace Entidades
         {
             bool seAgrego = false;
            
-            if(this.AsignarCamaroteAPasajero(pasajero) && this.crucero.AgregarEquipaje(pasajero.ObtenerEquipaje()))
+            if(this.AsignarCamaroteAPasajero(pasajero) && this.AgregarEquipaje(pasajero.ObtenerEquipaje()))
             {
                 seAgrego = true;
                 this.listaPasajeros.Add(pasajero);
+                Cliente.SumarleUnViajeACliente(pasajero.ObtenerCliente());
+                this.AcumularGananciaDeUnaVenta(pasajero);
             }                             
             
             return seAgrego;
@@ -141,14 +280,18 @@ namespace Entidades
             {
                 totalPeso += auxP.ObtenerEquipaje();
             }
-   
-            if (this.crucero.HayCapacidadEnBodega(totalPeso))
+
+            if (this.AsignarCamaroteAGrupoFamiliar(pasajeros, sonPremium) && this.AgregarEquipaje(totalPeso))
             {
-                if (this.AsignarCamaroteAGrupoFamiliar(pasajeros, sonPremium))
+                seAgregaron = true;
+                foreach(Pasajero auxPasajero in pasajeros)
                 {
-                    seAgregaron = true;
+                    this.listaPasajeros.Add(auxPasajero);
+                    Cliente.SumarleUnViajeACliente(auxPasajero.ObtenerCliente());
                 }
+                this.AcumularGananciasDeVentaMultiple(pasajeros);
             }
+            
             return seAgregaron;
         }
 
@@ -160,14 +303,14 @@ namespace Entidades
  
             if (pasajero.EsPremium)
             {                
-                if(this.crucero.AgregarPasajeroACamarotePremiumDisponible(pasajero))
+                if(this.AgregarPasajeroACamarotePremiumDisponible(pasajero))
                 {
                     seAgregoAlCamarote = true;
                 }
             }
             else
             {
-                if (this.crucero.AgregarPasajeroACamaroteTuristaDisponible(pasajero))
+                if (this.AgregarPasajeroACamaroteTuristaDisponible(pasajero))
                 {
                     seAgregoAlCamarote = true;
                 }
@@ -181,36 +324,58 @@ namespace Entidades
 
             if (sonPremium)
             {
-                if (this.crucero.AgregarGrupoPasajerosACamarotePremiumDisponible(grupoPasajeros))
+                if (this.AgregarGrupoPasajerosACamarotePremiumDisponible(grupoPasajeros))
                 {
-                    this.crucero.ObtenerListaCamarotesTurista().Add(new Camarote(grupoPasajeros));
+                    //this.crucero.ObtenerListaCamarotesPremium().Add(new Camarote(grupoPasajeros));
                     seAgregaronAlCamarote = true;
                 }
             }
             else
             {
-                if (this.crucero.AgregarGrupoPasajerosACamaroteTuristaDisponible(grupoPasajeros))
+                if (this.AgregarGrupoPasajerosACamaroteTuristaDisponible(grupoPasajeros))
                 {
-                    this.crucero.ObtenerListaCamarotesPremium().Add(new Camarote(grupoPasajeros));
-                    seAgregaronAlCamarote = false;
+                    //this.crucero.ObtenerListaCamarotesTurista().Add(new Camarote(grupoPasajeros));
+                    seAgregaronAlCamarote = true;
                 }
             }
             return seAgregaronAlCamarote;
         }
 
+        public override bool Equals(object obj)
+        {
+            if(obj is Viaje auxViaje)
+            {
+                return this.codigoDeViaje == auxViaje.codigoDeViaje;
+            }
+            return false;
+        }
+
+        public string ObtenerDatosCrucero()
+        {
+            return $"Matricula: {this.crucero.Matricula}\nBodega: {this.kgActualesEnBodega}/{this.crucero.CapacidadMaximaBodega}\nCamarotes turista: {this.camarotesTurista.Count}/{this.crucero.CantidadCamarotesTurista}\nCamarotes premium:{this.camarotesPremium.Count}/{this.crucero.CantidadCamarotesPremium}";
+        }
+        /*
         public override string ToString()
         {
             return $"Crucero: {this.crucero}\nOrigen: {this.origen} Destino;{this.destino}\nesRegional: {this.esRegional}\nDuracion: {this.duracionEnHoras}";
-        }
+        }*/
 
-        public static bool operator ==(Viaje viaje1, Viaje viaje2)
+        public string GenerarCodigoDeViajeAleatorio()
         {
-            return viaje1.crucero == viaje2.crucero;
-        }
+            char[] letras = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', };
+            int[] numeros = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            Random random = new Random();
 
-        public static bool operator !=(Viaje viaje1, Viaje viaje2)
-        {
-            return !(viaje1 == viaje2);
+            string codigo = "";
+            codigo += letras[random.Next(0, letras.Length)];
+            codigo += letras[random.Next(0, letras.Length)];
+            codigo += letras[random.Next(0, letras.Length)];
+            codigo += letras[random.Next(0, letras.Length)];
+            codigo += numeros[random.Next(0, numeros.Length)];
+            codigo += numeros[random.Next(0, numeros.Length)];
+
+            return codigo;
+
         }
     }
 }

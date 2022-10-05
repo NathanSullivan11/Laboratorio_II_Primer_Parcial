@@ -27,14 +27,39 @@ namespace Entidades
         public bool EquipajeDeMano { get => this.equipaje.EquipajeDeMano; }
         public int CantidadMaletas { get => this.equipaje.CantidadMaletas; }
 
-        public string PasaporteNumero { get => this.pasaporte.Numero; }
-        public string PasaporteNacionalidad { get => this.pasaporte.Nacionalidad; }
-        public string PasaporteSexo { get => this.pasaporte.Sexo; }
-        public string PasaporteCaducidad { get => this.pasaporte.FechaDeCaducidad.ToString(); }
+        public string NumeroPasaporte { get => this.pasaporte.Numero; }
+        public string Nacionalidad { get => this.pasaporte.Nacionalidad; }
+        public string Sexo { get => this.pasaporte.Sexo; }
+        public string CaducidadPasaporte { get => this.pasaporte.FechaDeCaducidad.ToString(); }
+
+        public int Edad { get => this.cliente.Edad; }
 
         public Equipaje ObtenerEquipaje()
         {
             return this.equipaje;
+        }
+
+        public Cliente ObtenerCliente()
+        {
+            return this.cliente;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder("");
+
+            sb.Append($"{this.Nombre} {this.Apellido} -");
+
+            if(this.esPremium)
+            {
+                sb.Append(" Premium");
+            }
+            else
+            {
+                sb.Append(" Turista");
+            }
+
+            return sb.ToString();
         }
 
     }

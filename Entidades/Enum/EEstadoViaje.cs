@@ -2,6 +2,6 @@
 {
     Lleno,
     Zarpando,
-    En_Destino,
-    Disponible
+    Disponible,
+    Finalizado
 }

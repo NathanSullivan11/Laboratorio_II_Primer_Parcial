@@ -192,17 +192,17 @@ namespace Vista
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cmbCrucero;
-        private System.Windows.Forms.ComboBox cmbOrigen;
-        private System.Windows.Forms.ComboBox cmbDestino;
-        private System.Windows.Forms.RadioButton rbtnRegional;
-        private System.Windows.Forms.RadioButton rbtnExtraregional;
-        private System.Windows.Forms.Button btnAgregarViaje;
-        private System.Windows.Forms.Label lblSeleccionarOrigen;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label lblSeleccionarCrucero;
-        private System.Windows.Forms.Label lblSeleccionarDestino;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label lblFechaSalida;
+        protected System.Windows.Forms.ComboBox cmbCrucero;
+        protected System.Windows.Forms.ComboBox cmbOrigen;
+        protected System.Windows.Forms.ComboBox cmbDestino;
+        protected System.Windows.Forms.RadioButton rbtnRegional;
+        protected System.Windows.Forms.RadioButton rbtnExtraregional;
+        protected System.Windows.Forms.Button btnAgregarViaje;
+        protected System.Windows.Forms.Label lblSeleccionarOrigen;
+        protected System.Windows.Forms.Button btnCancelar;
+        protected System.Windows.Forms.Label lblSeleccionarCrucero;
+        protected System.Windows.Forms.Label lblSeleccionarDestino;
+        protected System.Windows.Forms.DateTimePicker dateTimePicker1;
+        protected System.Windows.Forms.Label lblFechaSalida;
     }
 }
