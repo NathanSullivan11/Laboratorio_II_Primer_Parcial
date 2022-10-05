@@ -1,98 +1,98 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="Entidades.BaseDeDatos" Collapsed="true">
-    <Position X="6.75" Y="1.75" Width="1.5" />
+  <Class Name="Entidades.BaseDeDatos">
+    <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAEAABACAAAAAEAEAAACgAIACEABAAgCAQAAQAI=</HashCode>
+      <HashCode>ABAQEAEAABACAAAgAMgEAQACgAMACEoBKAgCASABQAI=</HashCode>
       <FileName>BaseDeDatos.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Entidades.Cliente">
-    <Position X="2" Y="3" Width="1.5" />
+    <Position X="15.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACBAAAAAAAAAAEgAAAAAAAAAAAAIAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AAACBAAAAAAAAAAEgAAAAAAAAAAAAIAAAAAAAAAEAgQ=</HashCode>
       <FileName>Cliente.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entidades.Pasajero" Collapsed="true">
-    <Position X="10.25" Y="1.75" Width="1.5" />
+  <Class Name="Entidades.Pasajero">
+    <Position X="13.75" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAQAAABAEgAAAgCAAgAIAQgAGAAEAAAAAACA=</HashCode>
       <FileName>Pasajero.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entidades.Pasaporte" Collapsed="true">
-    <Position X="6.75" Y="2.75" Width="1.5" />
+  <Class Name="Entidades.Pasaporte">
+    <Position X="12" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAEgAAABCAAAABgAAAAAQEAAAABAAA=</HashCode>
       <FileName>Pasaporte.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Entidades.Persona" Collapsed="true">
-    <Position X="3.25" Y="1.75" Width="1.5" />
+    <Position X="16.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAABAAQAAACEAAAAgAAAAAAAAoAAAAIAAAAAAAA=</HashCode>
       <FileName>Persona.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entidades.Sistema" Collapsed="true">
-    <Position X="8.5" Y="2.75" Width="1.5" />
+  <Class Name="Entidades.Sistema">
+    <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>YAAQAAAAQIAgAwIEAAACCABAAAAAiAAAAgCAAESIAgA=</HashCode>
+      <HashCode>YAAwCBIQQYhhA4JEEAACCARACQAAiCAAAkCEFECICgE=</HashCode>
       <FileName>Sistema.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Entidades.Usuario">
-    <Position X="4.25" Y="3" Width="1.5" />
+    <Position X="17.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAIACAIAAAwCAAAE=</HashCode>
       <FileName>Usuario.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entidades.Validador" Collapsed="true">
-    <Position X="10.25" Y="2.75" Width="1.5" />
+  <Class Name="Entidades.Validador">
+    <Position X="17.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACIAAAAAAAAAAAAAAAAAAAAAgEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Validador.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entidades.Viaje" Collapsed="true">
-    <Position X="6.75" Y="3.75" Width="1.5" />
+  <Class Name="Entidades.Viaje">
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAgmAIAUBGAAEQIwgSEACACcAARAACKBAAAAggDAIo=</HashCode>
+      <HashCode>QgAgmAKAeBGAAEQIygTEACAScAQVgUCKBACAAggDAIo=</HashCode>
       <FileName>Viaje.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entidades.Crucero" Collapsed="true">
-    <Position X="8.5" Y="1.5" Width="1.5" />
+  <Class Name="Entidades.Crucero">
+    <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAwAKAAeAEAAECEIABghSAUIAwEgUAMCACQAggEAAA=</HashCode>
+      <HashCode>AAAwAKAAcAAAAECAoAAghSAEIAgAAAAMCAAQAggEAAA=</HashCode>
       <FileName>Crucero.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="EDestinoExtraRegional">
-    <Position X="12.25" Y="5" Width="1.5" />
+    <Position X="13.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAARAAAAAAAAAAAAAAAAAACAAwIBAAAAAAABAAAAAA=</HashCode>
       <FileName>Enum\EDestinoExtraRegional.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="EDestinoRegional">
-    <Position X="8.5" Y="5" Width="1.5" />
+    <Position X="11.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAEAgAAAAAAAAAAAAACAgAAAAAAAIIAEAAAABAAAQA=</HashCode>
       <FileName>Enum\EDestinoRegional.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="EEstadoViaje">
-    <Position X="10.5" Y="5" Width="1.5" />
+    <Position X="15.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAABAAAAAAAAAAAAAAAAAAAABAAACA=</HashCode>
       <FileName>Enum\EEstadoViaje.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="EOrigen">
-    <Position X="10.5" Y="6.75" Width="1.5" />
+    <Position X="15.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Enum\EOrigen.cs</FileName>

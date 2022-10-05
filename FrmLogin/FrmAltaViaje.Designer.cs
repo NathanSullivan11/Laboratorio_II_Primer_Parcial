@@ -183,7 +183,7 @@ namespace Vista
             this.Controls.Add(this.cmbOrigen);
             this.Controls.Add(this.cmbCrucero);
             this.Name = "FrmAltaViaje";
-            this.Text = "FrmAltaPasaje";
+            this.Text = "Alta de viaje";
             this.Load += new System.EventHandler(this.FrmAltaViaje_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

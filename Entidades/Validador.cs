@@ -49,11 +49,15 @@ namespace Entidades
                             break;
                         }
                     }
-                    else if (!Char.IsDigit(nroPasaporte[i]))
+                    else
                     {
-                        esValido = false;
-                        break;
+                        if (!Char.IsDigit(nroPasaporte[i]))
+                        {
+                            esValido = false;
+                            break;
+                        }
                     }
+                 
 
                 }
             }

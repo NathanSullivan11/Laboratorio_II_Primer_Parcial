@@ -432,7 +432,7 @@ namespace Vista
 
         private void CargarDatosCrucero()
         {
-            this.lblInfoCrucero.Text = this.viajeDelPasajeAVender.ObtenerDatosCrucero();
+            this.lblInfoCrucero.Text = this.viajeDelPasajeAVender.ObtenerDatosBasicosCrucero();
             this.chkBoxTieneBar.Checked = this.viajeDelPasajeAVender.ObtenerCrucero().TieneBar;
             this.chkBoxTieneGimnasio.Checked = this.viajeDelPasajeAVender.ObtenerCrucero().TieneGimnasio;
             this.chkBoxTieneComedor.Checked = this.viajeDelPasajeAVender.ObtenerCrucero().TieneComedor;
@@ -516,6 +516,9 @@ namespace Vista
 
         private void btnAyuda_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Se podra seleccionar un cliente existente de la base de datos, o agregar uno nuevo. (Si esta repetido te pregunta si queres traer sus datos, no te deja agregar uno con mismo dni) " +
+                "Si agregas mas de 1 pasajeros, la opcion ed turista o premiuem se bloqueara acorde al tipo del primer pasajero cargado, ya que en un grupo familiar no pueden haber integrante de diferentes tipo de servicio" +
+                "El pasaporte debe tener mínimo 3 letras y luego numeros");
 
         }
     }

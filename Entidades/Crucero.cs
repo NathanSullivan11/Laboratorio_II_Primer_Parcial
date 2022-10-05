@@ -55,8 +55,7 @@ namespace Entidades
         public bool TieneGimnasio { get => tieneGimnasio;  }
         public bool TienePileta { get => tienePileta; }
         public bool TieneBar { get => tieneBar;  }
-  
-        
+
 
 
         private string FormatearSalones()
@@ -82,16 +81,20 @@ namespace Entidades
             return sb.ToString();
         }
 
-        /*
-         * 
+        
+         
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"Matricula: {this.matricula}\nBodega: {this.kgActualesEnBodega}/{this.capacidadMaximaBodega}\nCamarotes turista: {this.camarotesTurista.Count}/{this.maximoCamarotesTurista}\nCamarotes premium:{this.camarotesPremium.Count}/{this.maximoCamarotesPremium}");
+            sb.AppendLine($"Matricula: {this.matricula}\nCapacidad bodega: {this.capacidadMaximaBodega}\nCamarotes turista: {this.maximoCamarotesTurista}\nCamarotes premium:{this.maximoCamarotesPremium}");
 
             return sb.ToString();
-        }*/
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
         public override bool Equals(object obj)
         {

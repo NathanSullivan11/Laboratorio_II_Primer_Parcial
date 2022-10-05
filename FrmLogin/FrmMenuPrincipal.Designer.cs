@@ -45,6 +45,7 @@ namespace Vista
             this.btnCuentaUsuario = new System.Windows.Forms.Button();
             this.lblFechaLogueado = new System.Windows.Forms.Label();
             this.lblUsuarioLogueado = new System.Windows.Forms.Label();
+            this.btnAyuda = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel_ContenedorBotonesFooter.SuspendLayout();
@@ -73,73 +74,95 @@ namespace Vista
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.LightBlue;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viajesActivosToolStripMenuItem1,
             this.estadisticasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1309, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1309, 28);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // viajesActivosToolStripMenuItem1
             // 
+            this.viajesActivosToolStripMenuItem1.BackColor = System.Drawing.Color.SteelBlue;
+            this.viajesActivosToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.viajesActivosToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.viajesActivosToolStripMenuItem1.Name = "viajesActivosToolStripMenuItem1";
-            this.viajesActivosToolStripMenuItem1.Size = new System.Drawing.Size(89, 20);
+            this.viajesActivosToolStripMenuItem1.Size = new System.Drawing.Size(100, 24);
             this.viajesActivosToolStripMenuItem1.Text = "Viajes activos";
             this.viajesActivosToolStripMenuItem1.Click += new System.EventHandler(this.viajesActivosToolStripMenuItem1_Click);
             // 
             // estadisticasToolStripMenuItem
             // 
+            this.estadisticasToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.estadisticasToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.estadisticasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clientesToolStripMenuItem,
             this.destinosToolStripMenuItem,
             this.viajesTotalesToolStripMenuItem,
             this.crucerosToolStripMenuItem});
+            this.estadisticasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.estadisticasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.estadisticasToolStripMenuItem.Name = "estadisticasToolStripMenuItem";
-            this.estadisticasToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.estadisticasToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.estadisticasToolStripMenuItem.Text = "⁫Historial";
             // 
             // clientesToolStripMenuItem
             // 
+            this.clientesToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.clientesToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.clientesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(167, 24);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // destinosToolStripMenuItem
             // 
+            this.destinosToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.destinosToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.destinosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.destinosToolStripMenuItem.Name = "destinosToolStripMenuItem";
-            this.destinosToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.destinosToolStripMenuItem.Size = new System.Drawing.Size(167, 24);
             this.destinosToolStripMenuItem.Text = "Destinos";
             this.destinosToolStripMenuItem.Click += new System.EventHandler(this.destinosToolStripMenuItem_Click_1);
             // 
             // viajesTotalesToolStripMenuItem
             // 
+            this.viajesTotalesToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.viajesTotalesToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.viajesTotalesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.viajesTotalesToolStripMenuItem.Name = "viajesTotalesToolStripMenuItem";
-            this.viajesTotalesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.viajesTotalesToolStripMenuItem.Size = new System.Drawing.Size(167, 24);
             this.viajesTotalesToolStripMenuItem.Text = "Viajes totales";
             this.viajesTotalesToolStripMenuItem.Click += new System.EventHandler(this.viajesTotalesToolStripMenuItem_Click);
             // 
             // crucerosToolStripMenuItem
             // 
+            this.crucerosToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.crucerosToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.crucerosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.crucerosToolStripMenuItem.Name = "crucerosToolStripMenuItem";
-            this.crucerosToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.crucerosToolStripMenuItem.Size = new System.Drawing.Size(167, 24);
             this.crucerosToolStripMenuItem.Text = "Cruceros";
             this.crucerosToolStripMenuItem.Click += new System.EventHandler(this.crucerosToolStripMenuItem_Click_1);
             // 
             // tableLayoutPanel_ContenedorBotonesFooter
             // 
-            this.tableLayoutPanel_ContenedorBotonesFooter.BackColor = System.Drawing.Color.Chocolate;
-            this.tableLayoutPanel_ContenedorBotonesFooter.ColumnCount = 4;
+            this.tableLayoutPanel_ContenedorBotonesFooter.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.tableLayoutPanel_ContenedorBotonesFooter.ColumnCount = 5;
             this.tableLayoutPanel_ContenedorBotonesFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel_ContenedorBotonesFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel_ContenedorBotonesFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel_ContenedorBotonesFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel_ContenedorBotonesFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this.tableLayoutPanel_ContenedorBotonesFooter.Controls.Add(this.btnCerrarSesion, 3, 0);
             this.tableLayoutPanel_ContenedorBotonesFooter.Controls.Add(this.btnCuentaUsuario, 0, 0);
             this.tableLayoutPanel_ContenedorBotonesFooter.Controls.Add(this.lblFechaLogueado, 2, 0);
             this.tableLayoutPanel_ContenedorBotonesFooter.Controls.Add(this.lblUsuarioLogueado, 1, 0);
+            this.tableLayoutPanel_ContenedorBotonesFooter.Controls.Add(this.btnAyuda, 4, 0);
             this.tableLayoutPanel_ContenedorBotonesFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel_ContenedorBotonesFooter.Location = new System.Drawing.Point(0, 523);
             this.tableLayoutPanel_ContenedorBotonesFooter.Name = "tableLayoutPanel_ContenedorBotonesFooter";
@@ -151,9 +174,11 @@ namespace Vista
             // btnCerrarSesion
             // 
             this.btnCerrarSesion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCerrarSesion.BackColor = System.Drawing.Color.Bisque;
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(1126, 13);
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCerrarSesion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(1060, 13);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(102, 23);
             this.btnCerrarSesion.TabIndex = 0;
@@ -164,9 +189,11 @@ namespace Vista
             // btnCuentaUsuario
             // 
             this.btnCuentaUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCuentaUsuario.BackColor = System.Drawing.Color.Bisque;
-            this.btnCuentaUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCuentaUsuario.Location = new System.Drawing.Point(79, 13);
+            this.btnCuentaUsuario.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCuentaUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCuentaUsuario.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCuentaUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCuentaUsuario.Location = new System.Drawing.Point(72, 13);
             this.btnCuentaUsuario.Name = "btnCuentaUsuario";
             this.btnCuentaUsuario.Size = new System.Drawing.Size(102, 23);
             this.btnCuentaUsuario.TabIndex = 5;
@@ -180,7 +207,7 @@ namespace Vista
             this.lblFechaLogueado.AutoSize = true;
             this.lblFechaLogueado.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblFechaLogueado.ForeColor = System.Drawing.Color.White;
-            this.lblFechaLogueado.Location = new System.Drawing.Point(864, 17);
+            this.lblFechaLogueado.Location = new System.Drawing.Point(814, 17);
             this.lblFechaLogueado.Name = "lblFechaLogueado";
             this.lblFechaLogueado.Size = new System.Drawing.Size(100, 15);
             this.lblFechaLogueado.TabIndex = 4;
@@ -193,11 +220,23 @@ namespace Vista
             this.lblUsuarioLogueado.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblUsuarioLogueado.ForeColor = System.Drawing.Color.White;
             this.lblUsuarioLogueado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblUsuarioLogueado.Location = new System.Drawing.Point(447, 17);
+            this.lblUsuarioLogueado.Location = new System.Drawing.Point(419, 17);
             this.lblUsuarioLogueado.Name = "lblUsuarioLogueado";
             this.lblUsuarioLogueado.Size = new System.Drawing.Size(150, 15);
             this.lblUsuarioLogueado.TabIndex = 3;
             this.lblUsuarioLogueado.Text = "Nombre usuario logueado";
+            // 
+            // btnAyuda
+            // 
+            this.btnAyuda.BackColor = System.Drawing.Color.Orange;
+            this.btnAyuda.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAyuda.Location = new System.Drawing.Point(1238, 3);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(68, 44);
+            this.btnAyuda.TabIndex = 6;
+            this.btnAyuda.Text = "Ayuda";
+            this.btnAyuda.UseVisualStyleBackColor = false;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
             // 
             // FrmMenuPrincipal
             // 
@@ -211,7 +250,7 @@ namespace Vista
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMenuPrincipal";
-            this.Text = "FrmMenuPrincipal";
+            this.Text = "Menú principal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenuPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             this.contextMenuStrip1.ResumeLayout(false);
@@ -240,5 +279,6 @@ namespace Vista
         private System.Windows.Forms.Button btnCuentaUsuario;
         private System.Windows.Forms.Label lblFechaLogueado;
         private System.Windows.Forms.Label lblUsuarioLogueado;
+        private System.Windows.Forms.Button btnAyuda;
     }
 }

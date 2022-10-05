@@ -48,8 +48,8 @@ namespace Vista
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(816, 489);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -57,14 +57,15 @@ namespace Vista
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 76);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 51);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(810, 410);
+            this.dataGridView1.Size = new System.Drawing.Size(810, 435);
             this.dataGridView1.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.919395F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.87909F));
@@ -75,7 +76,7 @@ namespace Vista
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(810, 67);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(810, 42);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // chkBoxHorasPorCrucero
@@ -84,7 +85,7 @@ namespace Vista
             this.chkBoxHorasPorCrucero.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkBoxHorasPorCrucero.Location = new System.Drawing.Point(51, 3);
             this.chkBoxHorasPorCrucero.Name = "chkBoxHorasPorCrucero";
-            this.chkBoxHorasPorCrucero.Size = new System.Drawing.Size(268, 61);
+            this.chkBoxHorasPorCrucero.Size = new System.Drawing.Size(268, 36);
             this.chkBoxHorasPorCrucero.TabIndex = 0;
             this.chkBoxHorasPorCrucero.Text = "Mostrar horas de cada crucero";
             this.chkBoxHorasPorCrucero.UseVisualStyleBackColor = true;
@@ -94,7 +95,7 @@ namespace Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(816, 489);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(816, 489);

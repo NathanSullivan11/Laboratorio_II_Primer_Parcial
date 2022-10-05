@@ -79,6 +79,7 @@ namespace Vista
             }
    
         }
+
         private void ActualizarListaViajes()
         {
             this.dgvViajesActivos.DataSource = null;

@@ -21,10 +21,18 @@
         {
             return this.Password == password;
         }
-
+        /// <summary>
+        /// GetHashCode()
+        /// </summary>
+        /// <returns> Devuelve el dni, que esta en la clase padre (Persona) </returns>
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return $"Nombre completo:{this.Nombre} {this.Apellido}\n Nombre de Usuario: {this.nombreUsuario} \n Mail: {this.mail}";
         }
 
     }

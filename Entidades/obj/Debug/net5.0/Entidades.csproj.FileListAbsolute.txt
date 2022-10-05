@@ -1,4 +1,3 @@
-C:\Users\DESKTOP\source\repos\Sullivan.Nathan.PrimerParcial\Entidades\obj\Debug\net5.0\Entidades.csproj.AssemblyReference.cache
 C:\Users\DESKTOP\source\repos\Sullivan.Nathan.PrimerParcial\Entidades\obj\Debug\net5.0\Entidades.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\DESKTOP\source\repos\Sullivan.Nathan.PrimerParcial\Entidades\obj\Debug\net5.0\Entidades.AssemblyInfoInputs.cache
 C:\Users\DESKTOP\source\repos\Sullivan.Nathan.PrimerParcial\Entidades\obj\Debug\net5.0\Entidades.AssemblyInfo.cs

@@ -22,6 +22,10 @@ namespace Entidades
         }
 
         public int CantidadPasajeros { get => this.pasajeros.Count; }
-        //public bool EstaLibre { get => this.pasajeros.Count == 0; }
+
+        public override string ToString()
+        {
+            return $"Cantidad de camarotes ocupados: {this.CantidadPasajeros}";
+        }
     }
 }

@@ -158,12 +158,15 @@ namespace Vista
             // btnSeleccionarCliente
             // 
             this.btnSeleccionarCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSeleccionarCliente.Location = new System.Drawing.Point(11, 79);
+            this.btnSeleccionarCliente.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSeleccionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSeleccionarCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSeleccionarCliente.Location = new System.Drawing.Point(9, 74);
             this.btnSeleccionarCliente.Name = "btnSeleccionarCliente";
-            this.btnSeleccionarCliente.Size = new System.Drawing.Size(85, 40);
+            this.btnSeleccionarCliente.Size = new System.Drawing.Size(85, 49);
             this.btnSeleccionarCliente.TabIndex = 4;
             this.btnSeleccionarCliente.Text = "Seleccionar cliente";
-            this.btnSeleccionarCliente.UseVisualStyleBackColor = true;
+            this.btnSeleccionarCliente.UseVisualStyleBackColor = false;
             this.btnSeleccionarCliente.Click += new System.EventHandler(this.btnSeleccionarCliente_Click);
             // 
             // nudMaleta1
@@ -192,7 +195,7 @@ namespace Vista
             this.gboxEquipaje.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gboxEquipaje.Location = new System.Drawing.Point(3, 35);
             this.gboxEquipaje.Name = "gboxEquipaje";
-            this.gboxEquipaje.Size = new System.Drawing.Size(338, 176);
+            this.gboxEquipaje.Size = new System.Drawing.Size(324, 176);
             this.gboxEquipaje.TabIndex = 6;
             this.gboxEquipaje.TabStop = false;
             this.gboxEquipaje.Text = "Datos equipaje";
@@ -208,12 +211,15 @@ namespace Vista
             // 
             // btnCargarEquipaje
             // 
+            this.btnCargarEquipaje.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCargarEquipaje.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCargarEquipaje.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCargarEquipaje.Location = new System.Drawing.Point(191, 11);
             this.btnCargarEquipaje.Name = "btnCargarEquipaje";
-            this.btnCargarEquipaje.Size = new System.Drawing.Size(62, 139);
+            this.btnCargarEquipaje.Size = new System.Drawing.Size(87, 139);
             this.btnCargarEquipaje.TabIndex = 15;
             this.btnCargarEquipaje.Text = "Cargar equipaje";
-            this.btnCargarEquipaje.UseVisualStyleBackColor = true;
+            this.btnCargarEquipaje.UseVisualStyleBackColor = false;
             this.btnCargarEquipaje.Click += new System.EventHandler(this.btnCargarEquipaje_Click);
             // 
             // lblPesoKgMaleta2
@@ -268,23 +274,29 @@ namespace Vista
             // btnClienteNuevo
             // 
             this.btnClienteNuevo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnClienteNuevo.Location = new System.Drawing.Point(11, 145);
+            this.btnClienteNuevo.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnClienteNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClienteNuevo.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnClienteNuevo.Location = new System.Drawing.Point(9, 140);
             this.btnClienteNuevo.Name = "btnClienteNuevo";
-            this.btnClienteNuevo.Size = new System.Drawing.Size(85, 41);
+            this.btnClienteNuevo.Size = new System.Drawing.Size(85, 51);
             this.btnClienteNuevo.TabIndex = 7;
             this.btnClienteNuevo.Text = "Cliente nuevo";
-            this.btnClienteNuevo.UseVisualStyleBackColor = true;
+            this.btnClienteNuevo.UseVisualStyleBackColor = false;
             this.btnClienteNuevo.Click += new System.EventHandler(this.btnClienteNuevo_Click);
             // 
             // btnClienteExistente
             // 
             this.btnClienteExistente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnClienteExistente.Location = new System.Drawing.Point(11, 11);
+            this.btnClienteExistente.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnClienteExistente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClienteExistente.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnClienteExistente.Location = new System.Drawing.Point(9, 11);
             this.btnClienteExistente.Name = "btnClienteExistente";
             this.btnClienteExistente.Size = new System.Drawing.Size(85, 43);
             this.btnClienteExistente.TabIndex = 8;
             this.btnClienteExistente.Text = "Cliente existente";
-            this.btnClienteExistente.UseVisualStyleBackColor = true;
+            this.btnClienteExistente.UseVisualStyleBackColor = false;
             this.btnClienteExistente.Click += new System.EventHandler(this.btnClienteExistente_Click);
             // 
             // dgvClientesExistentes
@@ -294,7 +306,7 @@ namespace Vista
             this.dgvClientesExistentes.Location = new System.Drawing.Point(3, 32);
             this.dgvClientesExistentes.Name = "dgvClientesExistentes";
             this.dgvClientesExistentes.RowTemplate.Height = 25;
-            this.dgvClientesExistentes.Size = new System.Drawing.Size(257, 164);
+            this.dgvClientesExistentes.Size = new System.Drawing.Size(245, 164);
             this.dgvClientesExistentes.TabIndex = 9;
             // 
             // gboxDatosCliente
@@ -311,10 +323,10 @@ namespace Vista
             this.gboxDatosCliente.Controls.Add(this.txtNombreCliente);
             this.gboxDatosCliente.Controls.Add(this.lblMensajeErrorDatosCliente);
             this.gboxDatosCliente.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gboxDatosCliente.Location = new System.Drawing.Point(392, 3);
+            this.gboxDatosCliente.Location = new System.Drawing.Point(376, 3);
             this.gboxDatosCliente.MinimumSize = new System.Drawing.Size(338, 202);
             this.gboxDatosCliente.Name = "gboxDatosCliente";
-            this.gboxDatosCliente.Size = new System.Drawing.Size(384, 203);
+            this.gboxDatosCliente.Size = new System.Drawing.Size(367, 203);
             this.gboxDatosCliente.TabIndex = 10;
             this.gboxDatosCliente.TabStop = false;
             this.gboxDatosCliente.Text = "Datos cliente";
@@ -369,12 +381,15 @@ namespace Vista
             // 
             // btnAgregarCliente
             // 
+            this.btnAgregarCliente.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregarCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAgregarCliente.Location = new System.Drawing.Point(237, 33);
             this.btnAgregarCliente.Name = "btnAgregarCliente";
             this.btnAgregarCliente.Size = new System.Drawing.Size(84, 130);
             this.btnAgregarCliente.TabIndex = 11;
             this.btnAgregarCliente.Text = "Agregar Cliente";
-            this.btnAgregarCliente.UseVisualStyleBackColor = true;
+            this.btnAgregarCliente.UseVisualStyleBackColor = false;
             this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
             // lblMensajeErrorDatosCliente
@@ -411,12 +426,15 @@ namespace Vista
             // 
             // btnCargarPasaporte
             // 
+            this.btnCargarPasaporte.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCargarPasaporte.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCargarPasaporte.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCargarPasaporte.Location = new System.Drawing.Point(237, 15);
             this.btnCargarPasaporte.Name = "btnCargarPasaporte";
-            this.btnCargarPasaporte.Size = new System.Drawing.Size(76, 132);
+            this.btnCargarPasaporte.Size = new System.Drawing.Size(87, 132);
             this.btnCargarPasaporte.TabIndex = 18;
             this.btnCargarPasaporte.Text = "Cargar Pasaporte";
-            this.btnCargarPasaporte.UseVisualStyleBackColor = true;
+            this.btnCargarPasaporte.UseVisualStyleBackColor = false;
             this.btnCargarPasaporte.Click += new System.EventHandler(this.btnCargarPasaporte_Click);
             // 
             // lblMensajeErrorIngresoPasaporte
@@ -501,7 +519,7 @@ namespace Vista
             // 
             this.rbtnPasajePremium.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbtnPasajePremium.AutoSize = true;
-            this.rbtnPasajePremium.Location = new System.Drawing.Point(197, 3);
+            this.rbtnPasajePremium.Location = new System.Drawing.Point(186, 3);
             this.rbtnPasajePremium.Name = "rbtnPasajePremium";
             this.rbtnPasajePremium.Size = new System.Drawing.Size(110, 19);
             this.rbtnPasajePremium.TabIndex = 11;
@@ -515,7 +533,7 @@ namespace Vista
             this.rbtnPasajeTurista.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbtnPasajeTurista.AutoSize = true;
             this.rbtnPasajeTurista.Checked = true;
-            this.rbtnPasajeTurista.Location = new System.Drawing.Point(36, 3);
+            this.rbtnPasajeTurista.Location = new System.Drawing.Point(32, 3);
             this.rbtnPasajeTurista.Name = "rbtnPasajeTurista";
             this.rbtnPasajeTurista.Size = new System.Drawing.Size(94, 19);
             this.rbtnPasajeTurista.TabIndex = 12;
@@ -526,18 +544,21 @@ namespace Vista
             // 
             // btnCargarPasajero
             // 
+            this.btnCargarPasajero.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCargarPasajero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCargarPasajero.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCargarPasajero.Location = new System.Drawing.Point(259, 33);
             this.btnCargarPasajero.Name = "btnCargarPasajero";
             this.btnCargarPasajero.Size = new System.Drawing.Size(109, 161);
             this.btnCargarPasajero.TabIndex = 20;
             this.btnCargarPasajero.Text = "Cargar pasajero";
-            this.btnCargarPasajero.UseVisualStyleBackColor = true;
+            this.btnCargarPasajero.UseVisualStyleBackColor = false;
             this.btnCargarPasajero.Click += new System.EventHandler(this.btnCargarPasajero_Click);
             // 
             // txtFiltroPorDni
             // 
             this.txtFiltroPorDni.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtFiltroPorDni.Location = new System.Drawing.Point(134, 3);
+            this.txtFiltroPorDni.Location = new System.Drawing.Point(125, 3);
             this.txtFiltroPorDni.Name = "txtFiltroPorDni";
             this.txtFiltroPorDni.Size = new System.Drawing.Size(116, 23);
             this.txtFiltroPorDni.TabIndex = 21;
@@ -549,7 +570,7 @@ namespace Vista
             // 
             this.lblBuscarPorDni.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblBuscarPorDni.AutoSize = true;
-            this.lblBuscarPorDni.Location = new System.Drawing.Point(19, 4);
+            this.lblBuscarPorDni.Location = new System.Drawing.Point(16, 4);
             this.lblBuscarPorDni.Name = "lblBuscarPorDni";
             this.lblBuscarPorDni.Size = new System.Drawing.Size(89, 15);
             this.lblBuscarPorDni.TabIndex = 21;
@@ -561,16 +582,16 @@ namespace Vista
             this.lboxListaPasajeros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lboxListaPasajeros.FormattingEnabled = true;
             this.lboxListaPasajeros.ItemHeight = 15;
-            this.lboxListaPasajeros.Location = new System.Drawing.Point(389, 3);
+            this.lboxListaPasajeros.Location = new System.Drawing.Point(373, 3);
             this.lboxListaPasajeros.MinimumSize = new System.Drawing.Size(327, 155);
             this.lboxListaPasajeros.Name = "lboxListaPasajeros";
-            this.lboxListaPasajeros.Size = new System.Drawing.Size(381, 169);
+            this.lboxListaPasajeros.Size = new System.Drawing.Size(364, 169);
             this.lboxListaPasajeros.TabIndex = 22;
             // 
             // lblPasajerosCargados
             // 
             this.lblPasajerosCargados.AutoSize = true;
-            this.lblPasajerosCargados.Location = new System.Drawing.Point(389, 0);
+            this.lblPasajerosCargados.Location = new System.Drawing.Point(373, 0);
             this.lblPasajerosCargados.Name = "lblPasajerosCargados";
             this.lblPasajerosCargados.Size = new System.Drawing.Size(107, 15);
             this.lblPasajerosCargados.TabIndex = 21;
@@ -618,12 +639,15 @@ namespace Vista
             // 
             // btnFinalizarVenta
             // 
+            this.btnFinalizarVenta.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnFinalizarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFinalizarVenta.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnFinalizarVenta.Location = new System.Drawing.Point(6, 138);
             this.btnFinalizarVenta.Name = "btnFinalizarVenta";
             this.btnFinalizarVenta.Size = new System.Drawing.Size(153, 27);
             this.btnFinalizarVenta.TabIndex = 29;
             this.btnFinalizarVenta.Text = "Finalizar venta";
-            this.btnFinalizarVenta.UseVisualStyleBackColor = true;
+            this.btnFinalizarVenta.UseVisualStyleBackColor = false;
             this.btnFinalizarVenta.Click += new System.EventHandler(this.btnFinalizarVenta_Click);
             // 
             // lblClienteCargado
@@ -658,19 +682,22 @@ namespace Vista
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 228);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(327, 227);
+            this.groupBox2.Size = new System.Drawing.Size(314, 227);
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Crucero";
             // 
             // btnAyuda
             // 
+            this.btnAyuda.BackColor = System.Drawing.Color.Orange;
+            this.btnAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAyuda.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAyuda.Location = new System.Drawing.Point(247, 24);
             this.btnAyuda.Name = "btnAyuda";
             this.btnAyuda.Size = new System.Drawing.Size(62, 82);
             this.btnAyuda.TabIndex = 27;
             this.btnAyuda.Text = "Ayuda";
-            this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.UseVisualStyleBackColor = false;
             this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
             // 
             // chkBoxTienePileta
@@ -753,12 +780,15 @@ namespace Vista
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCancelar.Location = new System.Drawing.Point(189, 138);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(101, 27);
             this.btnCancelar.TabIndex = 36;
             this.btnCancelar.Text = "Cancelar venta";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblMensajeErrorCargaPasajero
@@ -787,7 +817,7 @@ namespace Vista
             this.tableLayoutPanel_BotonesCliente.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel_BotonesCliente.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel_BotonesCliente.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel_BotonesCliente.Size = new System.Drawing.Size(108, 199);
+            this.tableLayoutPanel_BotonesCliente.Size = new System.Drawing.Size(104, 199);
             this.tableLayoutPanel_BotonesCliente.TabIndex = 38;
             // 
             // tableLayoutPanel_ContenedorFuncionCliente
@@ -803,7 +833,7 @@ namespace Vista
             this.tableLayoutPanel_ContenedorFuncionCliente.Name = "tableLayoutPanel_ContenedorFuncionCliente";
             this.tableLayoutPanel_ContenedorFuncionCliente.RowCount = 1;
             this.tableLayoutPanel_ContenedorFuncionCliente.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_ContenedorFuncionCliente.Size = new System.Drawing.Size(383, 205);
+            this.tableLayoutPanel_ContenedorFuncionCliente.Size = new System.Drawing.Size(367, 205);
             this.tableLayoutPanel_ContenedorFuncionCliente.TabIndex = 39;
             // 
             // tableLayoutPanel_ContenedorBusqueda
@@ -813,12 +843,12 @@ namespace Vista
             this.tableLayoutPanel_ContenedorBusqueda.Controls.Add(this.tableLayoutPanel_BusquedaPorDni, 0, 0);
             this.tableLayoutPanel_ContenedorBusqueda.Controls.Add(this.dgvClientesExistentes, 0, 1);
             this.tableLayoutPanel_ContenedorBusqueda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_ContenedorBusqueda.Location = new System.Drawing.Point(117, 3);
+            this.tableLayoutPanel_ContenedorBusqueda.Location = new System.Drawing.Point(113, 3);
             this.tableLayoutPanel_ContenedorBusqueda.Name = "tableLayoutPanel_ContenedorBusqueda";
             this.tableLayoutPanel_ContenedorBusqueda.RowCount = 2;
             this.tableLayoutPanel_ContenedorBusqueda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel_ContenedorBusqueda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel_ContenedorBusqueda.Size = new System.Drawing.Size(263, 199);
+            this.tableLayoutPanel_ContenedorBusqueda.Size = new System.Drawing.Size(251, 199);
             this.tableLayoutPanel_ContenedorBusqueda.TabIndex = 41;
             // 
             // tableLayoutPanel_BusquedaPorDni
@@ -833,7 +863,7 @@ namespace Vista
             this.tableLayoutPanel_BusquedaPorDni.Name = "tableLayoutPanel_BusquedaPorDni";
             this.tableLayoutPanel_BusquedaPorDni.RowCount = 1;
             this.tableLayoutPanel_BusquedaPorDni.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel_BusquedaPorDni.Size = new System.Drawing.Size(257, 23);
+            this.tableLayoutPanel_BusquedaPorDni.Size = new System.Drawing.Size(245, 23);
             this.tableLayoutPanel_BusquedaPorDni.TabIndex = 40;
             // 
             // gboxCargaDatos
@@ -848,10 +878,10 @@ namespace Vista
             this.gboxCargaDatos.Controls.Add(this.txtClienteCargado);
             this.gboxCargaDatos.Controls.Add(this.txtPasaporteCargado);
             this.gboxCargaDatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gboxCargaDatos.Location = new System.Drawing.Point(353, 3);
+            this.gboxCargaDatos.Location = new System.Drawing.Point(339, 3);
             this.gboxCargaDatos.MinimumSize = new System.Drawing.Size(329, 199);
             this.gboxCargaDatos.Name = "gboxCargaDatos";
-            this.gboxCargaDatos.Size = new System.Drawing.Size(423, 214);
+            this.gboxCargaDatos.Size = new System.Drawing.Size(404, 214);
             this.gboxCargaDatos.TabIndex = 40;
             this.gboxCargaDatos.TabStop = false;
             this.gboxCargaDatos.Text = "Datos cliente";
@@ -869,7 +899,7 @@ namespace Vista
             this.tableLayoutPanel_ContenedorClientes.Name = "tableLayoutPanel_ContenedorClientes";
             this.tableLayoutPanel_ContenedorClientes.RowCount = 1;
             this.tableLayoutPanel_ContenedorClientes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel_ContenedorClientes.Size = new System.Drawing.Size(779, 209);
+            this.tableLayoutPanel_ContenedorClientes.Size = new System.Drawing.Size(746, 209);
             this.tableLayoutPanel_ContenedorClientes.TabIndex = 41;
             // 
             // tableLayoutPanel_TipoPasaje
@@ -884,7 +914,7 @@ namespace Vista
             this.tableLayoutPanel_TipoPasaje.Name = "tableLayoutPanel_TipoPasaje";
             this.tableLayoutPanel_TipoPasaje.RowCount = 1;
             this.tableLayoutPanel_TipoPasaje.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_TipoPasaje.Size = new System.Drawing.Size(338, 26);
+            this.tableLayoutPanel_TipoPasaje.Size = new System.Drawing.Size(324, 26);
             this.tableLayoutPanel_TipoPasaje.TabIndex = 42;
             // 
             // tableLayoutPanel1
@@ -900,7 +930,7 @@ namespace Vista
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(344, 214);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(330, 214);
             this.tableLayoutPanel1.TabIndex = 43;
             // 
             // tableLayoutPanel2
@@ -916,7 +946,7 @@ namespace Vista
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(779, 220);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(746, 220);
             this.tableLayoutPanel2.TabIndex = 44;
             // 
             // tableLayoutPanel3
@@ -932,7 +962,7 @@ namespace Vista
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(773, 175);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(740, 175);
             this.tableLayoutPanel3.TabIndex = 45;
             // 
             // gboxFinalizarVenta
@@ -945,7 +975,7 @@ namespace Vista
             this.gboxFinalizarVenta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gboxFinalizarVenta.Location = new System.Drawing.Point(3, 461);
             this.gboxFinalizarVenta.Name = "gboxFinalizarVenta";
-            this.gboxFinalizarVenta.Size = new System.Drawing.Size(327, 171);
+            this.gboxFinalizarVenta.Size = new System.Drawing.Size(314, 171);
             this.gboxFinalizarVenta.TabIndex = 46;
             this.gboxFinalizarVenta.TabStop = false;
             this.gboxFinalizarVenta.Text = "Facturar";
@@ -958,13 +988,13 @@ namespace Vista
             this.tableLayoutPanel4.Controls.Add(this.groupBox2, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(794, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(761, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.18033F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.81967F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 176F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(333, 635);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(320, 635);
             this.tableLayoutPanel4.TabIndex = 47;
             // 
             // pictureBox1
@@ -973,7 +1003,7 @@ namespace Vista
             this.pictureBox1.Image = global::Vista.Properties.Resources.descarga;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(327, 219);
+            this.pictureBox1.Size = new System.Drawing.Size(314, 219);
             this.pictureBox1.TabIndex = 47;
             this.pictureBox1.TabStop = false;
             // 
@@ -991,7 +1021,7 @@ namespace Vista
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(785, 635);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(752, 635);
             this.tableLayoutPanel5.TabIndex = 48;
             // 
             // tableLayoutPanel7
@@ -1006,7 +1036,7 @@ namespace Vista
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(779, 207);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(746, 207);
             this.tableLayoutPanel7.TabIndex = 50;
             // 
             // tableLayoutPanel6
@@ -1020,11 +1050,12 @@ namespace Vista
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(773, 20);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(740, 20);
             this.tableLayoutPanel6.TabIndex = 49;
             // 
             // tableLayoutPanel8
             // 
+            this.tableLayoutPanel8.BackColor = System.Drawing.Color.LightSkyBlue;
             this.tableLayoutPanel8.ColumnCount = 2;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
@@ -1036,7 +1067,7 @@ namespace Vista
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1130, 641);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1084, 641);
             this.tableLayoutPanel8.TabIndex = 49;
             // 
             // FrmVentaPasaje
@@ -1045,7 +1076,7 @@ namespace Vista
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Vista.Properties.Resources._0f2410d5b280aa56ee383b756f574cdc;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1130, 641);
+            this.ClientSize = new System.Drawing.Size(1084, 641);
             this.Controls.Add(this.tableLayoutPanel8);
             this.MinimumSize = new System.Drawing.Size(1100, 680);
             this.Name = "FrmVentaPasaje";

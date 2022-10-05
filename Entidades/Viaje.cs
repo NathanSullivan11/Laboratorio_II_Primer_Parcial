@@ -82,6 +82,7 @@ namespace Entidades
             this.destino = destinoExtraRegional.ToString();
         }
 
+        // Indexador
         public Pasajero this[int index]
         {
             get 
@@ -92,6 +93,20 @@ namespace Entidades
                 }
                 return null;
             }
+        }
+
+
+        /// //////////////////////////////////// GETTERS los cuales son métodos, porque no quiero que queden expuesto en el data gris //////////////////////////////
+
+
+        public List<Pasajero> ObtenerListaPasajeros()
+        {
+            return this.listaPasajeros;
+        }
+
+        public Crucero ObtenerCrucero()
+        {
+            return this.crucero;
         }
 
         public DateTime ObtenerFechaSalida()
@@ -119,6 +134,20 @@ namespace Entidades
             return this.camarotesTurista;
         }
 
+        public string ObtenerDatosBasicosCrucero()
+        {
+            return $"Matricula: {this.crucero.Matricula}\nBodega: {this.kgActualesEnBodega}/{this.crucero.CapacidadMaximaBodega}\nCamarotes turista: {this.camarotesTurista.Count}/{this.crucero.CantidadCamarotesTurista}\nCamarotes premium:{this.camarotesPremium.Count}/{this.crucero.CantidadCamarotesPremium}";
+        }
+
+        /// ////////////////////////////////////     //////////////////////////////              //////////////////////////////   //////////////////////////////
+
+
+
+        /// <summary>
+        /// Asigna un camarote a un pasajero premium, si esta disponible,
+        /// </summary>
+        /// <param name="pasajero"></param>
+        /// <returns>true o false, si se agrego o no</returns>
         public bool AgregarPasajeroACamarotePremiumDisponible(Pasajero pasajero)
         {
             bool seAgrego = false;
@@ -129,7 +158,11 @@ namespace Entidades
             }
             return seAgrego;
         }
-
+        /// <summary>
+        /// Asigna un camarote a un pasajero turista, si esta disponible,
+        /// </summary>
+        /// <param name="pasajero"></param>
+        /// <returns>true o false, si se agrego o no</returns>
         public bool AgregarPasajeroACamaroteTuristaDisponible(Pasajero pasajero)
         {
             bool seAgrego = false;
@@ -140,7 +173,11 @@ namespace Entidades
             }
             return seAgrego;
         }
-
+        /// <summary>
+        /// Asigna un camarote a un grupo familiar turista, si esta disponible
+        /// </summary>
+        /// <param name="grupoPasajeros"></param>
+        /// <returns> true o false, si se agrego o no</returns>
         public bool AgregarGrupoPasajerosACamarotePremiumDisponible(List<Pasajero> grupoPasajeros)
         {
             bool seAgrego = false;
@@ -151,7 +188,11 @@ namespace Entidades
             }
             return seAgrego;
         }
-
+        /// <summary>
+        /// Asigna un camarote a un grupo familiar turista, si esta disponible
+        /// </summary>
+        /// <param name="grupoPasajeros"></param>
+        /// <returns>true o false, si se agrego o no</returns>
         public bool AgregarGrupoPasajerosACamaroteTuristaDisponible(List<Pasajero> grupoPasajeros)
         {
             bool seAgrego = false;
@@ -187,7 +228,10 @@ namespace Entidades
                 BaseDeDatos.ListaViajesActivos.Add(this);
             }
         }
-
+        /// <summary>
+        /// Acumula lo facturado de un grupo familiar, al total de lo recaudado del viaje
+        /// </summary>
+        /// <param name="listaPasajeros"></param>
         public void AcumularGananciasDeVentaMultiple(List<Pasajero> listaPasajeros)
         {
             foreach (Pasajero AuxPasajero in listaPasajeros)
@@ -195,7 +239,10 @@ namespace Entidades
                 this.AcumularGananciaDeUnaVenta(AuxPasajero);
             }
         }
-
+        /// <summary>
+        /// Acumula lo facturado de una sola venta individual, al total de lo recaudado del viaje
+        /// </summary>
+        /// <param name="listaPasajeros"></param>
         public void AcumularGananciaDeUnaVenta(Pasajero pasajero)
         {
             if(pasajero.EsPremium)
@@ -217,15 +264,7 @@ namespace Entidades
             }
         }
 
-        public List<Pasajero> ObtenerListaPasajeros()
-        {
-            return this.listaPasajeros;
-        }
-
-        public Crucero ObtenerCrucero()
-        {
-            return this.crucero;
-        }
+       
 
         private int CalcularDuracion()
         {
@@ -341,24 +380,10 @@ namespace Entidades
             return seAgregaronAlCamarote;
         }
 
-        public override bool Equals(object obj)
-        {
-            if(obj is Viaje auxViaje)
-            {
-                return this.codigoDeViaje == auxViaje.codigoDeViaje;
-            }
-            return false;
-        }
+        
 
-        public string ObtenerDatosCrucero()
-        {
-            return $"Matricula: {this.crucero.Matricula}\nBodega: {this.kgActualesEnBodega}/{this.crucero.CapacidadMaximaBodega}\nCamarotes turista: {this.camarotesTurista.Count}/{this.crucero.CantidadCamarotesTurista}\nCamarotes premium:{this.camarotesPremium.Count}/{this.crucero.CantidadCamarotesPremium}";
-        }
-        /*
-        public override string ToString()
-        {
-            return $"Crucero: {this.crucero}\nOrigen: {this.origen} Destino;{this.destino}\nesRegional: {this.esRegional}\nDuracion: {this.duracionEnHoras}";
-        }*/
+       
+               
 
         public string GenerarCodigoDeViajeAleatorio()
         {
@@ -376,6 +401,23 @@ namespace Entidades
 
             return codigo;
 
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Viaje auxViaje)
+            {
+                return this.codigoDeViaje == auxViaje.codigoDeViaje;
+            }
+            return false;
+        }
+        public override string ToString()
+        {
+            return $"Crucero: {this.crucero}\nOrigen: {this.origen} Destino;{this.destino}\nesRegional: {this.esRegional}\nDuracion: {this.duracionEnHoras}";
         }
     }
 }

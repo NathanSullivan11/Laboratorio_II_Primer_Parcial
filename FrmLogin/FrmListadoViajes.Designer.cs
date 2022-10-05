@@ -116,6 +116,7 @@ namespace Vista
             // btnRecaudacionTotal
             // 
             this.btnRecaudacionTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRecaudacionTotal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRecaudacionTotal.Location = new System.Drawing.Point(3, 3);
             this.btnRecaudacionTotal.Name = "btnRecaudacionTotal";
             this.btnRecaudacionTotal.Size = new System.Drawing.Size(244, 47);
@@ -127,6 +128,7 @@ namespace Vista
             // btnRecaudacionPorServicio
             // 
             this.btnRecaudacionPorServicio.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRecaudacionPorServicio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRecaudacionPorServicio.Location = new System.Drawing.Point(3, 56);
             this.btnRecaudacionPorServicio.Name = "btnRecaudacionPorServicio";
             this.btnRecaudacionPorServicio.Size = new System.Drawing.Size(244, 47);
@@ -139,10 +141,10 @@ namespace Vista
             // 
             this.lblRecaudacionTotal.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblRecaudacionTotal.AutoSize = true;
-            this.lblRecaudacionTotal.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRecaudacionTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblRecaudacionTotal.Location = new System.Drawing.Point(3, 16);
             this.lblRecaudacionTotal.Name = "lblRecaudacionTotal";
-            this.lblRecaudacionTotal.Size = new System.Drawing.Size(129, 20);
+            this.lblRecaudacionTotal.Size = new System.Drawing.Size(131, 20);
             this.lblRecaudacionTotal.TabIndex = 14;
             this.lblRecaudacionTotal.Text = "Recaudación total";
             // 
@@ -150,15 +152,16 @@ namespace Vista
             // 
             this.lblRecaudacionPorServicio.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblRecaudacionPorServicio.AutoSize = true;
-            this.lblRecaudacionPorServicio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRecaudacionPorServicio.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblRecaudacionPorServicio.Location = new System.Drawing.Point(3, 69);
             this.lblRecaudacionPorServicio.Name = "lblRecaudacionPorServicio";
-            this.lblRecaudacionPorServicio.Size = new System.Drawing.Size(175, 20);
+            this.lblRecaudacionPorServicio.Size = new System.Drawing.Size(181, 20);
             this.lblRecaudacionPorServicio.TabIndex = 15;
             this.lblRecaudacionPorServicio.Text = "Recaudación por servicio";
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.0281F));

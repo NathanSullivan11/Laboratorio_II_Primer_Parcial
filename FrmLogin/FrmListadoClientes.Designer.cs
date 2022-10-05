@@ -70,6 +70,7 @@ namespace Vista
             // 
             this.rbtnOrdenAscendente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbtnOrdenAscendente.AutoSize = true;
+            this.rbtnOrdenAscendente.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.rbtnOrdenAscendente.Location = new System.Drawing.Point(186, 6);
             this.rbtnOrdenAscendente.Name = "rbtnOrdenAscendente";
             this.rbtnOrdenAscendente.Size = new System.Drawing.Size(87, 19);
@@ -82,9 +83,10 @@ namespace Vista
             // 
             this.rbtnOrdenDescendente.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbtnOrdenDescendente.AutoSize = true;
+            this.rbtnOrdenDescendente.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.rbtnOrdenDescendente.Location = new System.Drawing.Point(286, 6);
             this.rbtnOrdenDescendente.Name = "rbtnOrdenDescendente";
-            this.rbtnOrdenDescendente.Size = new System.Drawing.Size(93, 19);
+            this.rbtnOrdenDescendente.Size = new System.Drawing.Size(94, 19);
             this.rbtnOrdenDescendente.TabIndex = 5;
             this.rbtnOrdenDescendente.TabStop = true;
             this.rbtnOrdenDescendente.Text = "Descendente";
@@ -119,6 +121,7 @@ namespace Vista
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tableLayoutPanel2.ColumnCount = 5;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.94118F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));

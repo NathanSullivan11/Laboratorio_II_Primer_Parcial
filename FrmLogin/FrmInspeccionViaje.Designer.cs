@@ -197,7 +197,7 @@ namespace Vista
             this.Controls.Add(this.gboxCrucero);
             this.Controls.Add(this.dgvPasajerosDelViaje);
             this.Name = "FrmInspeccionViaje";
-            this.Text = "FrmInspeccionViaje";
+            this.Text = "Inspeccion de viaje";
             this.Load += new System.EventHandler(this.FrmInspeccionViaje_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPasajerosDelViaje)).EndInit();
             this.gboxCrucero.ResumeLayout(false);

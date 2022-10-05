@@ -23,10 +23,11 @@ namespace Vista
         private FrmViajesActivos formViajesActivos;
 
 
-        public FrmMenuPrincipal()
+        public FrmMenuPrincipal() 
         {
             InitializeComponent();
- 
+
+            // Creo los listado childs
             this.formListadoClientes = new FrmListadoClientes();
             this.formListadoViajes = new FrmListadoViajes();
             this.formListadoDestinos = new FrmListadoDestinos();
@@ -137,6 +138,9 @@ namespace Vista
 
         }
 
-       
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("4 opciones, inspeccionar, venta de pasajes, alta y baja");
+        }
     }
 }

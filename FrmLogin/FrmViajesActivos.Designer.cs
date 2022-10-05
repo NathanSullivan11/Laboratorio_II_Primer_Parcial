@@ -55,49 +55,61 @@ namespace Vista
             // btnInspeccionarViaje
             // 
             this.btnInspeccionarViaje.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnInspeccionarViaje.BackColor = System.Drawing.Color.SteelBlue;
             this.btnInspeccionarViaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInspeccionarViaje.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnInspeccionarViaje.ForeColor = System.Drawing.Color.White;
             this.btnInspeccionarViaje.Location = new System.Drawing.Point(64, 13);
             this.btnInspeccionarViaje.Name = "btnInspeccionarViaje";
             this.btnInspeccionarViaje.Size = new System.Drawing.Size(166, 41);
             this.btnInspeccionarViaje.TabIndex = 1;
             this.btnInspeccionarViaje.Text = "Inspeccionar vuelo";
-            this.btnInspeccionarViaje.UseVisualStyleBackColor = true;
+            this.btnInspeccionarViaje.UseVisualStyleBackColor = false;
             this.btnInspeccionarViaje.Click += new System.EventHandler(this.btnInspeccionarViaje_Click);
             // 
             // btnVenderPasaje
             // 
             this.btnVenderPasaje.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnVenderPasaje.BackColor = System.Drawing.Color.SteelBlue;
             this.btnVenderPasaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVenderPasaje.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnVenderPasaje.ForeColor = System.Drawing.Color.White;
             this.btnVenderPasaje.Location = new System.Drawing.Point(358, 13);
             this.btnVenderPasaje.Name = "btnVenderPasaje";
             this.btnVenderPasaje.Size = new System.Drawing.Size(166, 41);
             this.btnVenderPasaje.TabIndex = 2;
             this.btnVenderPasaje.Text = "Vender un pasaje";
-            this.btnVenderPasaje.UseVisualStyleBackColor = true;
+            this.btnVenderPasaje.UseVisualStyleBackColor = false;
             this.btnVenderPasaje.Click += new System.EventHandler(this.btnVenderPasaje_Click);
             // 
             // btnAltaViaje
             // 
             this.btnAltaViaje.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAltaViaje.BackColor = System.Drawing.Color.SteelBlue;
             this.btnAltaViaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAltaViaje.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAltaViaje.ForeColor = System.Drawing.Color.White;
             this.btnAltaViaje.Location = new System.Drawing.Point(652, 13);
             this.btnAltaViaje.Name = "btnAltaViaje";
             this.btnAltaViaje.Size = new System.Drawing.Size(166, 41);
             this.btnAltaViaje.TabIndex = 3;
             this.btnAltaViaje.Text = "Agregar un viaje";
-            this.btnAltaViaje.UseVisualStyleBackColor = true;
+            this.btnAltaViaje.UseVisualStyleBackColor = false;
             this.btnAltaViaje.Click += new System.EventHandler(this.btnAltaViaje_Click);
             // 
             // btnBajaViaje
             // 
             this.btnBajaViaje.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBajaViaje.BackColor = System.Drawing.Color.SteelBlue;
             this.btnBajaViaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBajaViaje.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnBajaViaje.ForeColor = System.Drawing.Color.White;
             this.btnBajaViaje.Location = new System.Drawing.Point(946, 13);
             this.btnBajaViaje.Name = "btnBajaViaje";
             this.btnBajaViaje.Size = new System.Drawing.Size(166, 41);
             this.btnBajaViaje.TabIndex = 5;
             this.btnBajaViaje.Text = "Dar de baja";
-            this.btnBajaViaje.UseVisualStyleBackColor = true;
+            this.btnBajaViaje.UseVisualStyleBackColor = false;
             this.btnBajaViaje.Click += new System.EventHandler(this.btnBajaViaje_Click);
             // 
             // tableLayoutPanel_ContenedorPrincipal
@@ -117,6 +129,7 @@ namespace Vista
             // 
             // tableLayoutPanel_ContenedorBotones
             // 
+            this.tableLayoutPanel_ContenedorBotones.BackColor = System.Drawing.Color.LightSkyBlue;
             this.tableLayoutPanel_ContenedorBotones.ColumnCount = 4;
             this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));

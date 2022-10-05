@@ -17,6 +17,10 @@ namespace Entidades
             this.cantidadViajes = 0;
         }
 
+        public int Id { get => this.id; }
+
+        public int CantidadViajes { get => this.cantidadViajes; }
+
         public override bool Equals(object obj)
         {
             if(obj is Cliente auxCliente)
@@ -36,9 +40,7 @@ namespace Entidades
             return $"Nombre: {this.Nombre} \nApellido: {this.Apellido}\nEdad;{this.Edad}\nId: {this.id}";
         }
 
-        public int Id { get => this.id; }
-
-        public int CantidadViajes { get => this.cantidadViajes; }
+        
 
         public static void SumarleUnViajeACliente(Cliente cliente)
         {
