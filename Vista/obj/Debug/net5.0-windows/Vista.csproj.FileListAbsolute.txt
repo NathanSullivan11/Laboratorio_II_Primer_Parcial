@@ -18,3 +18,5 @@ C:\Users\DESKTOP\source\repos\Recuperatorio.Sullivan.Nathan\Vista\obj\Debug\net5
 C:\Users\DESKTOP\source\repos\Recuperatorio.Sullivan.Nathan\Vista\obj\Debug\net5.0-windows\Vista.genruntimeconfig.cache
 C:\Users\DESKTOP\source\repos\Recuperatorio.Sullivan.Nathan\Vista\obj\Debug\net5.0-windows\Vista.FrmLogin.resources
 C:\Users\DESKTOP\source\repos\Recuperatorio.Sullivan.Nathan\Vista\obj\Debug\net5.0-windows\Vista.FrmMenuPrincipal.resources
+C:\Users\DESKTOP\source\repos\Recuperatorio.Sullivan.Nathan\Vista\obj\Debug\net5.0-windows\Vista.FrmClientes.resources
+C:\Users\DESKTOP\source\repos\Recuperatorio.Sullivan.Nathan\Vista\obj\Debug\net5.0-windows\Vista.FrmViajes.resources

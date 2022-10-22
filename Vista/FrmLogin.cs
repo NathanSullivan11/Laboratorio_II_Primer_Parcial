@@ -7,29 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 
 namespace Vista
 {
     public partial class FrmLogin : Form
     {
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        
-         private static extern IntPtr CreateRoundRectRgn
-         (
-           int nLeftRect,  
-           int nTopRect,                            
-           int nRightRect,                                
-           int nBottomRect,
-           int nWidthEllipse,
-           int nHeightEllipse 
-        );
-
         public FrmLogin()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
         private void btn_Ingresar_Click(object sender, EventArgs e)
@@ -65,6 +50,39 @@ namespace Vista
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tbox_Usuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Desea cerrar la aplicacion?", "Cierre de aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

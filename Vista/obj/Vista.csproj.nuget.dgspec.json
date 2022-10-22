@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DESKTOP\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Vista\\Vista.csproj": {}
+    "C:\\Users\\Usuario\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Vista\\Vista.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DESKTOP\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Vista\\Vista.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Vista\\Vista.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DESKTOP\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Vista\\Vista.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Vista\\Vista.csproj",
         "projectName": "Vista",
-        "projectPath": "C:\\Users\\DESKTOP\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Vista\\Vista.csproj",
-        "packagesPath": "C:\\Users\\DESKTOP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DESKTOP\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Vista\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Vista\\Vista.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Vista\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DESKTOP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,7 +57,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
         }
       }
     }
