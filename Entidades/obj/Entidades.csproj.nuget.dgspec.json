@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DESKTOP\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Entidades\\Entidades.csproj": {}
+    "C:\\Users\\Usuario\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Entidades\\Entidades.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DESKTOP\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DESKTOP\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\DESKTOP\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Entidades\\Entidades.csproj",
-        "packagesPath": "C:\\Users\\DESKTOP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DESKTOP\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Entidades\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Entidades\\Entidades.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Recuperatorio.Sullivan.Nathan\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DESKTOP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
         }
       }
     }
