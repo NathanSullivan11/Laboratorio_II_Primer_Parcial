@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Vista
 {
     partial class FrmMenuPrincipal
@@ -35,10 +37,11 @@ namespace Vista
             this.pbox_Cerrar = new System.Windows.Forms.PictureBox();
             this.pbox_Restaurar = new System.Windows.Forms.PictureBox();
             this.panel_Lateral = new System.Windows.Forms.Panel();
+            this.btnCuentaUsuario = new System.Windows.Forms.Button();
             this.panel_SubMenuEstadisticas = new System.Windows.Forms.Panel();
-            this.btn_ReporteCruceros = new System.Windows.Forms.Button();
-            this.btn_ReporteDestinos = new System.Windows.Forms.Button();
             this.btn_ViajesTotales = new System.Windows.Forms.Button();
+            this.btn_EstadisticasCruceros = new System.Windows.Forms.Button();
+            this.btn_EstadisticasDestinos = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -47,11 +50,14 @@ namespace Vista
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbox_CerrarSesion = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblUsuarioLogueado = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_Estadisticas = new System.Windows.Forms.Button();
             this.btn_Viajes = new System.Windows.Forms.Button();
             this.btn_Clientes = new System.Windows.Forms.Button();
             this.panel_Central = new System.Windows.Forms.Panel();
+            this.pbox_Ayuda = new System.Windows.Forms.PictureBox();
             this.panel_BarraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_Maximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_Minimizar)).BeginInit();
@@ -61,12 +67,14 @@ namespace Vista
             this.panel_SubMenuEstadisticas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_CerrarSesion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_Ayuda)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_BarraSuperior
             // 
             this.panel_BarraSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
             this.panel_BarraSuperior.Controls.Add(this.pbox_Maximizar);
+            this.panel_BarraSuperior.Controls.Add(this.pbox_Ayuda);
             this.panel_BarraSuperior.Controls.Add(this.pbox_Minimizar);
             this.panel_BarraSuperior.Controls.Add(this.pbox_Cerrar);
             this.panel_BarraSuperior.Controls.Add(this.pbox_Restaurar);
@@ -132,12 +140,15 @@ namespace Vista
             // panel_Lateral
             // 
             this.panel_Lateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.panel_Lateral.Controls.Add(this.btnCuentaUsuario);
             this.panel_Lateral.Controls.Add(this.panel_SubMenuEstadisticas);
             this.panel_Lateral.Controls.Add(this.panel3);
             this.panel_Lateral.Controls.Add(this.panel2);
             this.panel_Lateral.Controls.Add(this.panel1);
             this.panel_Lateral.Controls.Add(this.pbox_CerrarSesion);
             this.panel_Lateral.Controls.Add(this.pictureBox1);
+            this.panel_Lateral.Controls.Add(this.lblFecha);
+            this.panel_Lateral.Controls.Add(this.lblUsuarioLogueado);
             this.panel_Lateral.Controls.Add(this.label3);
             this.panel_Lateral.Controls.Add(this.btn_Estadisticas);
             this.panel_Lateral.Controls.Add(this.btn_Viajes);
@@ -148,59 +159,48 @@ namespace Vista
             this.panel_Lateral.Size = new System.Drawing.Size(200, 634);
             this.panel_Lateral.TabIndex = 1;
             // 
+            // btnCuentaUsuario
+            // 
+            this.btnCuentaUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
+            this.btnCuentaUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCuentaUsuario.FlatAppearance.BorderSize = 0;
+            this.btnCuentaUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
+            this.btnCuentaUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCuentaUsuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCuentaUsuario.ForeColor = System.Drawing.Color.White;
+            this.btnCuentaUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCuentaUsuario.Location = new System.Drawing.Point(83, 583);
+            this.btnCuentaUsuario.Name = "btnCuentaUsuario";
+            this.btnCuentaUsuario.Size = new System.Drawing.Size(101, 39);
+            this.btnCuentaUsuario.TabIndex = 1;
+            this.btnCuentaUsuario.Text = "Mi cuenta";
+            this.btnCuentaUsuario.UseVisualStyleBackColor = false;
+            this.btnCuentaUsuario.Click += new System.EventHandler(this.btn_CuentaUsuario_Click);
+            // 
             // panel_SubMenuEstadisticas
             // 
-            this.panel_SubMenuEstadisticas.Controls.Add(this.btn_ReporteCruceros);
-            this.panel_SubMenuEstadisticas.Controls.Add(this.btn_ReporteDestinos);
             this.panel_SubMenuEstadisticas.Controls.Add(this.btn_ViajesTotales);
+            this.panel_SubMenuEstadisticas.Controls.Add(this.btn_EstadisticasCruceros);
+            this.panel_SubMenuEstadisticas.Controls.Add(this.btn_EstadisticasDestinos);
             this.panel_SubMenuEstadisticas.Controls.Add(this.panel4);
             this.panel_SubMenuEstadisticas.Controls.Add(this.panel6);
             this.panel_SubMenuEstadisticas.Controls.Add(this.panel7);
             this.panel_SubMenuEstadisticas.Location = new System.Drawing.Point(21, 317);
             this.panel_SubMenuEstadisticas.Name = "panel_SubMenuEstadisticas";
-            this.panel_SubMenuEstadisticas.Size = new System.Drawing.Size(181, 133);
+            this.panel_SubMenuEstadisticas.Size = new System.Drawing.Size(181, 211);
             this.panel_SubMenuEstadisticas.TabIndex = 11;
             this.panel_SubMenuEstadisticas.Visible = false;
             // 
-            // btn_ReporteCruceros
-            // 
-            this.btn_ReporteCruceros.FlatAppearance.BorderSize = 0;
-            this.btn_ReporteCruceros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
-            this.btn_ReporteCruceros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ReporteCruceros.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_ReporteCruceros.ForeColor = System.Drawing.Color.White;
-            this.btn_ReporteCruceros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ReporteCruceros.Location = new System.Drawing.Point(3, 89);
-            this.btn_ReporteCruceros.Name = "btn_ReporteCruceros";
-            this.btn_ReporteCruceros.Size = new System.Drawing.Size(173, 37);
-            this.btn_ReporteCruceros.TabIndex = 1;
-            this.btn_ReporteCruceros.Text = "Reporte cruceros";
-            this.btn_ReporteCruceros.UseVisualStyleBackColor = true;
-            // 
-            // btn_ReporteDestinos
-            // 
-            this.btn_ReporteDestinos.FlatAppearance.BorderSize = 0;
-            this.btn_ReporteDestinos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
-            this.btn_ReporteDestinos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ReporteDestinos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_ReporteDestinos.ForeColor = System.Drawing.Color.White;
-            this.btn_ReporteDestinos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ReporteDestinos.Location = new System.Drawing.Point(3, 46);
-            this.btn_ReporteDestinos.Name = "btn_ReporteDestinos";
-            this.btn_ReporteDestinos.Size = new System.Drawing.Size(175, 37);
-            this.btn_ReporteDestinos.TabIndex = 1;
-            this.btn_ReporteDestinos.Text = "Reporte destinos";
-            this.btn_ReporteDestinos.UseVisualStyleBackColor = true;
-            // 
             // btn_ViajesTotales
             // 
+            this.btn_ViajesTotales.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ViajesTotales.FlatAppearance.BorderSize = 0;
             this.btn_ViajesTotales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
             this.btn_ViajesTotales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ViajesTotales.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ViajesTotales.ForeColor = System.Drawing.Color.White;
             this.btn_ViajesTotales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ViajesTotales.Location = new System.Drawing.Point(3, 3);
+            this.btn_ViajesTotales.Location = new System.Drawing.Point(5, 83);
             this.btn_ViajesTotales.Name = "btn_ViajesTotales";
             this.btn_ViajesTotales.Size = new System.Drawing.Size(175, 37);
             this.btn_ViajesTotales.TabIndex = 1;
@@ -208,10 +208,44 @@ namespace Vista
             this.btn_ViajesTotales.UseVisualStyleBackColor = true;
             this.btn_ViajesTotales.Click += new System.EventHandler(this.btn_ViajesTotales_Click);
             // 
+            // btn_EstadisticasCruceros
+            // 
+            this.btn_EstadisticasCruceros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_EstadisticasCruceros.FlatAppearance.BorderSize = 0;
+            this.btn_EstadisticasCruceros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
+            this.btn_EstadisticasCruceros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_EstadisticasCruceros.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_EstadisticasCruceros.ForeColor = System.Drawing.Color.White;
+            this.btn_EstadisticasCruceros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_EstadisticasCruceros.Location = new System.Drawing.Point(5, 40);
+            this.btn_EstadisticasCruceros.Name = "btn_EstadisticasCruceros";
+            this.btn_EstadisticasCruceros.Size = new System.Drawing.Size(176, 37);
+            this.btn_EstadisticasCruceros.TabIndex = 1;
+            this.btn_EstadisticasCruceros.Text = "Cruceros";
+            this.btn_EstadisticasCruceros.UseVisualStyleBackColor = true;
+            this.btn_EstadisticasCruceros.Click += new System.EventHandler(this.btn_EstadisticasCruceros_Click);
+            // 
+            // btn_EstadisticasDestinos
+            // 
+            this.btn_EstadisticasDestinos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_EstadisticasDestinos.FlatAppearance.BorderSize = 0;
+            this.btn_EstadisticasDestinos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
+            this.btn_EstadisticasDestinos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_EstadisticasDestinos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_EstadisticasDestinos.ForeColor = System.Drawing.Color.White;
+            this.btn_EstadisticasDestinos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_EstadisticasDestinos.Location = new System.Drawing.Point(5, 0);
+            this.btn_EstadisticasDestinos.Name = "btn_EstadisticasDestinos";
+            this.btn_EstadisticasDestinos.Size = new System.Drawing.Size(176, 34);
+            this.btn_EstadisticasDestinos.TabIndex = 1;
+            this.btn_EstadisticasDestinos.Text = "Destinos";
+            this.btn_EstadisticasDestinos.UseVisualStyleBackColor = true;
+            this.btn_EstadisticasDestinos.Click += new System.EventHandler(this.btn_EstadisticasDestinos_Click);
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
-            this.panel4.Location = new System.Drawing.Point(-2, 89);
+            this.panel4.Location = new System.Drawing.Point(0, 40);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(5, 37);
             this.panel4.TabIndex = 10;
@@ -219,17 +253,17 @@ namespace Vista
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
-            this.panel6.Location = new System.Drawing.Point(0, 3);
+            this.panel6.Location = new System.Drawing.Point(0, 83);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(5, 37);
+            this.panel6.Size = new System.Drawing.Size(10, 37);
             this.panel6.TabIndex = 10;
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
-            this.panel7.Location = new System.Drawing.Point(0, 46);
+            this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(5, 37);
+            this.panel7.Size = new System.Drawing.Size(10, 34);
             this.panel7.TabIndex = 10;
             // 
             // panel3
@@ -258,6 +292,7 @@ namespace Vista
             // 
             // pbox_CerrarSesion
             // 
+            this.pbox_CerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbox_CerrarSesion.Image = global::Vista.Properties.Resources.stand_by__1_;
             this.pbox_CerrarSesion.Location = new System.Drawing.Point(12, 583);
             this.pbox_CerrarSesion.Name = "pbox_CerrarSesion";
@@ -277,6 +312,30 @@ namespace Vista
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // lblFecha
+            // 
+            this.lblFecha.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblFecha.ForeColor = System.Drawing.Color.White;
+            this.lblFecha.Location = new System.Drawing.Point(4, 548);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(44, 16);
+            this.lblFecha.TabIndex = 9;
+            this.lblFecha.Text = "Fecha";
+            // 
+            // lblUsuarioLogueado
+            // 
+            this.lblUsuarioLogueado.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblUsuarioLogueado.AutoSize = true;
+            this.lblUsuarioLogueado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUsuarioLogueado.ForeColor = System.Drawing.Color.White;
+            this.lblUsuarioLogueado.Location = new System.Drawing.Point(3, 531);
+            this.lblUsuarioLogueado.Name = "lblUsuarioLogueado";
+            this.lblUsuarioLogueado.Size = new System.Drawing.Size(122, 16);
+            this.lblUsuarioLogueado.TabIndex = 9;
+            this.lblUsuarioLogueado.Text = "Usuario logueado";
+            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -291,6 +350,7 @@ namespace Vista
             // 
             // btn_Estadisticas
             // 
+            this.btn_Estadisticas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Estadisticas.FlatAppearance.BorderSize = 0;
             this.btn_Estadisticas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
             this.btn_Estadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -308,6 +368,7 @@ namespace Vista
             // 
             // btn_Viajes
             // 
+            this.btn_Viajes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Viajes.FlatAppearance.BorderSize = 0;
             this.btn_Viajes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
             this.btn_Viajes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -325,6 +386,7 @@ namespace Vista
             // 
             // btn_Clientes
             // 
+            this.btn_Clientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Clientes.FlatAppearance.BorderSize = 0;
             this.btn_Clientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
             this.btn_Clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -349,21 +411,39 @@ namespace Vista
             this.panel_Central.Size = new System.Drawing.Size(966, 634);
             this.panel_Central.TabIndex = 2;
             // 
+            // pictureBox2
+            // 
+            this.pbox_Ayuda.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pbox_Ayuda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbox_Ayuda.Image = global::Vista.Properties.Resources.info;
+            this.pbox_Ayuda.Location = new System.Drawing.Point(659, 4);
+            this.pbox_Ayuda.Name = "pictureBox2";
+            this.pbox_Ayuda.Size = new System.Drawing.Size(25, 25);
+            this.pbox_Ayuda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbox_Ayuda.TabIndex = 0;
+            this.pbox_Ayuda.TabStop = false;
+            this.pbox_Ayuda.Click += new System.EventHandler(this.pbox_Ayuda_Click);
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(1166, 669);
             this.ControlBox = false;
             this.Controls.Add(this.panel_Central);
             this.Controls.Add(this.panel_Lateral);
             this.Controls.Add(this.panel_BarraSuperior);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1182, 685);
             this.Name = "FrmMenuPrincipal";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmMenuPrincipal";
+            this.Text = "Menú principal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenuPrincipal_FormClosing);
+            this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             this.panel_BarraSuperior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbox_Maximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_Minimizar)).EndInit();
@@ -374,6 +454,7 @@ namespace Vista
             this.panel_SubMenuEstadisticas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbox_CerrarSesion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox_Ayuda)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -394,14 +475,18 @@ namespace Vista
         private System.Windows.Forms.Button btn_Estadisticas;
         private System.Windows.Forms.Button btn_Clientes;
         private System.Windows.Forms.Panel panel_SubMenuEstadisticas;
-        private System.Windows.Forms.Button btn_ReporteDestinos;
+        private System.Windows.Forms.Button btn_EstadisticasDestinos;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btn_ViajesTotales;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btn_ReporteCruceros;
+        private System.Windows.Forms.Button btn_EstadisticasCruceros;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pbox_CerrarSesion;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnCuentaUsuario;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label lblUsuarioLogueado;
+        private System.Windows.Forms.PictureBox pbox_Ayuda;
     }
 }

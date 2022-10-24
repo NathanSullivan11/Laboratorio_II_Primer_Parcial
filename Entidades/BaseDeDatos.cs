@@ -1,80 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entidades
 {
     public static class BaseDeDatos
     {
-        private static List<Crucero> listaCruceros;
-        private static List<Cliente> listaClientes;
+        #region Atributos
+        static List<Usuario> usuariosRegistrados;
+        static List<Crucero> listaCruceros;
+        static List<Cliente> listaClientes;
+        static List<Viaje> listaViajesActivos;
+        static List<Viaje> listaViajesFinalizados;
+        static List<Pasajero> listaModeloPasajeros;
+        static List<Pasaporte> listaModeloPasaportes;
 
-        private static List<Viaje> listaViajesActivos;
-        private static List<Viaje> listaViajesFinalizados;
-        private static List<Viaje> listaTodosLosViajes;
+        static List<Viaje> listaTodosLosViajes;
+        static Dictionary<string, float> diccionarioDestinosFacturacion;
+        static Dictionary<string, int> diccionarioDestinosCantidadViajes;
+        static Dictionary<string, int> diccionarioHorasViajadasPorCrucero;
+        #endregion
 
-        private static List<Pasajero> listaModeloPasajeros;     // Modelo para facilitar el hardcodeo de viajes
-        private static List<Pasaporte> listaModeloPasaportes;   // Modelo para facilitar el hardcodeo de pasajeros
-        private static List<Equipaje> listaModeloEquipajes;     // Modelo para facilitar el hardcodeo de pasajeros
-
-        private static Dictionary<string, float> diccionarioDestinosFacturacion;
-        private static Dictionary<string, int> diccionarioDestinosCantidadViajes;
-        private static Dictionary<string, int> diccionarioHorasViajadasPorCrucero;
-
-
+        #region Constructor
         static BaseDeDatos()
         {
+            usuariosRegistrados = new List<Usuario>();
             listaCruceros = new List<Crucero>();
             listaClientes = new List<Cliente>();
-            listaViajesActivos = new List<Viaje>();          
-            listaViajesFinalizados = new List<Viaje>();
-            listaTodosLosViajes = new List<Viaje>();
+            listaViajesActivos = new List<Viaje>();
             listaModeloPasajeros = new List<Pasajero>();
             listaModeloPasaportes = new List<Pasaporte>();
-            listaModeloEquipajes = new List<Equipaje>();
+            listaViajesFinalizados = new List<Viaje>();
+            listaTodosLosViajes = new List<Viaje>();
             diccionarioDestinosFacturacion = new Dictionary<string, float>();
             diccionarioDestinosCantidadViajes = new Dictionary<string, int>();
             diccionarioHorasViajadasPorCrucero = new Dictionary<string, int>();
 
+            HardcodearUsuarios();
             HardcodearCruceros();
             HardcodearClientes();
-            HardcodearViajesActivos();
-            HardcodearViajesFinalizados();
             HardcodearPasaportes();
             HardcodearPasajeros();
-            HardcodearEquipajes();
-            
-            CargarDiccionarioDestinosCantidadViajes();
-            CargarDiccionarioDestinosFacturacion();
-            CargarDiccionarioHorasViajadasPorCrucero(); 
+            HardcodearViajesFinalizados();
+            HardcodearViajesActivos();
+
+            CalcularCantidadViajesPorDestino();
+            CalculaFacturacionPorDestino();
+            CalcularHorasViajadasPorCrucero();
 
         }
+        #endregion
 
+        #region Propiedades
+        public static List<Usuario> UsuariosRegistrados { get => usuariosRegistrados; }
         public static List<Crucero> ListaCruceros { get => listaCruceros; }
         public static List<Cliente> ListaClientes { get => listaClientes; }
         public static List<Viaje> ListaViajesActivos { get => listaViajesActivos; }
-        public static List<Pasajero> ListaModeloPasajeros { get => listaModeloPasajeros; }
         public static List<Viaje> ListaViajesFinalizados { get => listaViajesFinalizados; }
-        public static List<Viaje> ListaTodosLosViajes { get => listaViajesFinalizados.Concat(listaViajesActivos).ToList();  set => listaTodosLosViajes = value; }
-       
+        public static List<Viaje> ListaTodosLosViajes { get => listaViajesFinalizados.Concat(listaViajesActivos).ToList(); set => listaTodosLosViajes = value; }
+
         public static Dictionary<string, float> DiccionarioDestinosFacturacion { get => diccionarioDestinosFacturacion; set => diccionarioDestinosFacturacion = value; }
         public static Dictionary<string, int> DiccionarioDestinosCantidadViajes { get => diccionarioDestinosCantidadViajes; set => diccionarioDestinosCantidadViajes = value; }
         public static Dictionary<string, int> DiccionarioHorasViajadasPorCrucero { get => diccionarioHorasViajadasPorCrucero; }
+        #endregion
 
-        #region Cargar Diccionarios
-        private static void CargarDiccionarioHorasViajadasPorCrucero()
-        {
-            InicializarDiccionarioHorasViajadasPorCrucero();
-            foreach (Viaje auxViaje in ListaTodosLosViajes)
-            {
-                if(diccionarioHorasViajadasPorCrucero.ContainsKey(auxViaje.ObtenerCrucero().Matricula))
-                { 
-                    diccionarioHorasViajadasPorCrucero[auxViaje.ObtenerCrucero().Matricula] += Int32.Parse(auxViaje.Duracion);
-                }
-            }
-        }
+        #region Metodos diccionarios
 
         private static void InicializarDiccionarioHorasViajadasPorCrucero()
         {
@@ -94,11 +84,11 @@ namespace Entidades
             {
                 diccionarioDestinosFacturacion.Add(destinoRegional.ToString(), 0);
             }
-            
+
         }
 
         public static void InicializarDiccionarioCantidadViajes()
-        {            
+        {
             foreach (EDestinoExtraRegional destinoExtraRegional in Enum.GetValues(typeof(EDestinoExtraRegional)))
             {
                 diccionarioDestinosCantidadViajes.Add(destinoExtraRegional.ToString(), 0);
@@ -108,8 +98,22 @@ namespace Entidades
                 diccionarioDestinosCantidadViajes.Add(destinoRegional.ToString(), 0);
             }
         }
-        
-        public static void CargarDiccionarioDestinosCantidadViajes()
+
+        private static void CalcularHorasViajadasPorCrucero()
+        {
+            InicializarDiccionarioHorasViajadasPorCrucero();
+            foreach (Viaje auxViaje in ListaTodosLosViajes)
+            {
+                if (diccionarioHorasViajadasPorCrucero.ContainsKey(auxViaje.ObtenerCrucero().Matricula))
+                {
+                    diccionarioHorasViajadasPorCrucero[auxViaje.ObtenerCrucero().Matricula] += Int32.Parse(auxViaje.Duracion);
+                }
+            }
+        }
+
+
+
+        public static void CalcularCantidadViajesPorDestino()
         {
             foreach (Viaje auxViaje in ListaTodosLosViajes)
             {
@@ -119,13 +123,13 @@ namespace Entidades
                 }
                 else
                 {
-                    BaseDeDatos.DiccionarioDestinosCantidadViajes.Add(auxViaje.Destino,0);
+                    BaseDeDatos.DiccionarioDestinosCantidadViajes.Add(auxViaje.Destino, 0);
                     BaseDeDatos.DiccionarioDestinosCantidadViajes[auxViaje.Destino]++;
                 }
             }
         }
 
-        public static void CargarDiccionarioDestinosFacturacion()
+        public static void CalculaFacturacionPorDestino()
         {
             foreach (Viaje auxViaje in ListaTodosLosViajes)
             {
@@ -143,12 +147,21 @@ namespace Entidades
         #endregion
 
         #region Hardcodeo Listas
+
+        private static void HardcodearUsuarios()
+        {
+            usuariosRegistrados.Add(new Usuario("usermartin", "1234", "martin@gmail.com", "Martin", "Perez", 111435478));
+            usuariosRegistrados.Add(new Usuario("usercarla", "1234", "carla@gmail.com", "Carla", "Diaz", 32278934));
+            usuariosRegistrados.Add(new Usuario("userdiego", "1234", "diego@gmail.com", "Diego", "Alvarez", 34546891));
+            usuariosRegistrados.Add(new Usuario("usernathan", "1234", "nathan@gmail.com", "Nathan", "Sullivan", 44554659));
+        }
+
         private static void HardcodearCruceros()
-        {         
-            listaCruceros.Add(new Crucero("AA7893-LS", "Fragata", 300, 7500, true, false, false, false,0));
+        {
+            listaCruceros.Add(new Crucero("AA7893-LS", "Fragata", 300, 7500, true, false, false, false, 0));
             listaCruceros.Add(new Crucero("AA4264-RG", "Chatarra", 450, 9000, true, false, false, false, 0));
             listaCruceros.Add(new Crucero("AA4565-BH", "Deluxe", 600, 10750, true, true, false, false, 1));
-            listaCruceros.Add(new Crucero("AA1264-UI", "Jose Pedro", 700, 11000,true, true, false, true, 1));
+            listaCruceros.Add(new Crucero("AA1264-UI", "Jose Pedro", 700, 11000, true, true, false, true, 1));
             listaCruceros.Add(new Crucero("AA9748-PO", "Velador", 850, 12500, true, true, true, true, 2));
             listaCruceros.Add(new Crucero("AA5487-QW", "Fragata", 250, 6250, true, false, false, false, 0));
             listaCruceros.Add(new Crucero("AA3709-VF", "Fragata", 550, 9000, true, false, true, false, 0));
@@ -1155,7 +1168,7 @@ namespace Entidades
             listaClientes.Add(new Cliente("Holli", "Barmby", 6075230, 22, listaClientes.Count + 1));
             listaClientes.Add(new Cliente("Wynnie", "Nipper", 53682606, 47, listaClientes.Count + 1));
             listaClientes.Add(new Cliente("Nedda", "Endricci", 6067057, 68, listaClientes.Count + 1));
-            listaClientes.Add(new Cliente("Shepperd", "Batalle", 28616141, 76, listaClientes.Count + 1));           
+            listaClientes.Add(new Cliente("Shepperd", "Batalle", 28616141, 76, listaClientes.Count + 1));
         }
 
         private static void HardcodearPasaportes()
@@ -1970,9 +1983,9 @@ namespace Entidades
             bool esPremium = false;
             Equipaje equipaje;
 
-            for (int i = 0; i < 800; i++)
+            for (int i = 0; i < 700; i++)
             {
-                if(new Random().Next(0,1) == 1)
+                if (new Random().Next(0, 1) == 1)
                 {
                     esPremium = false;
                     equipaje = new Equipaje(false, new Random().Next(0, 25));
@@ -1989,11 +2002,11 @@ namespace Entidades
 
         private static void HardcodearViajesActivos()
         {
-            listaViajesActivos.Add(new Viaje(listaCruceros.ElementAt(0), EOrigen.Buenos_Aires, DateTime.Parse("13/10/2022 08:00:00"), true,EEstadoViaje.Lleno, EDestinoRegional.Montevideo));
-            listaViajesActivos[0].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(0, 300));
+            listaViajesActivos.Add(new Viaje(listaCruceros.ElementAt(0), EOrigen.Buenos_Aires, DateTime.Parse("13/10/2022 08:00:00"), true, EEstadoViaje.Lleno, EDestinoRegional.Montevideo));
+            listaViajesActivos[0].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(50, 300));
             listaViajesActivos.Add(new Viaje(listaCruceros.ElementAt(1), EOrigen.Buenos_Aires, DateTime.Now, false, EEstadoViaje.Zarpando, EDestinoExtraRegional.Nueva_York));
             listaViajesActivos[1].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(301, 149));
-            listaViajesActivos.Add(new Viaje(listaCruceros.ElementAt(2), EOrigen.Buenos_Aires, DateTime.Parse("20/11/2022 15:00:00"), true, EEstadoViaje.Disponible,EDestinoRegional.Río_de_Janeiro));
+            listaViajesActivos.Add(new Viaje(listaCruceros.ElementAt(2), EOrigen.Buenos_Aires, DateTime.Parse("20/11/2022 15:00:00"), true, EEstadoViaje.Disponible, EDestinoRegional.Río_de_Janeiro));
             listaViajesActivos[2].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(451, 50));
         }
 
@@ -2025,5 +2038,6 @@ namespace Entidades
             listaViajesFinalizados[11].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(100, 456));
         }
         #endregion
+
     }
 }

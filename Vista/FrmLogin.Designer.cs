@@ -45,6 +45,7 @@ namespace Vista
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbl_MensajeError = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_Logo)).BeginInit();
@@ -64,7 +65,7 @@ namespace Vista
             // 
             this.pbox_Logo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pbox_Logo.Image = global::Vista.Properties.Resources.Costa_logo_2021_svg;
-            this.pbox_Logo.Location = new System.Drawing.Point(91, 30);
+            this.pbox_Logo.Location = new System.Drawing.Point(91, 13);
             this.pbox_Logo.MaximumSize = new System.Drawing.Size(381, 204);
             this.pbox_Logo.Name = "pbox_Logo";
             this.pbox_Logo.Size = new System.Drawing.Size(188, 146);
@@ -105,7 +106,7 @@ namespace Vista
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
-            this.panel2.Location = new System.Drawing.Point(3, 32);
+            this.panel2.Location = new System.Drawing.Point(3, 33);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(227, 1);
             this.panel2.TabIndex = 3;
@@ -133,7 +134,7 @@ namespace Vista
             this.lbl_Salir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_Salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_Salir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
-            this.lbl_Salir.Location = new System.Drawing.Point(97, 60);
+            this.lbl_Salir.Location = new System.Drawing.Point(97, 63);
             this.lbl_Salir.MaximumSize = new System.Drawing.Size(39, 16);
             this.lbl_Salir.MinimumSize = new System.Drawing.Size(39, 16);
             this.lbl_Salir.Name = "lbl_Salir";
@@ -153,7 +154,6 @@ namespace Vista
             this.tbox_Usuario.Name = "tbox_Usuario";
             this.tbox_Usuario.Size = new System.Drawing.Size(192, 23);
             this.tbox_Usuario.TabIndex = 6;
-            this.tbox_Usuario.TextChanged += new System.EventHandler(this.tbox_Usuario_TextChanged);
             // 
             // tbox_Password
             // 
@@ -176,7 +176,7 @@ namespace Vista
             this.btn_Ingresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Ingresar.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Ingresar.ForeColor = System.Drawing.Color.White;
-            this.btn_Ingresar.Location = new System.Drawing.Point(3, 18);
+            this.btn_Ingresar.Location = new System.Drawing.Point(3, 16);
             this.btn_Ingresar.MaximumSize = new System.Drawing.Size(227, 33);
             this.btn_Ingresar.MinimumSize = new System.Drawing.Size(227, 33);
             this.btn_Ingresar.Name = "btn_Ingresar";
@@ -194,13 +194,14 @@ namespace Vista
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(236, 40);
+            this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(236, 40);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(236, 41);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(236, 40);
             this.tableLayoutPanel1.TabIndex = 9;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // tableLayoutPanel2
             // 
@@ -226,14 +227,13 @@ namespace Vista
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel2, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 50);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 48);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(236, 51);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(236, 57);
             this.tableLayoutPanel3.TabIndex = 11;
-            this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
             // 
             // tableLayoutPanel4
             // 
@@ -260,14 +260,14 @@ namespace Vista
             this.tableLayoutPanel5.Controls.Add(this.lbl_Salir, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.btn_Ingresar, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 107);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 111);
             this.tableLayoutPanel5.MaximumSize = new System.Drawing.Size(233, 84);
             this.tableLayoutPanel5.MinimumSize = new System.Drawing.Size(233, 84);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.75758F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.24242F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.63492F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.36508F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(233, 84);
             this.tableLayoutPanel5.TabIndex = 12;
             // 
@@ -276,19 +276,35 @@ namespace Vista
             this.tableLayoutPanel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel6.ColumnCount = 1;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.lbl_MensajeError, 0, 3);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel5, 0, 2);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(65, 24);
-            this.tableLayoutPanel6.MaximumSize = new System.Drawing.Size(242, 212);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(65, 17);
             this.tableLayoutPanel6.MinimumSize = new System.Drawing.Size(242, 212);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 3;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.19231F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.80769F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 107F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(242, 212);
+            this.tableLayoutPanel6.RowCount = 4;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.81818F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58.18182F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(242, 227);
             this.tableLayoutPanel6.TabIndex = 13;
+            // 
+            // lbl_MensajeError
+            // 
+            this.lbl_MensajeError.AutoSize = true;
+            this.lbl_MensajeError.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_MensajeError.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_MensajeError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_MensajeError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_MensajeError.Location = new System.Drawing.Point(3, 193);
+            this.lbl_MensajeError.Name = "lbl_MensajeError";
+            this.lbl_MensajeError.Size = new System.Drawing.Size(236, 34);
+            this.lbl_MensajeError.TabIndex = 5;
+            this.lbl_MensajeError.Text = "Mensaje error";
+            this.lbl_MensajeError.Visible = false;
+            this.lbl_MensajeError.Click += new System.EventHandler(this.lbl_Autocompletar_Click);
             // 
             // tableLayoutPanel7
             // 
@@ -298,31 +314,29 @@ namespace Vista
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.74531F));
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel6, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 182);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 165);
             this.tableLayoutPanel7.MinimumSize = new System.Drawing.Size(373, 261);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(373, 261);
             this.tableLayoutPanel7.TabIndex = 14;
-            this.tableLayoutPanel7.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel7_Paint);
             // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 1;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel7, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.pbox_Logo, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 3;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95.72192F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.278075F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 275F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.06493F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.597403F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.33766F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(371, 463);
             this.tableLayoutPanel8.TabIndex = 15;
-            this.tableLayoutPanel8.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel8_Paint);
             // 
             // FrmLogin
             // 
@@ -333,10 +347,10 @@ namespace Vista
             this.Controls.Add(this.tableLayoutPanel8);
             this.MinimumSize = new System.Drawing.Size(387, 502);
             this.Name = "FrmLogin";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Inicio de sesión";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmLogin_FormClosing);
-            this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbox_Logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_Usuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_Password)).EndInit();
@@ -349,6 +363,7 @@ namespace Vista
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -375,6 +390,7 @@ namespace Vista
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.Label lbl_MensajeError;
     }
 }
 

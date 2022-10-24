@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
 
 namespace Vista
 {
@@ -19,62 +13,58 @@ namespace Vista
 
         private void btn_Ingresar_Click(object sender, EventArgs e)
         {
-            FrmMenuPrincipal formMenuPrincipal = new FrmMenuPrincipal(this);
-            formMenuPrincipal.Show();
-            this.Hide();
-            this.LimpiarCampos();
+            if(!this.TextBoxEstanVacios())
+            {
+                this.IniciarSesion();                
+            }
+            else
+            {
+                this.MostrarMensajeError("ERROR: Hay campos vacíos");
+            }
+
         }
 
-        private void lbl_Salir_Click(object sender, EventArgs e)
+        private void IniciarSesion()
         {
-            Application.Exit();
+            Usuario usuarioLogueado = Sistema.LoguearUsuario(this.tbox_Usuario.Text, this.tbox_Password.Text);
+            if (usuarioLogueado != null)
+            {
+                FrmMenuPrincipal formMenuPrincipal = new FrmMenuPrincipal(this, usuarioLogueado);
+                formMenuPrincipal.Show();
+
+                this.LimpiarCampos();
+                this.lbl_MensajeError.Visible = false;
+                this.Hide();
+            }
+            else
+            {
+                this.MostrarMensajeError("ERROR: Usuario o contraseña incorrectos");
+            }
         }
- 
+
+        private bool TextBoxEstanVacios()
+        {
+            return string.IsNullOrEmpty(tbox_Usuario.Text) || string.IsNullOrEmpty(tbox_Password.Text);
+        }
+
         private void LimpiarCampos()
         {
             this.tbox_Usuario.Clear();
             this.tbox_Password.Clear();
         }
 
+        private void MostrarMensajeError(string mensaje)
+        {
+            this.lbl_MensajeError.Text = mensaje;
+            this.lbl_MensajeError.Visible = true;
+        }
+
         private void lbl_Autocompletar_Click(object sender, EventArgs e)
         {
-            this.tbox_Usuario.Text = "usernathan";
-            this.tbox_Password.Text = "1234";
-        }
+            Usuario auxUsuario = Sistema.ObtenerUsuario();
 
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbox_Usuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel8_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            this.tbox_Usuario.Text = auxUsuario.NombreUsuario;
+            this.tbox_Password.Text = auxUsuario.Password;
         }
 
         private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
@@ -84,5 +74,11 @@ namespace Vista
                 e.Cancel = true;
             }
         }
+
+        private void lbl_Salir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }

@@ -1,25 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entidades
+﻿namespace Entidades
 {
     public class Cliente : Persona
     {
+        #region Atributos
         private int id;
         private int cantidadViajes;
+        #endregion
 
-        public Cliente(string nombre, string apellido, int dni, int edad,int id) : base(nombre, apellido, dni, edad)
+        #region Constructor
+        public Cliente(string nombre, string apellido, int dni, int edad, int id) : base(nombre, apellido, dni, edad)
         {
             this.id = id;
             this.cantidadViajes = 0;
         }
+        #endregion
 
+        #region Propiedades
         public int Id { get => this.id; }
         public int CantidadViajes { get => this.cantidadViajes; }
+        #endregion
 
+        #region Metodos
         public static void SumarleUnViajeACliente(Cliente cliente)
         {
             cliente.cantidadViajes++;
@@ -27,11 +28,11 @@ namespace Entidades
 
         public override bool Equals(object obj)
         {
-            if(obj is Cliente auxCliente)
+            if (obj is Cliente auxCliente)
             {
                 return this.id == auxCliente.id;
             }
-            return false;           
+            return false;
         }
 
         public override int GetHashCode()
@@ -43,7 +44,6 @@ namespace Entidades
         {
             return $"Nombre: {this.Nombre} \nApellido: {this.Apellido}\nEdad;{this.Edad}\nId: {this.id}";
         }
-
-
+        #endregion
     }
 }

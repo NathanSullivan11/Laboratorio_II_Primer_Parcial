@@ -48,12 +48,13 @@ namespace Vista
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 68);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 80);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1010, 464);
+            this.dataGridView1.Size = new System.Drawing.Size(960, 551);
             this.dataGridView1.TabIndex = 0;
             // 
             // comboBox1
@@ -64,7 +65,7 @@ namespace Vista
             this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.ForeColor = System.Drawing.Color.White;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(46, 17);
+            this.comboBox1.Location = new System.Drawing.Point(39, 23);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(174, 25);
             this.comboBox1.TabIndex = 3;
@@ -76,7 +77,7 @@ namespace Vista
             this.rbtnOrdenAscendente.BackColor = System.Drawing.Color.Transparent;
             this.rbtnOrdenAscendente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.rbtnOrdenAscendente.ForeColor = System.Drawing.Color.White;
-            this.rbtnOrdenAscendente.Location = new System.Drawing.Point(289, 9);
+            this.rbtnOrdenAscendente.Location = new System.Drawing.Point(271, 15);
             this.rbtnOrdenAscendente.MinimumSize = new System.Drawing.Size(118, 41);
             this.rbtnOrdenAscendente.Name = "rbtnOrdenAscendente";
             this.rbtnOrdenAscendente.Padding = new System.Windows.Forms.Padding(8);
@@ -93,7 +94,7 @@ namespace Vista
             this.rbtnOrdenDescendente.BackColor = System.Drawing.Color.Transparent;
             this.rbtnOrdenDescendente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.rbtnOrdenDescendente.ForeColor = System.Drawing.Color.White;
-            this.rbtnOrdenDescendente.Location = new System.Drawing.Point(448, 9);
+            this.rbtnOrdenDescendente.Location = new System.Drawing.Point(422, 15);
             this.rbtnOrdenDescendente.MinimumSize = new System.Drawing.Size(125, 41);
             this.rbtnOrdenDescendente.Name = "rbtnOrdenDescendente";
             this.rbtnOrdenDescendente.Padding = new System.Windows.Forms.Padding(8);
@@ -111,7 +112,7 @@ namespace Vista
             this.btnOrdenar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOrdenar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnOrdenar.ForeColor = System.Drawing.Color.White;
-            this.btnOrdenar.Location = new System.Drawing.Point(609, 9);
+            this.btnOrdenar.Location = new System.Drawing.Point(575, 15);
             this.btnOrdenar.MaximumSize = new System.Drawing.Size(247, 41);
             this.btnOrdenar.Name = "btnOrdenar";
             this.btnOrdenar.Size = new System.Drawing.Size(157, 41);
@@ -132,9 +133,8 @@ namespace Vista
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.14953F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.85046F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1016, 535);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(966, 634);
             this.tableLayoutPanel1.TabIndex = 7;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // tableLayoutPanel2
             // 
@@ -154,7 +154,7 @@ namespace Vista
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1010, 59);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(960, 71);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
             // FrmClientes
@@ -163,7 +163,7 @@ namespace Vista
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(1016, 535);
+            this.ClientSize = new System.Drawing.Size(966, 634);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.ImeMode = System.Windows.Forms.ImeMode.Off;

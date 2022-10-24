@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace Entidades
 {
-    public class Pasajero 
+    public class Pasajero
     {
+        #region Atributos
         private Cliente cliente;
-        private bool esPremium;
         private Pasaporte pasaporte;
         private Equipaje equipaje;
+        private bool esPremium;
+        #endregion
 
+        #region Constructor
         public Pasajero(Cliente cliente, Pasaporte pasaporte, bool esPremium, Equipaje equipaje)
         {
             this.cliente = cliente;
@@ -20,20 +19,22 @@ namespace Entidades
             this.equipaje = equipaje;
             this.pasaporte = pasaporte;
         }
-     
+        #endregion
+
+        #region Propiedades
         public string Nombre { get => this.cliente.Nombre; }
         public string Apellido { get => this.cliente.Apellido; }
         public bool EsPremium { get => esPremium; set => esPremium = value; }
         public bool EquipajeDeMano { get => this.equipaje.EquipajeDeMano; }
         public int PesoEquipaje { get => this.equipaje.PesoEnKg; }
-
         public string NumeroPasaporte { get => this.pasaporte.Numero; }
         public string Nacionalidad { get => this.pasaporte.Nacionalidad; }
         public string Sexo { get => this.pasaporte.Sexo; }
         public string CaducidadPasaporte { get => this.pasaporte.FechaDeCaducidad.ToString(); }
-
         public int Edad { get => this.cliente.Edad; }
+        #endregion
 
+        #region Metodos
         public Equipaje ObtenerEquipaje()
         {
             return this.equipaje;
@@ -50,7 +51,7 @@ namespace Entidades
 
             sb.Append($"{this.Nombre} {this.Apellido} -");
 
-            if(this.esPremium)
+            if (this.esPremium)
             {
                 sb.Append(" Premium");
             }
@@ -61,6 +62,7 @@ namespace Entidades
 
             return sb.ToString();
         }
+        #endregion
 
     }
 }

@@ -4,28 +4,42 @@ namespace Entidades
 {
     public class Camarote
     {
+        #region Atributos
         private List<Pasajero> pasajeros;
+        #endregion
 
+        #region Constructores
         public Camarote()
         {
             this.pasajeros = new List<Pasajero>();
-        }
-
-        public Camarote(List<Pasajero> pasajeros)  // Unicamente para el hardcodeo
+        }     
+        /// <summary>
+        /// Constructor para asignar un grupo familiar a un camarote
+        /// </summary>
+        /// <param name="grupoFamiliar"></param>
+        public Camarote(List<Pasajero> grupoFamiliar)
         {
-            this.pasajeros = pasajeros;
+            this.pasajeros = grupoFamiliar;
         }
-
-        public Camarote(Pasajero pasajero):this()
+        /// <summary>
+        /// Constructur para asignar un pasajero a un camarote
+        /// </summary>
+        /// <param name="pasajero"></param>
+        public Camarote(Pasajero pasajero) : this()
         {
             this.pasajeros.Add(pasajero);
         }
+        #endregion
 
+        #region Propiedades
         public int CantidadPasajeros { get => this.pasajeros.Count; }
+        #endregion
 
+        #region Metodos
         public override string ToString()
         {
             return $"Cantidad de camarotes ocupados: {this.CantidadPasajeros}";
         }
+        #endregion
     }
 }

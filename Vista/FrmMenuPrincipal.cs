@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Entidades;
+using System;
 using System.Windows.Forms;
 
 namespace Vista
@@ -25,9 +19,23 @@ namespace Vista
             this.usuarioLogueado = usuarioLogueado;
         }
 
+        private void FrmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+            this.SetearMensajeUsuarioYFecha();
+        }
+
+        private void btn_CuentaUsuario_Click(object sender, EventArgs e)
+        {
+            FrmCuentaUsuario formCuentaUsuario = new FrmCuentaUsuario(usuarioLogueado);
+
+            formCuentaUsuario.ShowDialog();
+
+        }
+
+
         private void btn_Estadisticas_Click(object sender, EventArgs e)
         {
-            panel_SubMenuEstadisticas.Visible = true;
+            this.panel_SubMenuEstadisticas.Visible = true;
         }
 
         private void btn_ViajesTotales_Click(object sender, EventArgs e)
@@ -35,8 +43,18 @@ namespace Vista
             this.OcultarSubMenuEstadisticas();
         }
 
+        private void btn_EstadisticasDestinos_Click(object sender, EventArgs e)
+        {
+            this.OcultarSubMenuEstadisticas();
+        }
+
+        private void btn_EstadisticasCruceros_Click(object sender, EventArgs e)
+        {
+            this.OcultarSubMenuEstadisticas();
+        }
+
         private void btn_Viajes_Click(object sender, EventArgs e)
-        {           
+        {
             this.VaciarPanelCentral();
             this.OcultarSubMenuEstadisticas();
 
@@ -55,9 +73,9 @@ namespace Vista
 
         private void OcultarSubMenuEstadisticas()
         {
-            if(panel_SubMenuEstadisticas.Visible == true)
+            if (this.panel_SubMenuEstadisticas.Visible == true)
             {
-                panel_SubMenuEstadisticas.Visible = false;
+                this.panel_SubMenuEstadisticas.Visible = false;
             }
         }
         private void VaciarPanelCentral()
@@ -65,7 +83,7 @@ namespace Vista
             if (this.panel_Central.Controls.Count > 0)
             {
                 this.panel_Central.Controls.RemoveAt(0);
-            }           
+            }
         }
         /// <summary>
         /// Configura el formulario para que aparezca en la posicion correcta
@@ -92,6 +110,13 @@ namespace Vista
             }
         }
 
+
+        private void SetearMensajeUsuarioYFecha()
+        { 
+            this.lblUsuarioLogueado.Text = usuarioLogueado.Nombre + " " + usuarioLogueado.Apellido;
+            this.lblFecha.Text = DateTime.Now.ToLongDateString();
+        }
+
         private void pbox_Minimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -110,16 +135,21 @@ namespace Vista
             pbox_Maximizar.Visible = true;
             this.WindowState = FormWindowState.Normal;
         }
-
+        private void pbox_Ayuda_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Holaaa", "Ayuda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        
         private void pbox_Cerrar_Click(object sender, EventArgs e)
         {
-            this.Close();           
+            this.Close();
         }
 
         private void pbox_CerrarSesion_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 
 }

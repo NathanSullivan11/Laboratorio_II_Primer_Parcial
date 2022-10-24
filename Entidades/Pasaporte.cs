@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entidades
 {
     public class Pasaporte
     {
+        #region Atributos
         private string numero;
         private string nacionalidad;
         private string sexo;
         private DateTime fechaDeCaducidad;
+        #endregion
 
+        #region Constructor
         public Pasaporte(string numero, string nacionalidad, string sexo, DateTime fechaDeCaducidad)
         {
             this.numero = numero;
@@ -20,15 +19,19 @@ namespace Entidades
             this.sexo = sexo;
             this.fechaDeCaducidad = fechaDeCaducidad;
         }
+        #endregion
 
+        #region Propiedades
         public string Numero { get => numero; }
         public string Nacionalidad { get => nacionalidad; }
         public string Sexo { get => sexo; set => sexo = value; }
         public string FechaDeCaducidad { get => fechaDeCaducidad.ToShortDateString(); }
+        #endregion
 
+        #region Metodos
         public static bool EstaEnReglaPasaporte(DateTime fechaCaducidad)
         {
-            if(fechaCaducidad.CompareTo(DateTime.Today) >= 0)
+            if (fechaCaducidad.CompareTo(DateTime.Today) >= 0)
             {
                 return true;
             }
@@ -39,6 +42,6 @@ namespace Entidades
         {
             return $"{this.numero} - {this.nacionalidad}";
         }
-
+        #endregion
     }
 }
