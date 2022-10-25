@@ -19,20 +19,24 @@ namespace Vista
         {
             InitializeComponent();
             this.viajeADarDeBaja = viajeADarDeBaja;
+            this.SetearInformacionViaje();
+            this.SetearControles();
         }
 
         private void FrmBajaViaje_Load(object sender, EventArgs e)
         {
-            this.SetearControles();
-            this.SetearInformacionViaje();
+
+
 
         }
+
         private void SetearInformacionViaje()
         {
             this.cmbCrucero.Text = this.viajeADarDeBaja.ObtenerCrucero().Matricula;
-            this.dateTimePicker1.Value = DateTime.Parse(viajeADarDeBaja.FechaSalida);
+            this.dtp_FechaSalida.Value = DateTime.Parse(viajeADarDeBaja.FechaSalida);
             this.cmbOrigen.Text = viajeADarDeBaja.Origen;
             this.cmbDestino.Text = viajeADarDeBaja.Destino;
+
         }
 
         private void SetearControles()
@@ -41,7 +45,6 @@ namespace Vista
             {
                 if (control is ComboBox cmbBox)
                 {
-                    cmbBox.DataSource = null;
                     cmbBox.Enabled = false;
                 }
                 else if (control is RadioButton rbtn)
@@ -60,10 +63,8 @@ namespace Vista
         {
             if (MessageBox.Show("¿Estas seguro que deseas darlo de baja?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (Sistema.DarDeBajaUnViaje(viajeADarDeBaja))
-                {
-                    this.DialogResult = DialogResult.OK;
-                }
+                Sistema.DarDeBajaUnViaje(viajeADarDeBaja);
+                this.DialogResult = DialogResult.OK;
             }
         }
     }

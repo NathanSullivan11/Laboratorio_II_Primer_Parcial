@@ -52,5 +52,14 @@ namespace Vista
             }
             this.ActualizarDataGrid();
         }
+
+        protected virtual void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        
+
+    
+       
     }
 }

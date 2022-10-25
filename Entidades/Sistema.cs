@@ -186,6 +186,7 @@ namespace Entidades
             {
                 if(auxViaje.Equals(viajeADarDeBaja))
                 {
+                    auxViaje.ObtenerCrucero().EstaEnUso = false;
                     BaseDeDatos.ListaViajesActivos.Remove(auxViaje);
                     return true;
                 }
@@ -206,26 +207,28 @@ namespace Entidades
             }
         }
 
-        public static bool CruceroDisponibleEnEsasFechas(Viaje viajeAAgregar) 
-        {
-            Crucero cruceroCompartido = viajeAAgregar.ObtenerCrucero();
-            DateTime fechaDelViajeAAgregar = viajeAAgregar.ObtenerFechaSalida();
-            
+        /// <summary>
+        /// Verifica que un crucero este disponible en determinada fecha
+        /// </summary>
+        /// <param name="crucero"></param>
+        /// <param name="fechaDelViajeAAgregar"></param>
+        /// <returns></returns>
+        public static bool CruceroDisponibleEnEsasFechas(Crucero cruceroDelViajeAgregar, DateTime fechaDelViajeAgregar) 
+        {          
             bool estaDisponible = false;
-            
 
             foreach (Viaje auxViaje in BaseDeDatos.ListaViajesActivos)
             {
-                if(auxViaje.ObtenerCrucero().Equals(cruceroCompartido))
+                if(auxViaje.ObtenerCrucero().Equals(cruceroDelViajeAgregar))
                 {     
                     DateTime fechaSalida = auxViaje.ObtenerFechaSalida();
-                    DateTime fechaInicio;
+                    DateTime fechaInicio; 
                     DateTime fechaFinal;
 
-                    fechaInicio = fechaSalida.AddDays(int.Parse(auxViaje.Duracion) / 24);      
-                    fechaFinal = fechaSalida.AddDays(-int.Parse(auxViaje.Duracion) / 24);  
+                    fechaFinal = fechaSalida.AddDays(int.Parse(auxViaje.Duracion) / 24);
+                    fechaInicio = fechaSalida.AddDays(-int.Parse(auxViaje.Duracion) / 24);  
 
-                    if (!(fechaDelViajeAAgregar > fechaFinal && fechaDelViajeAAgregar < fechaInicio)) 
+                    if (!(fechaDelViajeAgregar > fechaInicio && fechaDelViajeAgregar < fechaFinal))
                     {
                         estaDisponible = true;
                         break;
@@ -236,6 +239,12 @@ namespace Entidades
             return estaDisponible;
 
         }
+
+        private static bool CruceroEstaEnUso(Viaje auxViaje)
+        {
+            return auxViaje.ObtenerCrucero().CruceroEstaEnUso();
+        }
+
 
         public static List<Cliente> FiltrarClientesPorDni(string numero)
         {
@@ -414,7 +423,7 @@ namespace Entidades
             List<Crucero> listaAux = new List<Crucero>();
             foreach(Crucero auxCrucero in BaseDeDatos.ListaCruceros)
             {
-                if(!auxCrucero.EstaEnUso)
+                if(!auxCrucero.CruceroEstaEnUso())
                 {
                     listaAux.Add(auxCrucero);
                 }

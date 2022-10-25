@@ -34,7 +34,7 @@ namespace Vista
 
             if (index > -1)
             {
-                FrmListadoPasajeros formListarPasajeros = new FrmListadoPasajeros(viajeSeleccionado);
+                FrmListadoPasajeros formListarPasajeros = new FrmListadoPasajeros(BaseDeDatos.ListaViajesActivos.ElementAt(this.dgvViajesActivos.CurrentCell.RowIndex));
                 formListarPasajeros.ShowDialog();
             }
             else
@@ -54,9 +54,10 @@ namespace Vista
             {
                 FrmAltaViaje formAltaViaje = new FrmAltaViaje();
 
-                if (formAltaViaje.ShowDialog() == DialogResult.OK)
+                if(formAltaViaje.ShowDialog() == DialogResult.OK)
                 {
-                    this.AgregarViaje(formAltaViaje.auxViaje);
+                    this.ActualizarListaViajes();
+
                 }
             }
         }
@@ -64,16 +65,7 @@ namespace Vista
 
         private void AgregarViaje(Viaje viajeAgregar)
         {
-            if (Sistema.CruceroDisponibleEnEsasFechas(viajeAgregar))
-            {
-                BaseDeDatos.ListaViajesActivos.Add(viajeAgregar);
-                MessageBox.Show($"Se agrego!\n{viajeAgregar.ToString()}");
-                this.ActualizarListaViajes();
-            }
-            else
-            {
-                MessageBox.Show($"El crucero ya tiene un viaje programada en esas fechas", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+          
         }
 
         private void btnVenderPasaje_Click(object sender, EventArgs e)
@@ -92,7 +84,7 @@ namespace Vista
 
         private void btnBajaViaje_Click(object sender, EventArgs e)
         {
-            FrmBajaViaje formBaja = new (BaseDeDatos.ListaViajesActivos.ElementAt(this.dgvViajesActivos.CurrentCell.RowIndex));
+            FrmBajaViaje formBaja = new FrmBajaViaje(BaseDeDatos.ListaViajesActivos.ElementAt(this.dgvViajesActivos.CurrentCell.RowIndex));
 
              if (formBaja.ShowDialog() == DialogResult.OK)
              {

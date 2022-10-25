@@ -13,7 +13,6 @@ namespace Vista
 {
     public partial class FrmAltaViaje : Form
     {
-        public Viaje auxViaje;
         List<Crucero> cruceros;
 
         public FrmAltaViaje()
@@ -48,36 +47,33 @@ namespace Vista
         {
             this.AgregarViaje();
         }
-
-        private bool CamposCompletos()
-        {
-            bool estanCompletos = true;
-            if (string.IsNullOrEmpty(this.cmbCrucero.SelectedItem.ToString()))
-            {
-                estanCompletos = false;
-            }
-            return estanCompletos;
-        }
-
         /// <summary>
         /// Agrega el viaje cargado dependiendo del destino
         /// </summary>
         private void AgregarViaje()
         {
-            if (!CamposCompletos())
-            {
-                this.DialogResult = DialogResult.Cancel;
-            }
-            if (this.rbtnRegional.Checked)
-            {
-                EDestinoRegional destino = (EDestinoRegional)this.cmbDestino.SelectedItem;
-                this.auxViaje = new Viaje(BaseDeDatos.ListaCruceros[this.cmbCrucero.SelectedIndex], (EOrigen)this.cmbOrigen.SelectedItem, this.dateTimePicker1.Value, true, EEstadoViaje.Disponible, destino);
+            Viaje viajeAgregar;
+            Crucero cruceroElegido = BaseDeDatos.ListaCruceros[this.cmbCrucero.SelectedIndex];
+            DateTime fechaElegida = this.dtp_FechaSalida.Value;
 
+            if (!cruceroElegido.CruceroEstaEnUso() || Sistema.CruceroDisponibleEnEsasFechas(cruceroElegido, fechaElegida))
+            {
+                if (this.rbtnRegional.Checked)
+                {
+                    viajeAgregar = new Viaje(cruceroElegido, (EOrigen)this.cmbOrigen.SelectedItem, fechaElegida, false, EEstadoViaje.Disponible, (EDestinoRegional)this.cmbDestino.SelectedItem);
+                }
+                else
+                {
+                    viajeAgregar = new Viaje(cruceroElegido, (EOrigen)this.cmbOrigen.SelectedItem, fechaElegida, false, EEstadoViaje.Disponible, (EDestinoExtraRegional)this.cmbDestino.SelectedItem);
+                }
+               
+                BaseDeDatos.ListaViajesActivos.Add(viajeAgregar);
+
+                MessageBox.Show($"Se agrego!\n{viajeAgregar.ToString()}");
             }
             else
             {
-                EDestinoExtraRegional destino = (EDestinoExtraRegional)this.cmbDestino.SelectedItem;
-                this.auxViaje = new Viaje(BaseDeDatos.ListaCruceros[this.cmbCrucero.SelectedIndex], (EOrigen)this.cmbOrigen.SelectedItem, this.dateTimePicker1.Value, false, EEstadoViaje.Disponible, destino);
+                MessageBox.Show($"El crucero ya tiene un viaje programada en esas fechas", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             this.DialogResult = DialogResult.OK;
@@ -107,5 +103,6 @@ namespace Vista
                 this.cmbDestino.DataSource = Enum.GetValues(typeof(EDestinoExtraRegional));
             }
         }
+
     }
 }

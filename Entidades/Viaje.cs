@@ -32,7 +32,7 @@ namespace Entidades
         public string Destino { get => this.destino; }
         public string FechaSalida { get => this.fechaSalida.ToString(); }
         public string Duracion { get => this.duracionEnHoras.ToString(); }       
-        public string KgBodega { get => $"{this.kgActualesEnBodega}kg/{this.crucero.CapacidadMaximaBodega}kg"; }
+        public string KgBodega { get => $"{this.kgActualesEnBodega}/{this.crucero.CapacidadMaximaBodega} kg"; }
         public string CamarotesEnUso { get => $"{this.ObtenerListaCamarotesPremium().Count + this.ObtenerListaCamarotesTurista().Count}/{this.crucero.CantidadCamarotesPremium + this.crucero.CantidadCamarotesTurista}"; }
         public float CostoBase { get => this.costoBase;  }
         public float CostoPremium { get => this.costoPremium;  }
@@ -136,7 +136,16 @@ namespace Entidades
 
         public string ObtenerDatosBasicosCrucero()
         {
-            return $"Matricula: {this.crucero.Matricula}\nBodega: {this.kgActualesEnBodega}/{this.crucero.CapacidadMaximaBodega}\nCamarotes turista: {this.camarotesTurista.Count}/{this.crucero.CantidadCamarotesTurista}\nCamarotes premium:{this.camarotesPremium.Count}/{this.crucero.CantidadCamarotesPremium}";
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"Matricula: {this.crucero.Matricula}");
+            sb.AppendLine($"Bodega: {this.kgActualesEnBodega}");
+            sb.AppendLine($"Camarotes turista: {this.camarotesTurista.Count}/{this.crucero.CantidadCamarotesTurista}");
+            sb.AppendLine($"Camarotes premium:{this.camarotesPremium.Count}/{this.crucero.CantidadCamarotesPremium}");
+            sb.AppendLine($"Cantidad de casinos: {this.crucero.CantidadCasinos}");
+            sb.AppendLine($"Salones: {this.crucero.ObtenerListaSalones()}");
+
+            return sb.ToString();
         }
 
         /// ////////////////////////////////////     //////////////////////////////              //////////////////////////////   //////////////////////////////

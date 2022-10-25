@@ -69,6 +69,7 @@ namespace Vista
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(174, 25);
             this.comboBox1.TabIndex = 3;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // rbtnOrdenAscendente
             // 
@@ -181,12 +182,12 @@ namespace Vista
 
         #endregion
         protected System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.RadioButton rbtnOrdenAscendente;
-        private System.Windows.Forms.RadioButton rbtnOrdenDescendente;
-        private System.Windows.Forms.Button btnOrdenar;
-        public System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        protected System.Windows.Forms.RadioButton rbtnOrdenAscendente;
+        protected System.Windows.Forms.RadioButton rbtnOrdenDescendente;
+        protected System.Windows.Forms.Button btnOrdenar;
+        protected System.Windows.Forms.DataGridView dataGridView1;
+        protected System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        protected System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 
 
     }

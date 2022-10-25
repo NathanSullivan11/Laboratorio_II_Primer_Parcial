@@ -39,7 +39,7 @@ namespace Vista
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblSeleccionarCrucero = new System.Windows.Forms.Label();
             this.lblSeleccionarDestino = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_FechaSalida = new System.Windows.Forms.DateTimePicker();
             this.lblFechaSalida = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -186,14 +186,15 @@ namespace Vista
             this.lblSeleccionarDestino.TabIndex = 9;
             this.lblSeleccionarDestino.Text = "Destino";
             // 
-            // dateTimePicker1
+            // dtp_FechaSalida
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker1.Location = new System.Drawing.Point(45, 17);
-            this.dateTimePicker1.MaximumSize = new System.Drawing.Size(161, 23);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(161, 23);
-            this.dateTimePicker1.TabIndex = 10;
+            this.dtp_FechaSalida.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtp_FechaSalida.Location = new System.Drawing.Point(45, 17);
+            this.dtp_FechaSalida.MaximumSize = new System.Drawing.Size(161, 23);
+            this.dtp_FechaSalida.Name = "dtp_FechaSalida";
+            this.dtp_FechaSalida.Size = new System.Drawing.Size(161, 23);
+            this.dtp_FechaSalida.TabIndex = 10;
+            this.dtp_FechaSalida.MinDate = System.DateTime.Today;
             // 
             // lblFechaSalida
             // 
@@ -221,7 +222,7 @@ namespace Vista
             // panel2
             // 
             this.panel2.Controls.Add(this.lblFechaSalida);
-            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.dtp_FechaSalida);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 61);
             this.panel2.Name = "panel2";
@@ -319,7 +320,7 @@ namespace Vista
         protected System.Windows.Forms.Button btnCancelar;
         protected System.Windows.Forms.Label lblSeleccionarCrucero;
         protected System.Windows.Forms.Label lblSeleccionarDestino;
-        protected System.Windows.Forms.DateTimePicker dateTimePicker1;
+        protected System.Windows.Forms.DateTimePicker dtp_FechaSalida;
         protected System.Windows.Forms.Label lblFechaSalida;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;

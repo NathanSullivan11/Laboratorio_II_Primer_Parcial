@@ -49,3 +49,4 @@ C:\Users\Usuario\source\repos\Recuperatorio.Sullivan.Nathan\Vista\obj\Debug\net5
 C:\Users\Usuario\source\repos\Recuperatorio.Sullivan.Nathan\Vista\obj\Debug\net5.0-windows\Vista.FrmCuentaUsuario.resources
 C:\Users\Usuario\source\repos\Recuperatorio.Sullivan.Nathan\Vista\obj\Debug\net5.0-windows\Vista.FrmAltaViaje.resources
 C:\Users\Usuario\source\repos\Recuperatorio.Sullivan.Nathan\Vista\obj\Debug\net5.0-windows\Vista.FrmBajaViaje.resources
+C:\Users\Usuario\source\repos\Recuperatorio.Sullivan.Nathan\Vista\obj\Debug\net5.0-windows\Vista.FrmEstadisticasDestinos.resources

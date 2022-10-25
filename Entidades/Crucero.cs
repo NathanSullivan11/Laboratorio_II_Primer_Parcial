@@ -11,7 +11,8 @@ namespace Entidades
         private string matricula;
         private string nombre;
         private int cantidadCamarotes;
-
+        private string listaSalones;
+        private int cantidadSalones;
         private int maximoCamarotesTurista;
         private int maximoCamarotesPremium;
         private int capacidadMaximaBodega;
@@ -37,45 +38,59 @@ namespace Entidades
             this.tieneBar = tieneBar;
             this.cantidadCasinos = cantidadCasinos;
             this.capacidadMaximaBodega = capacidadMaximaBodega;
-            
+            this.listaSalones = this.FormatearSalones();
+
+
         }
 
         public string Nombre { get => this.nombre; }
         public string Matricula { get => this.matricula; }
         public int CantidadCamarotes { get => this.cantidadCamarotes; }
-        public string ListaSalones { get => this.FormatearSalones(); }     
-        public bool TieneCasino { get => this.cantidadCasinos > 0; }
-        public int CantidadCasinos { get => this.cantidadCasinos; }
         public int CapacidadMaximaBodega { get => this.capacidadMaximaBodega; }
-        public bool EstaEnUso { get => this.estaEnUso; set => estaEnUso = value; }
-
+        public int CantidadSalones { get => this.cantidadSalones;  }   
+        public int CantidadCasinos { get => this.cantidadCasinos; }
         public int CantidadCamarotesPremium { get => this.maximoCamarotesPremium; }
-        public int CantidadCamarotesTurista{ get => this.maximoCamarotesTurista; }
+        public int CantidadCamarotesTurista { get => this.maximoCamarotesTurista; }
         public bool TieneComedor { get => tieneComedor;  }
         public bool TieneGimnasio { get => tieneGimnasio;  }
         public bool TienePileta { get => tienePileta; }
         public bool TieneBar { get => tieneBar;  }
+        public bool EstaEnUso { set => estaEnUso = value; }
+
+        public bool CruceroEstaEnUso()
+        {
+            return this.estaEnUso;
+        }
 
 
+        public string ObtenerListaSalones()
+        {
+            return this.listaSalones;
+        }
 
         private string FormatearSalones()
         {
+            this.cantidadSalones = 0;
             StringBuilder sb = new StringBuilder("");
             if (this.tieneComedor)
             {
                 sb.AppendLine("Comedor");
+                this.cantidadSalones++;
             }
-           if (this.tieneGimnasio)
+            if (this.tieneGimnasio)
             {
                 sb.AppendLine("Gimnasio");
+                this.cantidadSalones++;
             }
             if (this.tienePileta)
             {
                 sb.AppendLine("Pileta");
+                this.cantidadSalones++;
             }
             if (this.tieneBar)
             {
                 sb.AppendLine("Bar");
+                this.cantidadSalones++;
             }
 
             return sb.ToString();

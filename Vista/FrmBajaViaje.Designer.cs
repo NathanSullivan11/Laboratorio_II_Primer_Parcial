@@ -29,27 +29,68 @@ namespace Vista
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBajaViaje));
             this.SuspendLayout();
             // 
             // cmbCrucero
             // 
+            this.cmbCrucero.Enabled = false;
+            this.cmbCrucero.Location = new System.Drawing.Point(51, 18);
             // 
             // cmbOrigen
             // 
-            this.cmbOrigen.DataSource = null;
+            this.cmbOrigen.Enabled = false;
+            this.cmbOrigen.Location = new System.Drawing.Point(51, 20);
             // 
             // cmbDestino
             // 
-            this.cmbDestino.Location = new System.Drawing.Point(50, 193);
+
+            this.cmbDestino.Enabled = false;
+
+            this.cmbDestino.Location = new System.Drawing.Point(51, 27);
+            // 
+            // rbtnRegional
+            // 
+            this.rbtnRegional.Checked = true;
+            this.rbtnRegional.Location = new System.Drawing.Point(32, 27);
+            this.rbtnRegional.Visible = false;
+            // 
+            // rbtnExtraregional
+            // 
+            this.rbtnExtraregional.Location = new System.Drawing.Point(144, 27);
+            this.rbtnExtraregional.TabStop = false;
+            this.rbtnExtraregional.Visible = false;
             // 
             // btnAgregarViaje
             // 
+            this.btnAgregarViaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAgregarViaje.Location = new System.Drawing.Point(32, 17);
+            this.btnAgregarViaje.Text = "Dar de baja";
             this.btnAgregarViaje.Click += new System.EventHandler(this.btnAgregarViaje_Click);
+            // 
+            // lblSeleccionarOrigen
+            // 
+            this.lblSeleccionarOrigen.Location = new System.Drawing.Point(53, 3);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(144, 17);
+            // 
+            // lblSeleccionarCrucero
+            // 
+            this.lblSeleccionarCrucero.Location = new System.Drawing.Point(53, 1);
             // 
             // lblSeleccionarDestino
             // 
-            this.lblSeleccionarDestino.Location = new System.Drawing.Point(50, 175);
+            this.lblSeleccionarDestino.Location = new System.Drawing.Point(58, 183);
+            // 
+            // dateTimePicker1
+            // 
+            this.dtp_FechaSalida.Enabled = false;
+            this.dtp_FechaSalida.Location = new System.Drawing.Point(53, 21);
+            // 
+            // lblFechaSalida
+            // 
+            this.lblFechaSalida.Location = new System.Drawing.Point(53, 3);
             // 
             // FrmBajaViaje
             // 
@@ -60,7 +101,6 @@ namespace Vista
             this.Text = "Bajar viaje";
             this.Load += new System.EventHandler(this.FrmBajaViaje_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
         }
 
         #endregion

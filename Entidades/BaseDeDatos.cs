@@ -1985,7 +1985,8 @@ namespace Entidades
 
             for (int i = 0; i < 700; i++)
             {
-                if (new Random().Next(0, 1) == 1)
+                int nroRandom = new Random().Next(0, 100);
+                if (nroRandom % 2 == 0)
                 {
                     esPremium = false;
                     equipaje = new Equipaje(false, new Random().Next(0, 25));
@@ -2002,7 +2003,7 @@ namespace Entidades
 
         private static void HardcodearViajesActivos()
         {
-            listaViajesActivos.Add(new Viaje(listaCruceros.ElementAt(0), EOrigen.Buenos_Aires, DateTime.Parse("13/10/2022 08:00:00"), true, EEstadoViaje.Lleno, EDestinoRegional.Montevideo));
+            listaViajesActivos.Add(new Viaje(listaCruceros.ElementAt(0), EOrigen.Buenos_Aires, DateTime.Parse("13/11/2022 08:00:00"), true, EEstadoViaje.Lleno, EDestinoRegional.Montevideo));
             listaViajesActivos[0].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(50, 300));
             listaViajesActivos.Add(new Viaje(listaCruceros.ElementAt(1), EOrigen.Buenos_Aires, DateTime.Now, false, EEstadoViaje.Zarpando, EDestinoExtraRegional.Nueva_York));
             listaViajesActivos[1].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(301, 149));
@@ -2014,27 +2015,27 @@ namespace Entidades
         {
             listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(5), EOrigen.Buenos_Aires, DateTime.Parse("13/07/2022 09:00:00"), true, EEstadoViaje.Finalizado, EDestinoRegional.Recife));
             listaViajesFinalizados[0].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(0, 236));
-            listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(6), EOrigen.Buenos_Aires, DateTime.Parse("01/09/2022 13:00:00"), false, EEstadoViaje.Finalizado, EDestinoExtraRegional.Nueva_York));
+            listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(6), EOrigen.Buenos_Aires, DateTime.Parse("01/03/2022 13:00:00"), false, EEstadoViaje.Finalizado, EDestinoExtraRegional.Nueva_York));
             listaViajesFinalizados[1].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(50, 448));
-            listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(1), EOrigen.Buenos_Aires, DateTime.Parse("20/09/2022 19:30:00"), true, EEstadoViaje.Finalizado, EDestinoRegional.Ushuaia));
+            listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(1), EOrigen.Buenos_Aires, DateTime.Parse("20/06/2022 19:30:00"), true, EEstadoViaje.Finalizado, EDestinoRegional.Ushuaia));
             listaViajesFinalizados[2].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(100, 303));
             listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(4), EOrigen.Buenos_Aires, DateTime.Parse("10/05/2022 12:30:00"), true, EEstadoViaje.Finalizado, EDestinoRegional.Río_de_Janeiro));
             listaViajesFinalizados[3].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(0, 524));
             listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(3), EOrigen.Buenos_Aires, DateTime.Parse("19/08/2022 23:00:00"), false, EEstadoViaje.Finalizado, EDestinoExtraRegional.Bangkok));
             listaViajesFinalizados[4].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(50, 450));
-            listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(2), EOrigen.Buenos_Aires, DateTime.Parse("02/09/2022 14:30:00"), true, EEstadoViaje.Finalizado, EDestinoRegional.Santiago));
+            listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(2), EOrigen.Buenos_Aires, DateTime.Parse("02/05/2022 14:30:00"), true, EEstadoViaje.Finalizado, EDestinoRegional.Santiago));
             listaViajesFinalizados[5].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(100, 456));
             listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(0), EOrigen.Buenos_Aires, DateTime.Parse("30/07/2022 11:45:00"), true, EEstadoViaje.Finalizado, EDestinoRegional.Recife));
             listaViajesFinalizados[6].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(0, 236));
-            listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(6), EOrigen.Buenos_Aires, DateTime.Parse("27/09/2022 16:25:00"), false, EEstadoViaje.Finalizado, EDestinoExtraRegional.Nueva_York));
+            listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(6), EOrigen.Buenos_Aires, DateTime.Parse("27/04/2022 16:25:00"), false, EEstadoViaje.Finalizado, EDestinoExtraRegional.Nueva_York));
             listaViajesFinalizados[7].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(50, 448));
             listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(1), EOrigen.Buenos_Aires, DateTime.Parse("03/08/2022 22:30:00"), true, EEstadoViaje.Finalizado, EDestinoRegional.Ushuaia));
             listaViajesFinalizados[8].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(100, 263));
-            listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(2), EOrigen.Buenos_Aires, DateTime.Parse("10/05/2022 12:30:00"), true, EEstadoViaje.Finalizado, EDestinoExtraRegional.Miami));
+            listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(2), EOrigen.Buenos_Aires, DateTime.Parse("10/04/2022 12:30:00"), true, EEstadoViaje.Finalizado, EDestinoExtraRegional.Miami));
             listaViajesFinalizados[9].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(0, 343));
-            listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(0), EOrigen.Buenos_Aires, DateTime.Parse("17/09/2022 00:30:00"), false, EEstadoViaje.Finalizado, EDestinoExtraRegional.Bangkok));
+            listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(0), EOrigen.Buenos_Aires, DateTime.Parse("17/06/2022 00:30:00"), false, EEstadoViaje.Finalizado, EDestinoExtraRegional.Bangkok));
             listaViajesFinalizados[10].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(50, 289));
-            listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(4), EOrigen.Buenos_Aires, DateTime.Parse("10/09/2022 06:30:00"), true, EEstadoViaje.Finalizado, EDestinoRegional.Puerto_Madryn));
+            listaViajesFinalizados.Add(new Viaje(listaCruceros.ElementAt(4), EOrigen.Buenos_Aires, DateTime.Parse("10/08/2022 06:30:00"), true, EEstadoViaje.Finalizado, EDestinoRegional.Puerto_Madryn));
             listaViajesFinalizados[11].CargarListaPasajerosHardcodeados(listaModeloPasajeros.GetRange(100, 456));
         }
         #endregion

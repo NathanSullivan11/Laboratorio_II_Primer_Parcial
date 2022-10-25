@@ -10,7 +10,8 @@ namespace Vista
         private FrmLogin formLogin;
         private FrmViajes formViajes;
         private FrmClientes formClientes;
-
+        private FrmEstadisticasDestinos formEstadisticasDestinos;
+        private string mensajeAyuda;
 
         public FrmMenuPrincipal(FrmLogin formLogin, Usuario usuarioLogueado)
         {
@@ -45,7 +46,12 @@ namespace Vista
 
         private void btn_EstadisticasDestinos_Click(object sender, EventArgs e)
         {
+            this.VaciarPanelCentral();
             this.OcultarSubMenuEstadisticas();
+
+            this.formEstadisticasDestinos = new FrmEstadisticasDestinos();
+            this.ConfigurarForm(this.formEstadisticasDestinos);
+            this.mensajeAyuda = "Ayuda destinos";
         }
 
         private void btn_EstadisticasCruceros_Click(object sender, EventArgs e)
@@ -59,7 +65,8 @@ namespace Vista
             this.OcultarSubMenuEstadisticas();
 
             this.formViajes = new FrmViajes();
-            this.ConfigurarForm(formViajes);
+            this.ConfigurarForm(this.formViajes);
+            this.mensajeAyuda = "Ayuda viajes";
         }
 
         private void btn_Clientes_Click(object sender, EventArgs e)
@@ -68,7 +75,8 @@ namespace Vista
             this.OcultarSubMenuEstadisticas();
 
             this.formClientes = new FrmClientes();
-            this.ConfigurarForm(formClientes);
+            this.ConfigurarForm(this.formClientes);
+            this.mensajeAyuda = "Ayuda clientes";
         }
 
         private void OcultarSubMenuEstadisticas()
@@ -135,11 +143,12 @@ namespace Vista
             pbox_Maximizar.Visible = true;
             this.WindowState = FormWindowState.Normal;
         }
+
         private void pbox_Ayuda_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Holaaa", "Ayuda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(this.mensajeAyuda, "Ayuda", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        
+
         private void pbox_Cerrar_Click(object sender, EventArgs e)
         {
             this.Close();
