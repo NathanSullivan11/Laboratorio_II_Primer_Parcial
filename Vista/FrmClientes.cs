@@ -14,6 +14,7 @@ namespace Vista
 {
     public partial class FrmClientes : Form
     {
+        #region Constructor y evento Load
         public FrmClientes()
         {
             InitializeComponent();
@@ -26,14 +27,16 @@ namespace Vista
             this.rbtnOrdenAscendente.Checked = true;
             this.Dock = DockStyle.Fill;
         }
+        #endregion
 
+        #region Configuracion para instanciar
         protected virtual void CargarComboBoxFiltros()
         {
-            this.comboBox1.Items.Clear();
-            this.comboBox1.Items.Add("Id");
-            this.comboBox1.Items.Add("Cantidad de viajes");
-            this.comboBox1.Items.Add("Dni");
-            this.comboBox1.SelectedIndex = 0;
+            this.cmbBox_Opciones.Items.Clear();
+            this.cmbBox_Opciones.Items.Add("Id");
+            this.cmbBox_Opciones.Items.Add("Cantidad de viajes");
+            this.cmbBox_Opciones.Items.Add("Dni");
+            this.cmbBox_Opciones.SelectedIndex = 0;
         }
 
         protected virtual void ActualizarDataGrid()
@@ -41,10 +44,12 @@ namespace Vista
             this.dataGridView1.DataSource = null;
             this.dataGridView1.DataSource = BaseDeDatos.ListaClientes;
         }
+        #endregion
 
+        #region Boton ordenar
         protected virtual void btnOrdenar_Click(object sender, EventArgs e)
         {
-            Sistema.OrdenarClientes(BaseDeDatos.ListaClientes, this.comboBox1.SelectedItem.ToString());
+            Sistema.OrdenarClientes(BaseDeDatos.ListaClientes, this.cmbBox_Opciones.SelectedItem.ToString());
 
             if (rbtnOrdenDescendente.Checked)
             {
@@ -52,14 +57,15 @@ namespace Vista
             }
             this.ActualizarDataGrid();
         }
+        #endregion
 
-        protected virtual void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        
-
-    
-       
+        #region Evento virtual
+        /// <summary>
+        /// Evento virtual para sobreescribir en los formularios derivados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected virtual void cmbBox_Opciones_SelectedIndexChanged(object sender, EventArgs e) { }
+        #endregion
     }
 }

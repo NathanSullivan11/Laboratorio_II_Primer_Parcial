@@ -8,6 +8,7 @@ namespace Entidades
 {   
     public class Viaje
     {
+        #region Atributos
         private List<Pasajero> listaPasajeros;
         private List<Camarote> camarotesTurista;
         private List<Camarote> camarotesPremium;
@@ -23,8 +24,9 @@ namespace Entidades
         private float costoPremium;
         private float gananciasRecaudadas;
         private int kgActualesEnBodega;
+        #endregion
 
-        #region propiedades
+        #region Propiedades
         public string Crucero { get => this.crucero.Matricula; }
         public string CodigoDeViaje { get => this.codigoDeViaje;  }
         public string Estado { get => estado.ToString(); }
@@ -43,6 +45,7 @@ namespace Entidades
         public bool TieneBar { get => this.crucero.TieneBar; }
         #endregion
 
+        #region Constructores
         private Viaje(Crucero crucero, EOrigen origen, DateTime fechaSalida, bool esRegional, EEstadoViaje estado)
         {
             this.crucero = crucero;
@@ -68,10 +71,10 @@ namespace Entidades
             this.costoBase = this.CalcularCostoBase();
             this.costoPremium = this.costoBase * 1.20f;
             this.gananciasRecaudadas = 0;
-            this.codigoDeViaje = this.GenerarCodigoDeViajeAleatorio();
-            this.AgregarABaseDeDatos();
+            this.codigoDeViaje = Sistema.GenerarCodigoDeViajeAleatorio();
+            Sistema.AgregarABaseDeDatos(this);
         }
-
+        
         public Viaje(Crucero crucero, EOrigen origen, DateTime fechaSalida, bool esRegional, EEstadoViaje estado, EDestinoRegional destinoRegional) : this(crucero, origen, fechaSalida, esRegional, estado)
         {
             this.destino = destinoRegional.ToString();
@@ -82,7 +85,9 @@ namespace Entidades
             this.destino = destinoExtraRegional.ToString();
         }
 
-        // Indexador
+        #endregion
+
+        #region Indexador
         public Pasajero this[int index]
         {
             get 
@@ -94,11 +99,9 @@ namespace Entidades
                 return null;
             }
         }
+        #endregion
 
-
-        /// //////////////////////////////////// GETTERS los cuales son métodos, porque no quiero que queden expuesto en el data gris //////////////////////////////
-
-
+        #region Metodos getters
         public List<Pasajero> ObtenerListaPasajeros()
         {
             return this.listaPasajeros;
@@ -147,10 +150,52 @@ namespace Entidades
 
             return sb.ToString();
         }
+        #endregion
 
-        /// ////////////////////////////////////     //////////////////////////////              //////////////////////////////   //////////////////////////////
+        #region Metodos para asignar pasajeros a camarotes
+        private bool AsignarCamaroteAPasajero(Pasajero pasajero)
+        {
+            bool seAgregoAlCamarote = false;
 
+            if (pasajero.EsPremium)
+            {
+                if (this.AgregarPasajeroACamarotePremiumDisponible(pasajero))
+                {
+                    seAgregoAlCamarote = true;
+                }
+            }
+            else
+            {
+                if (this.AgregarPasajeroACamaroteTuristaDisponible(pasajero))
+                {
+                    seAgregoAlCamarote = true;
+                }
+            }
+            return seAgregoAlCamarote;
+        }
 
+        private bool AsignarCamaroteAGrupoFamiliar(List<Pasajero> grupoPasajeros, bool sonPremium)
+        {
+            bool seAgregaronAlCamarote = false;
+
+            if (sonPremium)
+            {
+                if (this.AgregarGrupoPasajerosACamarotePremiumDisponible(grupoPasajeros))
+                {
+                    //this.crucero.ObtenerListaCamarotesPremium().Add(new Camarote(grupoPasajeros));
+                    seAgregaronAlCamarote = true;
+                }
+            }
+            else
+            {
+                if (this.AgregarGrupoPasajerosACamaroteTuristaDisponible(grupoPasajeros))
+                {
+                    //this.crucero.ObtenerListaCamarotesTurista().Add(new Camarote(grupoPasajeros));
+                    seAgregaronAlCamarote = true;
+                }
+            }
+            return seAgregaronAlCamarote;
+        }
 
         /// <summary>
         /// Asigna un camarote a un pasajero premium, si esta disponible,
@@ -212,14 +257,50 @@ namespace Entidades
             }
             return seAgrego;
         }
+        #endregion
 
-
-        public bool HayCapacidadEnBodega(int pesoEquipaje)
+        #region Metodos para agregar pasajeros al viaje
+        public bool AgregarPasajero(Pasajero pasajero)
         {
-            int valor = this.kgActualesEnBodega;
-            return (valor + pesoEquipaje) <= this.crucero.CapacidadMaximaBodega;
+            bool seAgrego = false;
+
+            if (this.AsignarCamaroteAPasajero(pasajero) && this.AgregarEquipaje(pasajero.ObtenerEquipaje()))
+            {
+                seAgrego = true;
+                this.listaPasajeros.Add(pasajero);
+                Cliente.SumarleUnViajeACliente(pasajero.ObtenerCliente());
+                this.AcumularGananciaDeUnaVenta(pasajero);
+            }
+
+            return seAgrego;
         }
 
+        public bool AgregarGrupoFamiliar(List<Pasajero> pasajeros, bool sonPremium)
+        {
+            bool seAgregaron = false;
+            int totalPeso = 0;
+
+            foreach (Pasajero auxP in pasajeros)
+            {
+                totalPeso += auxP.ObtenerEquipaje();
+            }
+
+            if (this.AsignarCamaroteAGrupoFamiliar(pasajeros, sonPremium) && this.AgregarEquipaje(totalPeso))
+            {
+                seAgregaron = true;
+                foreach (Pasajero auxPasajero in pasajeros)
+                {
+                    this.listaPasajeros.Add(auxPasajero);
+                    Cliente.SumarleUnViajeACliente(auxPasajero.ObtenerCliente());
+                }
+                this.AcumularGananciasDeVentaMultiple(pasajeros);
+            }
+
+            return seAgregaron;
+        }
+        #endregion
+
+        #region Metodo para agregar equipaje
         public bool AgregarEquipaje(int pesoEquipaje)
         {
             if (this.HayCapacidadEnBodega(pesoEquipaje))
@@ -229,14 +310,9 @@ namespace Entidades
             }
             return false;
         }
+        #endregion
 
-        private void AgregarABaseDeDatos()
-        {
-            if(Sistema.ViajeExisteEnBaseDeDatos(this))
-            {
-                BaseDeDatos.ListaViajesActivos.Add(this);
-            }
-        }
+        #region Metodos para calcular ganancias
         /// <summary>
         /// Acumula lo facturado de un grupo familiar, al total de lo recaudado del viaje
         /// </summary>
@@ -263,7 +339,8 @@ namespace Entidades
                 this.gananciasRecaudadas += this.costoBase * 1.21f;
             }     
         }
-        
+        #endregion
+
         public void CargarListaPasajerosHardcodeados(List<Pasajero> listaPasajeros)
         {
             //this.listaPasajeros = listaPasajeros;
@@ -271,9 +348,7 @@ namespace Entidades
             {
                 this.AgregarPasajero(auxPasajero);
             }
-        }
-
-       
+        }    
 
         private int CalcularDuracion()
         {
@@ -304,113 +379,13 @@ namespace Entidades
             return costoBase;
         }
 
-        public bool AgregarPasajero(Pasajero pasajero)
+        public bool HayCapacidadEnBodega(int pesoEquipaje)
         {
-            bool seAgrego = false;
-           
-            if(this.AsignarCamaroteAPasajero(pasajero) && this.AgregarEquipaje(pasajero.ObtenerEquipaje()))
-            {
-                seAgrego = true;
-                this.listaPasajeros.Add(pasajero);
-                Cliente.SumarleUnViajeACliente(pasajero.ObtenerCliente());
-                this.AcumularGananciaDeUnaVenta(pasajero);
-            }                             
-            
-            return seAgrego;
+            int valor = this.kgActualesEnBodega;
+            return (valor + pesoEquipaje) <= this.crucero.CapacidadMaximaBodega;
         }
 
-        public bool AgregarGrupoFamiliar(List<Pasajero> pasajeros, bool sonPremium)
-        {
-            bool seAgregaron = false;
-            int totalPeso = 0;
-
-            foreach(Pasajero auxP in pasajeros)
-            {
-                totalPeso += auxP.ObtenerEquipaje();
-            }
-
-            if (this.AsignarCamaroteAGrupoFamiliar(pasajeros, sonPremium) && this.AgregarEquipaje(totalPeso))
-            {
-                seAgregaron = true;
-                foreach(Pasajero auxPasajero in pasajeros)
-                {
-                    this.listaPasajeros.Add(auxPasajero);
-                    Cliente.SumarleUnViajeACliente(auxPasajero.ObtenerCliente());
-                }
-                this.AcumularGananciasDeVentaMultiple(pasajeros);
-            }
-            
-            return seAgregaron;
-        }
-
-        
-
-        private bool AsignarCamaroteAPasajero(Pasajero pasajero)
-        {
-            bool seAgregoAlCamarote = false;
- 
-            if (pasajero.EsPremium)
-            {                
-                if(this.AgregarPasajeroACamarotePremiumDisponible(pasajero))
-                {
-                    seAgregoAlCamarote = true;
-                }
-            }
-            else
-            {
-                if (this.AgregarPasajeroACamaroteTuristaDisponible(pasajero))
-                {
-                    seAgregoAlCamarote = true;
-                }
-            }
-            return seAgregoAlCamarote;
-        }
-
-        private bool AsignarCamaroteAGrupoFamiliar(List<Pasajero> grupoPasajeros, bool sonPremium)
-        {
-            bool seAgregaronAlCamarote = false;
-
-            if (sonPremium)
-            {
-                if (this.AgregarGrupoPasajerosACamarotePremiumDisponible(grupoPasajeros))
-                {
-                    //this.crucero.ObtenerListaCamarotesPremium().Add(new Camarote(grupoPasajeros));
-                    seAgregaronAlCamarote = true;
-                }
-            }
-            else
-            {
-                if (this.AgregarGrupoPasajerosACamaroteTuristaDisponible(grupoPasajeros))
-                {
-                    //this.crucero.ObtenerListaCamarotesTurista().Add(new Camarote(grupoPasajeros));
-                    seAgregaronAlCamarote = true;
-                }
-            }
-            return seAgregaronAlCamarote;
-        }
-
-        
-
-       
-               
-
-        public string GenerarCodigoDeViajeAleatorio()
-        {
-            char[] letras = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', };
-            int[] numeros = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            Random random = new Random();
-
-            string codigo = "";
-            codigo += letras[random.Next(0, letras.Length)];
-            codigo += letras[random.Next(0, letras.Length)];
-            codigo += letras[random.Next(0, letras.Length)];
-            codigo += letras[random.Next(0, letras.Length)];
-            codigo += numeros[random.Next(0, numeros.Length)];
-            codigo += numeros[random.Next(0, numeros.Length)];
-
-            return codigo;
-
-        }
+        #region Metodos override
         public override int GetHashCode()
         {
             return base.GetHashCode();
@@ -428,5 +403,8 @@ namespace Entidades
         {
             return $"Crucero: {this.crucero}\nOrigen: {this.origen} Destino;{this.destino}\nesRegional: {this.esRegional}\nDuracion: {this.duracionEnHoras}";
         }
+        #endregion
+
+
     }
 }

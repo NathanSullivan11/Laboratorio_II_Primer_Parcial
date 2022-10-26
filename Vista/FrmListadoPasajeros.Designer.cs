@@ -84,7 +84,7 @@ namespace Vista
             this.chkBoxFiltroPremium.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chkBoxFiltroPremium.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.chkBoxFiltroPremium.ForeColor = System.Drawing.Color.White;
-            this.chkBoxFiltroPremium.Location = new System.Drawing.Point(565, 24);
+            this.chkBoxFiltroPremium.Location = new System.Drawing.Point(561, 24);
             this.chkBoxFiltroPremium.Name = "chkBoxFiltroPremium";
             this.chkBoxFiltroPremium.Size = new System.Drawing.Size(121, 20);
             this.chkBoxFiltroPremium.TabIndex = 6;
@@ -118,7 +118,7 @@ namespace Vista
             this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.42177F));
             this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.4966F));
             this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.76964F));
-            this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 431F));
+            this.tableLayoutPanel_ContenedorBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 436F));
             this.tableLayoutPanel_ContenedorBotones.Controls.Add(this.btnInfoCrucero, 5, 0);
             this.tableLayoutPanel_ContenedorBotones.Controls.Add(this.tableLayoutPanel1, 2, 0);
             this.tableLayoutPanel_ContenedorBotones.Controls.Add(this.chkBoxFiltroPremium, 4, 0);
@@ -141,7 +141,7 @@ namespace Vista
             this.btnInfoCrucero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInfoCrucero.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnInfoCrucero.ForeColor = System.Drawing.Color.White;
-            this.btnInfoCrucero.Location = new System.Drawing.Point(864, 15);
+            this.btnInfoCrucero.Location = new System.Drawing.Point(862, 15);
             this.btnInfoCrucero.Name = "btnInfoCrucero";
             this.btnInfoCrucero.Size = new System.Drawing.Size(116, 38);
             this.btnInfoCrucero.TabIndex = 2;
@@ -157,7 +157,7 @@ namespace Vista
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
             this.tableLayoutPanel1.Controls.Add(this.lblFiltrarPor, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.cmbOpcionesFiltrado, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(157, 7);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(156, 7);
             this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(229, 55);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -181,16 +181,17 @@ namespace Vista
             // txtFiltro
             // 
             this.txtFiltro.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtFiltro.Location = new System.Drawing.Point(396, 23);
+            this.txtFiltro.Location = new System.Drawing.Point(394, 23);
             this.txtFiltro.MaximumSize = new System.Drawing.Size(176, 23);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.PlaceholderText = "Filtrar acá";
-            this.txtFiltro.Size = new System.Drawing.Size(146, 23);
+            this.txtFiltro.Size = new System.Drawing.Size(145, 23);
             this.txtFiltro.TabIndex = 11;
             this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // dgvListadoPasajeros
             // 
+            this.dgvListadoPasajeros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListadoPasajeros.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.dgvListadoPasajeros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListadoPasajeros.Dock = System.Windows.Forms.DockStyle.Fill;

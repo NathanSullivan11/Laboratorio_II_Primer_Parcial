@@ -13,9 +13,12 @@ namespace Vista
 {
     public partial class FrmListadoPasajeros : Form
     {
+        #region Atributos
         private Viaje esteViaje;
         private int opcionSeleccionadaFiltrado;
+        #endregion
 
+        #region Constructor y evneto Load
         public FrmListadoPasajeros(Viaje esteViaje)
         {
             InitializeComponent();
@@ -28,7 +31,9 @@ namespace Vista
             this.CargarOpcionesFiltrado();
             this.chkBoxFiltroPremium.Visible = false;
         }
+        #endregion
 
+        #region Configuraciones para instanciar
         private void ActualizarListadoPasajeros()
         {
             this.dgvListadoPasajeros.DataSource = null;
@@ -41,7 +46,14 @@ namespace Vista
             this.cmbOpcionesFiltrado.DataSource = opciones;
             this.cmbOpcionesFiltrado.SelectedItem = "Sin filtro";
         }
+        #endregion
 
+        #region Funcionalidad para el filtrado
+        /// <summary>
+        /// Prepara el textbox segun el criterio de filtrado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbOpcionesFiltrado_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.chkBoxFiltroPremium.Visible = true;
@@ -74,21 +86,7 @@ namespace Vista
             {
                 this.FiltrarSegunOpcion();
             }
-            
-        }
 
-        private void btnInfoCrucero_Click(object sender, EventArgs e)
-        {
-            StringBuilder informacionCrucero = new StringBuilder();
-
-            informacionCrucero.AppendLine(this.esteViaje.ObtenerDatosBasicosCrucero());
-
-            MessageBox.Show(informacionCrucero.ToString(), "Información crucero", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void pbox_Regresar_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
         }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
@@ -105,7 +103,6 @@ namespace Vista
 
         private void FiltrarSegunOpcion()
         {
-
             switch (this.opcionSeleccionadaFiltrado)
             {
                 case 1:
@@ -130,6 +127,7 @@ namespace Vista
             this.dgvListadoPasajeros.DataSource = null;
             this.dgvListadoPasajeros.DataSource = listaAux;
         }
+
         private void FiltrarPorApellido()
         {
             List<Pasajero> listaAux = Sistema.FiltrarPasajerosPorApellido(this.esteViaje, this.txtFiltro.Text, this.chkBoxFiltroPremium.Checked);
@@ -137,6 +135,7 @@ namespace Vista
             this.dgvListadoPasajeros.DataSource = null;
             this.dgvListadoPasajeros.DataSource = listaAux;
         }
+
         private void FiltrarPorPasaporte()
         {
             List<Pasajero> listaAux = Sistema.FiltrarPasajerosPorPasaporte(this.esteViaje, this.txtFiltro.Text, this.chkBoxFiltroPremium.Checked);
@@ -144,6 +143,7 @@ namespace Vista
             this.dgvListadoPasajeros.DataSource = null;
             this.dgvListadoPasajeros.DataSource = listaAux;
         }
+
         private void FiltrarPorEdad()
         {
             List<Pasajero> listaAux = Sistema.FiltrarPasajerosPorEdad(this.esteViaje, this.txtFiltro.Text, this.chkBoxFiltroPremium.Checked);
@@ -151,7 +151,9 @@ namespace Vista
             this.dgvListadoPasajeros.DataSource = null;
             this.dgvListadoPasajeros.DataSource = listaAux;
         }
+        #endregion
 
+        #region Funcionalidades varias
         private void chkBoxFiltroPremium_CheckedChanged(object sender, EventArgs e)
         {
             if (cmbOpcionesFiltrado.SelectedItem.ToString() == "Sin filtro" || cmbOpcionesFiltrado.SelectedItem == null)
@@ -168,8 +170,21 @@ namespace Vista
             {
                 this.FiltrarSegunOpcion();
             }
-         
-            
         }
+
+        private void btnInfoCrucero_Click(object sender, EventArgs e)
+        {
+            StringBuilder informacionCrucero = new StringBuilder();
+
+            informacionCrucero.AppendLine(this.esteViaje.ObtenerDatosBasicosCrucero());
+
+            MessageBox.Show(informacionCrucero.ToString(), "Información crucero", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void pbox_Regresar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+        #endregion
     }
 }

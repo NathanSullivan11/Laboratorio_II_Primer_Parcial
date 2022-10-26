@@ -8,6 +8,7 @@ namespace Entidades
 {
     public class Crucero
     {
+        #region Atributos
         private string matricula;
         private string nombre;
         private int cantidadCamarotes;
@@ -22,15 +23,15 @@ namespace Entidades
         private bool tienePileta;
         private bool tieneBar;
         private int cantidadCasinos;
+        #endregion
 
+        #region Constructor
         public Crucero(string matricula, string nombre, int cantidadCamarotes, int capacidadMaximaBodega, bool tieneComedor, bool tieneGimnasio, bool tienePileta, bool tieneBar, int cantidadCasinos)
         {
             this.matricula = matricula;
             this.nombre = nombre;
-            this.cantidadCamarotes = cantidadCamarotes;
-          
-            this.maximoCamarotesPremium = (int)(this.cantidadCamarotes * 0.35);
-            
+            this.cantidadCamarotes = cantidadCamarotes;         
+            this.maximoCamarotesPremium = (int)(this.cantidadCamarotes * 0.35);            
             this.maximoCamarotesTurista = this.cantidadCamarotes - this.maximoCamarotesPremium;
             this.tieneComedor = tieneComedor ;
             this.tieneGimnasio = tieneGimnasio;
@@ -39,10 +40,10 @@ namespace Entidades
             this.cantidadCasinos = cantidadCasinos;
             this.capacidadMaximaBodega = capacidadMaximaBodega;
             this.listaSalones = this.FormatearSalones();
-
-
         }
+        #endregion
 
+        #region Propiedades
         public string Nombre { get => this.nombre; }
         public string Matricula { get => this.matricula; }
         public int CantidadCamarotes { get => this.cantidadCamarotes; }
@@ -56,17 +57,19 @@ namespace Entidades
         public bool TienePileta { get => tienePileta; }
         public bool TieneBar { get => tieneBar;  }
         public bool EstaEnUso { set => estaEnUso = value; }
+        #endregion
 
+        #region Metodos getters
         public bool CruceroEstaEnUso()
         {
             return this.estaEnUso;
         }
 
-
         public string ObtenerListaSalones()
         {
             return this.listaSalones;
         }
+        #endregion
 
         private string FormatearSalones()
         {
@@ -96,8 +99,7 @@ namespace Entidades
             return sb.ToString();
         }
 
-        
-         
+        #region Metodos override
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -122,6 +124,6 @@ namespace Entidades
             }
             return false;
         }
-
+        #endregion
     }
 }

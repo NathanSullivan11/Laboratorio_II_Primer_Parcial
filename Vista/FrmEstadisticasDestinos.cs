@@ -12,9 +12,10 @@ using Entidades;
 namespace Vista
 {
     public partial class FrmEstadisticasDestinos : FrmClientes
-    {
+    {        
         private int opcionSeleccionada;
 
+        #region Constructor y evento Load
         public FrmEstadisticasDestinos()
         {
             InitializeComponent();
@@ -25,19 +26,33 @@ namespace Vista
             this.EstablecerPredeterminados();
             this.Dock = DockStyle.Fill;
         }
+        #endregion
 
+        #region Configuraciones para instanciar
         private void EstablecerPredeterminados()
         {
             this.CargarComboBoxFiltros();
-            this.comboBox1.SelectedIndex = 0;
-
+            this.cmbBox_Opciones.SelectedIndex = 0;
             this.rbtnOrdenAscendente.Checked = true;
-
-            AsignarDiccionarioFacturacionDataGrid(Sistema.OrdenarDiccionarioDestinosFacturacion(0));
+            CargarDiccionarioFacturacionDataGrid(Sistema.OrdenarDiccionarioDestinosFacturacion(0));
             
         }
 
-        private void AsignarDiccionarioFacturacionDataGrid(Dictionary<string, float> diccionarioFacturacion)
+        protected override void CargarComboBoxFiltros()
+        {
+            this.cmbBox_Opciones.Items.Clear();
+            this.cmbBox_Opciones.Items.Add("Facturación");
+            this.cmbBox_Opciones.Items.Add("pedidos de viajes");
+            this.cmbBox_Opciones.SelectedIndex = 0;
+        }
+        #endregion
+
+        #region Funcionalidades para cargar el data grid
+        /// <summary>
+        /// Carga el data grid con la información de los destinos por facturación
+        /// </summary>
+        /// <param name="diccionarioFacturacion"></param>
+        private void CargarDiccionarioFacturacionDataGrid(Dictionary<string, float> diccionarioFacturacion)
         {
             this.dataGridView1.DataSource = null;
             BindingSource bd = new BindingSource();
@@ -46,8 +61,11 @@ namespace Vista
             this.dataGridView1.Columns[0].HeaderText = "Destino";
             this.dataGridView1.Columns[1].HeaderText = "Facturado";
         }
-
-        private void AsignarDiccionarioCantidadViajesDataGrid(Dictionary<string, int> diccionarioCantidadViajes)
+        /// <summary>
+        /// Carga el data grid con la información de los destinos por horas de viaje
+        /// </summary>
+        /// <param name="diccionarioCantidadViajes"></param>
+        private void CargarDiccionarioCantidadViajesDataGrid(Dictionary<string, int> diccionarioCantidadViajes)
         {
             this.dataGridView1.DataSource = null;
             BindingSource bd = new BindingSource();
@@ -56,44 +74,57 @@ namespace Vista
             this.dataGridView1.Columns[0].HeaderText = "Destino";
             this.dataGridView1.Columns[1].HeaderText = "Viajes";
         }
+        #endregion
 
-        protected override void CargarComboBoxFiltros()
+        #region Evento para cambiar la opcion seleccionada
+        /// <summary>
+        /// Setea la opcion seleccionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected override void cmbBox_Opciones_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.comboBox1.Items.Clear();
-            this.comboBox1.Items.Add("Facturación");
-            this.comboBox1.Items.Add("pedidos de viajes");
-            this.comboBox1.SelectedIndex = 0;
+            opcionSeleccionada = this.cmbBox_Opciones.SelectedIndex;
         }
+        #endregion
 
-        protected override void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            opcionSeleccionada = this.comboBox1.SelectedIndex;
-        }
-
+        #region Funcionalidades para ordenar
         protected override void btnOrdenar_Click(object sender, EventArgs e)
         {
             if (opcionSeleccionada == 0)
             {
-                if (rbtnOrdenAscendente.Checked)
-                {
-                    AsignarDiccionarioFacturacionDataGrid(Sistema.OrdenarDiccionarioDestinosFacturacion(0));
-                }
-                else if (rbtnOrdenDescendente.Checked)
-                {
-                    AsignarDiccionarioFacturacionDataGrid(Sistema.OrdenarDiccionarioDestinosFacturacion(1));
-                }
+                this.OrdenarPorFacturacion();
             }
             else
             {
-                if (rbtnOrdenAscendente.Checked)
-                {
-                    AsignarDiccionarioCantidadViajesDataGrid(Sistema.OrdenarDiccionarioDestinosCantidadViajes(0));
-                }
-                else if (rbtnOrdenDescendente.Checked)
-                {
-                    AsignarDiccionarioCantidadViajesDataGrid(Sistema.OrdenarDiccionarioDestinosCantidadViajes(1));
-                }
+                this.OrdenarPorCantidadDeViajes();
             }
         }
+
+        private void OrdenarPorFacturacion()
+        {
+            if (rbtnOrdenAscendente.Checked)
+            {
+                CargarDiccionarioFacturacionDataGrid(Sistema.OrdenarDiccionarioDestinosFacturacion(0));
+            }
+            else if (rbtnOrdenDescendente.Checked)
+            {
+                CargarDiccionarioFacturacionDataGrid(Sistema.OrdenarDiccionarioDestinosFacturacion(1));
+            }
+        }
+
+        private void OrdenarPorCantidadDeViajes()
+        {
+            if (rbtnOrdenAscendente.Checked)
+            {
+                CargarDiccionarioCantidadViajesDataGrid(Sistema.OrdenarDiccionarioDestinosCantidadViajes(0));
+            }
+            else if (rbtnOrdenDescendente.Checked)
+            {
+                CargarDiccionarioCantidadViajesDataGrid(Sistema.OrdenarDiccionarioDestinosCantidadViajes(1));
+            }
+        }
+        #endregion
+
     }
 }

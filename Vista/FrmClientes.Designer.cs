@@ -30,7 +30,7 @@ namespace Vista
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbBox_Opciones = new System.Windows.Forms.ComboBox();
             this.rbtnOrdenAscendente = new System.Windows.Forms.RadioButton();
             this.rbtnOrdenDescendente = new System.Windows.Forms.RadioButton();
             this.btnOrdenar = new System.Windows.Forms.Button();
@@ -53,23 +53,23 @@ namespace Vista
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 80);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(960, 551);
             this.dataGridView1.TabIndex = 0;
             // 
-            // comboBox1
+            // cmbBox_Opciones
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(39, 23);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(174, 25);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbBox_Opciones.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbBox_Opciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(112)))), ((int)(((byte)(161)))));
+            this.cmbBox_Opciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBox_Opciones.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbBox_Opciones.ForeColor = System.Drawing.Color.White;
+            this.cmbBox_Opciones.FormattingEnabled = true;
+            this.cmbBox_Opciones.Location = new System.Drawing.Point(39, 23);
+            this.cmbBox_Opciones.Name = "cmbBox_Opciones";
+            this.cmbBox_Opciones.Size = new System.Drawing.Size(174, 25);
+            this.cmbBox_Opciones.TabIndex = 3;
             // 
             // rbtnOrdenAscendente
             // 
@@ -147,7 +147,7 @@ namespace Vista
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.91089F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.37624F));
             this.tableLayoutPanel2.Controls.Add(this.rbtnOrdenAscendente, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cmbBox_Opciones, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.rbtnOrdenDescendente, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnOrdenar, 3, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -181,7 +181,7 @@ namespace Vista
         }
 
         #endregion
-        protected System.Windows.Forms.ComboBox comboBox1;
+        protected System.Windows.Forms.ComboBox cmbBox_Opciones;
         protected System.Windows.Forms.RadioButton rbtnOrdenAscendente;
         protected System.Windows.Forms.RadioButton rbtnOrdenDescendente;
         protected System.Windows.Forms.Button btnOrdenar;

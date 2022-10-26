@@ -15,18 +15,21 @@ namespace Vista
     {
         Usuario usuarioLogueado;
 
+        #region Constructor y evento Load
         public FrmCuentaUsuario(Usuario usuarioLogueado)
         {
             InitializeComponent();
             this.usuarioLogueado = usuarioLogueado;
-            this.CargarInfoDelUsuario();
+            
         }
 
         private void FrmCuentaUsuario_Load(object sender, EventArgs e)
         {
-            
+            this.CargarInfoDelUsuario();
         }
+        #endregion
 
+        #region Configuaracion para instanciar
         private void CargarInfoDelUsuario()
         {
             this.txtMail.Text = this.usuarioLogueado.Mail;
@@ -37,14 +40,21 @@ namespace Vista
             this.lblDni.Text = $"Dni: {this.usuarioLogueado.GetHashCode()}";
             this.lblNombreCompleto.Text = this.usuarioLogueado.Nombre + " " + this.usuarioLogueado.Apellido;
         }
+        #endregion
 
+        #region Funcionalidades varias
+        /// <summary>
+        /// Desactiva los campos, dejandolos solo lectura
+        /// </summary>
         private void DesactivarCamposTxt()
         {
             this.txtUsuario.Enabled = !(this.txtUsuario.Enabled);
             this.txtMail.Enabled = !(this.txtMail.Enabled);
             this.txtPassword.Enabled = !(this.txtPassword.Enabled);
         }
-
+        /// <summary>
+        /// Activa los campos de texto, para poder modificarlo los datos
+        /// </summary>
         private void ActivarComponentesParaModificacion()
         {
             this.txtMail.Enabled = !(this.txtMail.Enabled);
@@ -57,7 +67,18 @@ namespace Vista
 
             this.lblMensajeError.Visible = false;
         }
+        /// <summary>
+        /// Muestra un mensaje de error por pantalla
+        /// </summary>
+        /// <param name="mensaje">Mensaje a mostrar</param>
+        private void ActivarMensajeError(string mensaje)
+        {
+            this.lblMensajeError.Visible = true;
+            this.lblMensajeError.Text = mensaje;
+        }
+        #endregion
 
+        #region Funcionalidades para editar el perfil
         private void btnModificar_Click(object sender, EventArgs e)
         {
             this.ActivarComponentesParaModificacion();
@@ -75,21 +96,27 @@ namespace Vista
             }
             else
             {
-
                 this.lblMensajeError.Visible = false;
-                if (Sistema.ModificarUsuario(usuarioLogueado, this.txtUsuario.Text, this.txtPassword.Text, this.txtMail.Text) == true)
-                {
-                    this.DesactivarCamposTxt();
-                    this.btnAceptarCambios.Visible = false;
-                    MessageBox.Show("Cambios guardados correctamente!");
-                }
-                else
-                {
-                    ActivarMensajeError("ERROR: La contraseña debe contener 4 dígitos únicamente");
-                }
+                this.EditarPerfilUsuario();
             }
         }
 
+        private void EditarPerfilUsuario()
+        {
+            if (Sistema.ModificarUsuario(usuarioLogueado, this.txtUsuario.Text, this.txtPassword.Text, this.txtMail.Text) == true)
+            {
+                this.DesactivarCamposTxt();
+                this.btnAceptarCambios.Visible = false;
+                MessageBox.Show("Cambios guardados correctamente!");
+            }
+            else
+            {
+                ActivarMensajeError("ERROR: La contraseña debe contener 4 dígitos únicamente");
+            }
+        }
+        #endregion
+
+        #region Validaciones
         private bool CamposVacios()
         {
             return string.IsNullOrEmpty(this.txtMail.Text) || string.IsNullOrEmpty(this.txtUsuario.Text) || string.IsNullOrEmpty(this.txtPassword.Text);
@@ -99,16 +126,13 @@ namespace Vista
         {
             return this.txtUsuario.Text == usuarioLogueado.NombreUsuario && this.txtMail.Text == usuarioLogueado.Mail && this.txtPassword.Text == usuarioLogueado.Password;
         }
+        #endregion
 
-        private void ActivarMensajeError(string mensaje)
-        {
-            this.lblMensajeError.Visible = true;
-            this.lblMensajeError.Text = mensaje;
-        }
-
+        #region Evento para cerrar formulario
         private void pbox_Regresar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
         }
+        #endregion
     }
 }

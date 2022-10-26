@@ -10,23 +10,23 @@ namespace Vista
     {
         private Viaje viajeSeleccionado;
 
+        #region Constructor
         public FrmViajes()
         {
             InitializeComponent();
             this.ActualizarListaViajes();
         }
+        #endregion
 
+        #region Configuracion de datagrid
         private void ActualizarListaViajes()
         {
             this.dgvViajesActivos.DataSource = null;
             this.dgvViajesActivos.DataSource = BaseDeDatos.ListaViajesActivos;
         }
+        #endregion
 
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-        }
-
+        #region Evento para listar los pasajeros 
         private void btn_ListarPasajeros_Click(object sender, EventArgs e)
         {
             int index = this.dgvViajesActivos.CurrentCell.RowIndex;
@@ -42,7 +42,25 @@ namespace Vista
                 MessageBox.Show(this, "Debe seleccionar un viaje antes...", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        #endregion
 
+        #region Evento para vender pasajes
+        private void btnVenderPasaje_Click(object sender, EventArgs e)
+        {
+            //Viaje esteViaje = BaseDeDatos.ListaViajesActivos.ElementAt(this.dgvViajesActivos.CurrentCell.RowIndex);
+
+            /* FrmVentaPasaje formVenta = new FrmVentaPasaje(esteViaje);
+
+             if (formVenta.ShowDialog() == DialogResult.OK)
+             {
+                 List<Pasajero> pasajeros = formVenta.listaPasajerosCargado;
+                 esteViaje.AgregarGrupoFamiliar(pasajeros, Sistema.EsGrupoFamiliarPremium(pasajeros));
+                 MessageBox.Show("Venta efectuada CORRECTAMENTE!", "Vendido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+             }*/
+        }
+        #endregion
+
+        #region Evento para dar de alta un nuevo viaje
         private void btnAltaViaje_Click(object sender, EventArgs e)
         {
             if (Sistema.ObtenerCrucerosDisponibles().Count <= 0)
@@ -61,27 +79,9 @@ namespace Vista
                 }
             }
         }
+        #endregion        
 
-
-        private void AgregarViaje(Viaje viajeAgregar)
-        {
-          
-        }
-
-        private void btnVenderPasaje_Click(object sender, EventArgs e)
-        {
-            //Viaje esteViaje = BaseDeDatos.ListaViajesActivos.ElementAt(this.dgvViajesActivos.CurrentCell.RowIndex);
-
-            /* FrmVentaPasaje formVenta = new FrmVentaPasaje(esteViaje);
-
-             if (formVenta.ShowDialog() == DialogResult.OK)
-             {
-                 List<Pasajero> pasajeros = formVenta.listaPasajerosCargado;
-                 esteViaje.AgregarGrupoFamiliar(pasajeros, Sistema.EsGrupoFamiliarPremium(pasajeros));
-                 MessageBox.Show("Venta efectuada CORRECTAMENTE!", "Vendido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-             }*/
-        }
-
+        #region Evento para dar de baja un viaje
         private void btnBajaViaje_Click(object sender, EventArgs e)
         {
             FrmBajaViaje formBaja = new FrmBajaViaje(BaseDeDatos.ListaViajesActivos.ElementAt(this.dgvViajesActivos.CurrentCell.RowIndex));
@@ -92,5 +92,13 @@ namespace Vista
                  this.ActualizarListaViajes();
              }
         }
+        #endregion
+
+        #region Evento para cerrar el formulario
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+        #endregion
     }
 }

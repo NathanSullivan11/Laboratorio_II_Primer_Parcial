@@ -20,6 +20,7 @@ namespace Vista
             InitializeComponent();
         }
 
+        #region Configuraciones para instanciar
         private void FrmAltaViaje_Load(object sender, EventArgs e)
         {
             this.cmbOrigen.DataSource = Enum.GetValues(typeof(EOrigen));
@@ -37,7 +38,9 @@ namespace Vista
             }
             this.cmbCrucero.SelectedIndex = 0;
         }
+        #endregion
 
+        #region Botones Agregar y Cancelar
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
@@ -47,6 +50,9 @@ namespace Vista
         {
             this.AgregarViaje();
         }
+        #endregion
+
+        #region Funcionalidades para agregar un viaje
         /// <summary>
         /// Agrega el viaje cargado dependiendo del destino
         /// </summary>
@@ -58,15 +64,7 @@ namespace Vista
 
             if (!cruceroElegido.CruceroEstaEnUso() || Sistema.CruceroDisponibleEnEsasFechas(cruceroElegido, fechaElegida))
             {
-                if (this.rbtnRegional.Checked)
-                {
-                    viajeAgregar = new Viaje(cruceroElegido, (EOrigen)this.cmbOrigen.SelectedItem, fechaElegida, false, EEstadoViaje.Disponible, (EDestinoRegional)this.cmbDestino.SelectedItem);
-                }
-                else
-                {
-                    viajeAgregar = new Viaje(cruceroElegido, (EOrigen)this.cmbOrigen.SelectedItem, fechaElegida, false, EEstadoViaje.Disponible, (EDestinoExtraRegional)this.cmbDestino.SelectedItem);
-                }
-               
+                viajeAgregar = this.InstanciarViajeSolicitado(cruceroElegido, fechaElegida);
                 BaseDeDatos.ListaViajesActivos.Add(viajeAgregar);
 
                 MessageBox.Show($"Se agrego!\n{viajeAgregar.ToString()}");
@@ -79,6 +77,22 @@ namespace Vista
             this.DialogResult = DialogResult.OK;
         }
 
+        private Viaje InstanciarViajeSolicitado(Crucero cruceroElegido, DateTime fechaElegida)
+        {
+            Viaje auxViaje;
+            if (this.rbtnRegional.Checked)
+            {
+                auxViaje = new Viaje(cruceroElegido, (EOrigen)this.cmbOrigen.SelectedItem, fechaElegida, false, EEstadoViaje.Disponible, (EDestinoRegional)this.cmbDestino.SelectedItem);
+            }
+            else
+            {
+                auxViaje = new Viaje(cruceroElegido, (EOrigen)this.cmbOrigen.SelectedItem, fechaElegida, false, EEstadoViaje.Disponible, (EDestinoExtraRegional)this.cmbDestino.SelectedItem);
+            }
+            return auxViaje;
+        }
+        #endregion
+
+        #region Eventos radiobuttons
         /// <summary>
         /// Carga los destinos regionales en el combobox
         /// </summary>
@@ -103,6 +117,6 @@ namespace Vista
                 this.cmbDestino.DataSource = Enum.GetValues(typeof(EDestinoExtraRegional));
             }
         }
-
+        #endregion
     }
 }

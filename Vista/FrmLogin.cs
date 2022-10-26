@@ -6,11 +6,14 @@ namespace Vista
 {
     public partial class FrmLogin : Form
     {
+        #region Constructor
         public FrmLogin()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Funcionalidades para iniciar sesión
         private void btn_Ingresar_Click(object sender, EventArgs e)
         {
             if(!this.TextBoxEstanVacios())
@@ -41,7 +44,9 @@ namespace Vista
                 this.MostrarMensajeError("ERROR: Usuario o contraseña incorrectos");
             }
         }
+        #endregion
 
+        #region Validaciones
         private bool TextBoxEstanVacios()
         {
             return string.IsNullOrEmpty(tbox_Usuario.Text) || string.IsNullOrEmpty(tbox_Password.Text);
@@ -52,13 +57,17 @@ namespace Vista
             this.tbox_Usuario.Clear();
             this.tbox_Password.Clear();
         }
+        #endregion
 
+        #region Evento para mostrar mensaje de error
         private void MostrarMensajeError(string mensaje)
         {
             this.lbl_MensajeError.Text = mensaje;
             this.lbl_MensajeError.Visible = true;
         }
+        #endregion
 
+        #region Evento para autocompletar usuario
         private void lbl_Autocompletar_Click(object sender, EventArgs e)
         {
             Usuario auxUsuario = Sistema.ObtenerUsuario();
@@ -66,7 +75,9 @@ namespace Vista
             this.tbox_Usuario.Text = auxUsuario.NombreUsuario;
             this.tbox_Password.Text = auxUsuario.Password;
         }
+        #endregion
 
+        #region Funcionalidad para cerrado de aplicación
         private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("¿Desea cerrar la aplicacion?", "Cierre de aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
@@ -79,6 +90,6 @@ namespace Vista
         {
             Application.Exit();
         }
-
+        #endregion
     }
 }

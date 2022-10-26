@@ -13,23 +13,24 @@ namespace Vista
 {
     public partial class FrmBajaViaje : FrmAltaViaje
     {
-
         Viaje viajeADarDeBaja;
+
+        #region Constructor y evento Load
         public FrmBajaViaje(Viaje viajeADarDeBaja)
         {
             InitializeComponent();
             this.viajeADarDeBaja = viajeADarDeBaja;
-            this.SetearInformacionViaje();
-            this.SetearControles();
+            
         }
 
         private void FrmBajaViaje_Load(object sender, EventArgs e)
         {
-
-
-
+            this.SetearInformacionViaje();
+            this.SetearControles();
         }
+        #endregion
 
+        #region Configuraciones para instanciar
         private void SetearInformacionViaje()
         {
             this.cmbCrucero.Text = this.viajeADarDeBaja.ObtenerCrucero().Matricula;
@@ -58,7 +59,14 @@ namespace Vista
             }
             this.btnAgregarViaje.Text = "Bajar viaje";
         }
+        #endregion
 
+        #region Override del boton heredado
+        /// <summary>
+        /// Se sobreescribe el evento de Agregar, para darle la funcion de dar de baja
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected override void btnAgregarViaje_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Estas seguro que deseas darlo de baja?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -67,5 +75,6 @@ namespace Vista
                 this.DialogResult = DialogResult.OK;
             }
         }
+        #endregion
     }
 }

@@ -9,11 +9,87 @@ namespace Entidades
 
     public static class Sistema
     {
+        #region Constructor
         static Sistema()
         {
 
         }
+        #endregion
 
+        #region Metodos Login
+        public static Usuario LoguearUsuario(string user, string password)
+        {
+            Usuario usuarioLogueado = null;
+
+            if (ValidarCamposLogin(user, password))
+            {
+                foreach (Usuario auxUsuario in BaseDeDatos.UsuariosRegistrados)
+                {
+                    if (auxUsuario.NombreUsuario == user && auxUsuario.CheckearPassword(password))
+                    {
+                        usuarioLogueado = auxUsuario;
+                    }
+                }
+            }
+
+            return usuarioLogueado;
+        }
+
+        private static bool ValidarCamposLogin(string usuario, string password)
+        {
+            if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(password))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static bool AgregarCliente(Cliente cliente)
+        {
+            bool seAgrego = false;
+            if (Sistema.ClienteExisteEnBaseDeDatos(cliente.Dni) == null)
+            {
+                seAgrego = true;
+                BaseDeDatos.ListaClientes.Add(cliente);
+            }
+
+            return seAgrego;
+
+        }
+
+        public static Usuario ObtenerUsuario()
+        {
+            Random indiceRandom = new Random();
+            int indice = indiceRandom.Next(0, BaseDeDatos.UsuariosRegistrados.Count);
+
+            Usuario usuarioRandom = BaseDeDatos.UsuariosRegistrados.ElementAt(indice);
+
+            return usuarioRandom;
+
+        }
+
+        public static bool ModificarUsuario(Usuario user, string nombreUsuario, string pass, string mail)
+        {
+            bool seModifico = false;
+
+            if (!Validador.EsValidaPasswordNumerica(user.Password))
+            {
+                return false;
+            }
+            else
+            {
+                user.NombreUsuario = nombreUsuario;
+                user.Password = pass;
+                user.Mail = mail;
+                seModifico = true;
+            }
+            return seModifico;
+
+        }
+
+        #endregion
+
+        #region Ordenamiento de diccionarios (FACTURACION y CANTIDAD DE VIAJES)
         public static Dictionary<string, float> OrdenarDiccionarioDestinosFacturacion(int orden)
         {
             List<KeyValuePair<string,float>> listaDiccionarioDestinosFacturacion = Sistema.ObtenerDiccionarioDestinosFacturacion().ToList();
@@ -117,6 +193,22 @@ namespace Entidades
             }
             return comparacion;
         }
+        #endregion
+
+        #region Metodos getters
+
+        public static List<Crucero> ObtenerCrucerosDisponibles()
+        {
+            List<Crucero> listaAux = new List<Crucero>();
+            foreach (Crucero auxCrucero in BaseDeDatos.ListaCruceros)
+            {
+                if (!auxCrucero.CruceroEstaEnUso())
+                {
+                    listaAux.Add(auxCrucero);
+                }
+            }
+            return listaAux;
+        }
 
         public static Dictionary<string, float> ObtenerDiccionarioDestinosFacturacion()
         {
@@ -165,6 +257,52 @@ namespace Entidades
 
             return listaViajesExtraRegionales;
         }
+        #endregion
+
+        #region Metodos para viajes
+
+        public static bool ViajeEstaDisponible(Viaje viaje)
+        {
+            return viaje.Estado == EEstadoViaje.Disponible.ToString();
+        }
+
+        public static bool EsViajeRegional(Viaje viaje)
+        {
+            bool esViajeRegional = false;
+
+            List<string> listaDestinosRegionales = new List<string>();
+
+            foreach (var item in Enum.GetValues(typeof(EDestinoRegional)))
+            {
+                listaDestinosRegionales.Add(item.ToString());
+            }
+
+            if (listaDestinosRegionales.Contains(viaje.Destino))
+            {
+                esViajeRegional = true;
+
+            }
+            return esViajeRegional;
+        }
+
+        public static bool EsViajeExtraRegional(Viaje viaje)
+        {
+            bool esViajeExtraRegional = false;
+            List<string> listaDestinosExtraRegionales = new List<string>();
+
+            foreach (var item in Enum.GetValues(typeof(EDestinoExtraRegional)))
+            {
+                listaDestinosExtraRegionales.Add(item.ToString());
+            }
+
+            if (listaDestinosExtraRegionales.Contains(viaje.Destino))
+            {
+                esViajeExtraRegional = true;
+
+            }
+            return esViajeExtraRegional;
+        }
+
 
         public static bool ViajeExisteEnBaseDeDatos(Viaje viaje)
         {
@@ -194,19 +332,34 @@ namespace Entidades
             return false;
         }
 
-        public static bool EsGrupoFamiliarPremium(List<Pasajero> grupoFamiliar)
+        public static void AgregarABaseDeDatos(Viaje esteViaje)
         {
-            return grupoFamiliar[0].EsPremium;
-        }
-
-        public static void AgregarClientesNuevosABaseDeDatos(List<Pasajero> listaPasajeros)
-        {
-            foreach (Pasajero auxPasajero in listaPasajeros)
+            if (Sistema.ViajeExisteEnBaseDeDatos(esteViaje))
             {
-                Sistema.AgregarCliente(auxPasajero.ObtenerCliente());
+                BaseDeDatos.ListaViajesActivos.Add(esteViaje);
             }
         }
 
+
+        public static string GenerarCodigoDeViajeAleatorio()
+        {
+            char[] letras = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', };
+            int[] numeros = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            Random random = new Random();
+
+            string codigo = "";
+            codigo += letras[random.Next(0, letras.Length)];
+            codigo += letras[random.Next(0, letras.Length)];
+            codigo += letras[random.Next(0, letras.Length)];
+            codigo += letras[random.Next(0, letras.Length)];
+            codigo += numeros[random.Next(0, numeros.Length)];
+            codigo += numeros[random.Next(0, numeros.Length)];
+
+            return codigo;
+        }
+        #endregion
+
+        #region Metodos para cruceros    
         /// <summary>
         /// Verifica que un crucero este disponible en determinada fecha
         /// </summary>
@@ -240,28 +393,14 @@ namespace Entidades
 
         }
 
-        private static bool CruceroEstaEnUso(Viaje auxViaje)
+        #endregion
+
+        #region Metodos para pasajeros
+
+        public static bool EsGrupoFamiliarPremium(List<Pasajero> grupoFamiliar)
         {
-            return auxViaje.ObtenerCrucero().CruceroEstaEnUso();
+            return grupoFamiliar[0].EsPremium;
         }
-
-
-        public static List<Cliente> FiltrarClientesPorDni(string numero)
-        {
-            List<Cliente> auxLista = new List<Cliente>();
-
-            foreach (Cliente auxCliente in BaseDeDatos.ListaClientes)
-            {
-                if (auxCliente.Dni.ToString().StartsWith(numero))
-                {
-                    auxLista.Add(auxCliente);
-
-                }
-            }
-            return auxLista;
-        }
-
-        #region Filtrado pasajeros
 
         public static List<Pasajero> FiltrarPasajerosPorNombre(Viaje esteViaje, string nombre, bool soloPremium)
         {
@@ -366,7 +505,29 @@ namespace Entidades
         }
         #endregion
 
-        #region Metodos para ordenar clientes
+        #region Metodos para clientes
+
+        public static void AgregarClientesNuevosABaseDeDatos(List<Pasajero> listaPasajeros)
+        {
+            foreach (Pasajero auxPasajero in listaPasajeros)
+            {
+                Sistema.AgregarCliente(auxPasajero.ObtenerCliente());
+            }
+        }
+
+        public static Cliente ClienteExisteEnBaseDeDatos(int dni)
+        {
+            Cliente clienteExistente = null;
+            foreach (Cliente auxCliente in BaseDeDatos.ListaClientes)
+            {
+                if (dni == auxCliente.Dni)
+                {
+                    clienteExistente = auxCliente;
+                    break;
+                }
+            }
+            return clienteExistente;
+        }
 
         public static void OrdenarClientes(List<Cliente> cliente, string criterio)
         {
@@ -402,108 +563,24 @@ namespace Entidades
             return cliente1.Dni - cliente2.Dni;
         }
 
-        #endregion
-
-        public static Cliente ClienteExisteEnBaseDeDatos(int dni)
+        public static List<Cliente> FiltrarClientesPorDni(string numero)
         {
-            Cliente clienteExistente = null;
+            List<Cliente> auxLista = new List<Cliente>();
+
             foreach (Cliente auxCliente in BaseDeDatos.ListaClientes)
             {
-                if (dni == auxCliente.Dni)
+                if (auxCliente.Dni.ToString().StartsWith(numero))
                 {
-                    clienteExistente = auxCliente;
-                    break;
+                    auxLista.Add(auxCliente);
+
                 }
             }
-            return clienteExistente;
-        }
-
-        public static List<Crucero> ObtenerCrucerosDisponibles()
-        {
-            List<Crucero> listaAux = new List<Crucero>();
-            foreach(Crucero auxCrucero in BaseDeDatos.ListaCruceros)
-            {
-                if(!auxCrucero.CruceroEstaEnUso())
-                {
-                    listaAux.Add(auxCrucero);
-                }
-            }
-            return listaAux;
-        }
-
-        #region Metodos Login
-        public static Usuario LoguearUsuario(string user, string password)
-        {
-            Usuario usuarioLogueado = null;
-
-            if(ValidarCamposLogin(user, password))
-            {
-                foreach(Usuario auxUsuario in BaseDeDatos.UsuariosRegistrados)
-                {
-                    if(auxUsuario.NombreUsuario == user && auxUsuario.CheckearPassword(password))
-                    {
-                        usuarioLogueado = auxUsuario;
-                    }
-                }
-            }
-
-            return usuarioLogueado;
-        }
-
-        private static bool ValidarCamposLogin(string usuario, string password)
-        {
-            if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(password))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        public static bool AgregarCliente(Cliente cliente)
-        {
-            bool seAgrego = false;
-            if(Sistema.ClienteExisteEnBaseDeDatos(cliente.Dni) == null)
-            {
-                seAgrego = true;
-                BaseDeDatos.ListaClientes.Add(cliente);  
-            }
-
-            return seAgrego;
-
-        }
-
-        public static Usuario ObtenerUsuario()
-        {
-            Random indiceRandom = new Random();
-            int indice = indiceRandom.Next(0, BaseDeDatos.UsuariosRegistrados.Count);
-
-            Usuario usuarioRandom = BaseDeDatos.UsuariosRegistrados.ElementAt(indice);
-
-            return usuarioRandom;
-
-        }
-
-        public static bool ModificarUsuario(Usuario user, string nombreUsuario, string pass, string mail)
-        {
-            bool seModifico = false;
-
-            if(!Validador.EsValidaPasswordNumerica(user.Password))
-            {
-                return false;
-            }
-            else
-            {
-                user.NombreUsuario = nombreUsuario;
-                user.Password = pass;
-                user.Mail = mail;
-                seModifico = true;
-            }
-            return seModifico;
-            
+            return auxLista;
         }
 
         #endregion
 
+        #region Metodos para pasaportes
         public static bool PasaporteEstaRepetido(Pasaporte pasaporte, Viaje esteViaje)
         {
             bool estaRepetido = false;
@@ -519,48 +596,7 @@ namespace Entidades
 
             return estaRepetido;
         }
-
-        public static bool ViajeEstaDisponible(Viaje viaje)
-        {
-            return viaje.Estado == EEstadoViaje.Disponible.ToString();
-        }
-
-        public static bool EsViajeRegional(Viaje viaje)
-        {
-            bool esViajeRegional = false;
-
-            List<string> listaDestinosRegionales = new List<string>();
-
-            foreach (var item in Enum.GetValues(typeof(EDestinoRegional)))
-            {
-                listaDestinosRegionales.Add(item.ToString());
-            }
-
-            if (listaDestinosRegionales.Contains(viaje.Destino))
-            {
-                esViajeRegional = true;
-
-            }
-            return esViajeRegional;
-        }
-
-        public static bool EsViajeExtraRegional(Viaje viaje)
-        {
-            bool esViajeExtraRegional = false;
-            List<string> listaDestinosExtraRegionales = new List<string>();
-
-            foreach (var item in Enum.GetValues(typeof(EDestinoExtraRegional)))
-            {
-                listaDestinosExtraRegionales.Add(item.ToString());
-            }
-
-            if (listaDestinosExtraRegionales.Contains(viaje.Destino))
-            {
-                esViajeExtraRegional = true;
-
-            }
-            return esViajeExtraRegional;
-        }
+        #endregion
 
         #region Metodos recaudaciones
 
@@ -596,6 +632,7 @@ namespace Entidades
         }
 
         #endregion
+
     }
 }
 

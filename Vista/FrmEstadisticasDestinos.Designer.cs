@@ -39,39 +39,23 @@ namespace Vista
             // 
             // comboBox1
             // 
-            this.comboBox1.Items.AddRange(new object[] {
-            "Id",
-            "Cantidad de viajes",
-            "Dni",
-            "Id",
-            "Cantidad de viajes",
-            "Dni",
-            "Id",
-            "Cantidad de viajes",
-            "Dni",
-            "Id",
-            "Cantidad de viajes",
-            "Dni",
-            "Id",
-            "Cantidad de viajes",
-            "Dni"});
-            this.comboBox1.Location = new System.Drawing.Point(130, 28);
-            this.comboBox1.Size = new System.Drawing.Size(162, 25);
+
+            this.cmbBox_Opciones.Location = new System.Drawing.Point(105, 38);
             // 
             // rbtnOrdenAscendente
             // 
             this.rbtnOrdenAscendente.Checked = true;
-            this.rbtnOrdenAscendente.Location = new System.Drawing.Point(491, 20);
+            this.rbtnOrdenAscendente.Location = new System.Drawing.Point(441, 30);
             // 
             // rbtnOrdenDescendente
             // 
-            this.rbtnOrdenDescendente.Location = new System.Drawing.Point(745, 20);
+            this.rbtnOrdenDescendente.Location = new System.Drawing.Point(672, 30);
             this.rbtnOrdenDescendente.TabStop = false;
             // 
             // btnOrdenar
             // 
             this.btnOrdenar.FlatAppearance.BorderSize = 0;
-            this.btnOrdenar.Location = new System.Drawing.Point(1010, 20);
+            this.btnOrdenar.Location = new System.Drawing.Point(911, 30);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -119,7 +103,7 @@ namespace Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1603, 719);
+            this.ClientSize = new System.Drawing.Size(1460, 881);
             this.Name = "FrmEstadisticasDestinos";
             this.Text = "FrmEstadisticasDestinos";
             this.ResumeLayout(false);
