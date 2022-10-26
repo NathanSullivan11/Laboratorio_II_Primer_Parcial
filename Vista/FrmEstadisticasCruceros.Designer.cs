@@ -30,6 +30,7 @@ namespace Vista
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgv_ListadoCruceros = new System.Windows.Forms.DataGridView();
             this.chkBox_MostrarHorasCruceros = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();

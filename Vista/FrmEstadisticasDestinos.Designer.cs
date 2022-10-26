@@ -75,6 +75,12 @@ namespace Vista
             "Dni",
             "Id",
             "Cantidad de viajes",
+            "Dni",
+            "Id",
+            "Cantidad de viajes",
+            "Dni",
+            "Id",
+            "Cantidad de viajes",
             "Dni"});
             this.cmbBox_Opciones.Location = new System.Drawing.Point(116, 40);
             // 

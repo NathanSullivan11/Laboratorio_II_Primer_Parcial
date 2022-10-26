@@ -266,7 +266,7 @@ namespace Vista
             this.tableLayoutPanel_BusquedaPorDni.ColumnCount = 3;
             this.tableLayoutPanel_BusquedaPorDni.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.9759F));
             this.tableLayoutPanel_BusquedaPorDni.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.02409F));
-            this.tableLayoutPanel_BusquedaPorDni.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 164F));
+            this.tableLayoutPanel_BusquedaPorDni.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
             this.tableLayoutPanel_BusquedaPorDni.Controls.Add(this.lblBuscarPorDni, 0, 0);
             this.tableLayoutPanel_BusquedaPorDni.Controls.Add(this.txtFiltroPorDni, 1, 0);
             this.tableLayoutPanel_BusquedaPorDni.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -283,7 +283,7 @@ namespace Vista
             this.lblBuscarPorDni.AutoSize = true;
             this.lblBuscarPorDni.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblBuscarPorDni.ForeColor = System.Drawing.Color.White;
-            this.lblBuscarPorDni.Location = new System.Drawing.Point(17, 3);
+            this.lblBuscarPorDni.Location = new System.Drawing.Point(16, 3);
             this.lblBuscarPorDni.Name = "lblBuscarPorDni";
             this.lblBuscarPorDni.Size = new System.Drawing.Size(108, 16);
             this.lblBuscarPorDni.TabIndex = 21;
@@ -293,7 +293,7 @@ namespace Vista
             // txtFiltroPorDni
             // 
             this.txtFiltroPorDni.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtFiltroPorDni.Location = new System.Drawing.Point(145, 3);
+            this.txtFiltroPorDni.Location = new System.Drawing.Point(144, 3);
             this.txtFiltroPorDni.Name = "txtFiltroPorDni";
             this.txtFiltroPorDni.Size = new System.Drawing.Size(183, 23);
             this.txtFiltroPorDni.TabIndex = 21;
