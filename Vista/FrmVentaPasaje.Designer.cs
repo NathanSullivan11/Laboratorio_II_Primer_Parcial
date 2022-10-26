@@ -266,7 +266,7 @@ namespace Vista
             this.tableLayoutPanel_BusquedaPorDni.ColumnCount = 3;
             this.tableLayoutPanel_BusquedaPorDni.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.9759F));
             this.tableLayoutPanel_BusquedaPorDni.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.02409F));
-            this.tableLayoutPanel_BusquedaPorDni.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 151F));
+            this.tableLayoutPanel_BusquedaPorDni.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153F));
             this.tableLayoutPanel_BusquedaPorDni.Controls.Add(this.lblBuscarPorDni, 0, 0);
             this.tableLayoutPanel_BusquedaPorDni.Controls.Add(this.txtFiltroPorDni, 1, 0);
             this.tableLayoutPanel_BusquedaPorDni.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -283,7 +283,7 @@ namespace Vista
             this.lblBuscarPorDni.AutoSize = true;
             this.lblBuscarPorDni.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblBuscarPorDni.ForeColor = System.Drawing.Color.White;
-            this.lblBuscarPorDni.Location = new System.Drawing.Point(19, 3);
+            this.lblBuscarPorDni.Location = new System.Drawing.Point(18, 3);
             this.lblBuscarPorDni.Name = "lblBuscarPorDni";
             this.lblBuscarPorDni.Size = new System.Drawing.Size(108, 16);
             this.lblBuscarPorDni.TabIndex = 21;
@@ -293,7 +293,7 @@ namespace Vista
             // txtFiltroPorDni
             // 
             this.txtFiltroPorDni.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtFiltroPorDni.Location = new System.Drawing.Point(149, 3);
+            this.txtFiltroPorDni.Location = new System.Drawing.Point(148, 3);
             this.txtFiltroPorDni.Name = "txtFiltroPorDni";
             this.txtFiltroPorDni.Size = new System.Drawing.Size(183, 23);
             this.txtFiltroPorDni.TabIndex = 21;
@@ -831,6 +831,7 @@ namespace Vista
             this.btnFinalizarVenta.TabIndex = 29;
             this.btnFinalizarVenta.Text = "Finalizar venta";
             this.btnFinalizarVenta.UseVisualStyleBackColor = false;
+            this.btnFinalizarVenta.Click += new System.EventHandler(this.btnFinalizarVenta_Click);
             // 
             // lblPrecioAcumulado
             // 
@@ -856,6 +857,7 @@ namespace Vista
             this.btnCancelar.TabIndex = 36;
             this.btnCancelar.Text = "Cancelar venta";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnInfoCrucero
             // 
@@ -870,6 +872,7 @@ namespace Vista
             this.btnInfoCrucero.TabIndex = 8;
             this.btnInfoCrucero.Text = "Info crucero";
             this.btnInfoCrucero.UseVisualStyleBackColor = false;
+            this.btnInfoCrucero.Click += new System.EventHandler(this.btnInfoCrucero_Click);
             // 
             // btnAyuda
             // 
@@ -884,6 +887,7 @@ namespace Vista
             this.btnAyuda.TabIndex = 8;
             this.btnAyuda.Text = "Ayuda";
             this.btnAyuda.UseVisualStyleBackColor = false;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
             // 
             // panel3
             // 

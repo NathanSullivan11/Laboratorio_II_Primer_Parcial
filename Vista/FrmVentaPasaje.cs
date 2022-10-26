@@ -46,6 +46,7 @@ namespace Vista
         #endregion
 
         #region Propiedades
+        public List<Pasajero> PasajerosCargados { get => this.pasajerosCargados; }
         private bool ClienteCargado
         {
             set
@@ -274,7 +275,7 @@ namespace Vista
             if (DatosIngresadosPasaporteValidos())
             {
                 Pasaporte pasaporteCreado = new Pasaporte(this.txtNroPasaporte.Text, this.txtNacionalidadPasaporte.Text, (string)this.cmbSexoPasaporte.SelectedItem, this.dtpCaducidadPasaporte.Value);
-                if (!Sistema.PasaporteEstaRepetido(pasaporteCreado, viajeDelPasajeAVender) || !this.PasaporteRepetidoEnListaCargada(pasaporteCreado))
+                if (!Sistema.PasaporteEstaRepetido(pasaporteCreado, viajeDelPasajeAVender) && !this.PasaporteRepetidoEnListaCargada(this.txtNroPasaporte.Text))
                 {
                     this.ConfirmarDatosPasaporte(pasaporteCreado);
                 }
@@ -304,15 +305,16 @@ namespace Vista
         /// </summary>
         /// <param name="pasaporteCreado"></param>
         /// <returns></returns>
-        private bool PasaporteRepetidoEnListaCargada(Pasaporte pasaporteCreado)
+        private bool PasaporteRepetidoEnListaCargada(string nroPasaporte)
         {
             bool estaRepetido = false;
 
             foreach (Pasajero auxPasajero in this.pasajerosCargados)
             {
-                if (auxPasajero.NumeroPasaporte == pasaporteCreado.Numero)
+                if (auxPasajero.NumeroPasaporte.Trim().ToLower() == this.txtNroPasaporte.Text.Trim().ToLower())
                 {
                     estaRepetido = true;
+                    break;
                 }
             }
             return estaRepetido;
@@ -448,13 +450,14 @@ namespace Vista
                 if(this.CargarPasajero())
                 {
                     this.CalcularPrecios();
-                    this.LimpiarCamposParaNuevaCargaDePasajero();
+                    this.btnFinalizarVenta.Enabled = true;
                 }    
                 else
                 {
                     this.MostrarErrorCargaPasajero("ERROR: Ya cargo ese pasajero");
+
                 }
-                
+                this.LimpiarCamposParaNuevaCargaDePasajero();
             }
             else
             {
@@ -473,16 +476,16 @@ namespace Vista
             }
             return seCargo;
         }
-       
+
         private void LimpiarCamposParaNuevaCargaDePasajero()
         {
-            this.ActualizarListaPasajerosCargados();
+            this.ActualizarpasajerosCargadoss();
             this.VaciarClienteIngresado();
             this.VaciarPasaporteIngresado();
             this.VaciarEquipajeIngresado();
         }
 
-        private void ActualizarListaPasajerosCargados()
+        private void ActualizarpasajerosCargadoss()
         {
             this.lboxListaPasajeros.DataSource = null;
             this.lboxListaPasajeros.DataSource = this.pasajerosCargados;
@@ -652,7 +655,71 @@ namespace Vista
                 this.dgvClientesExistentes.DataSource = listaClone;
             }
         }
+
+
         #endregion
-    
+
+        #region Eventos de botones (FINALIZAR VENTA, CANCELAR, INFO CRUCERO, AYUDA)
+
+        private void btnInfoCrucero_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this.viajeDelPasajeAVender.ObtenerDatosBasicosCrucero(),"Info crucero",MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Se podra seleccionar un cliente existente de la base de datos, o agregar uno nuevo. (Si esta repetido te pregunta si queres traer sus datos " +
+                "\nAl agregar el primer pasajero, la opcion de turista o premiuem se bloqueara acorde al tipo del primer pasajero cargado, " +
+                "\nya que en un grupo familiar no pueden haber integrante de diferentes tipo de servicio\n" +
+                "\nEl pasaporte debe tener mínimo 3 letras y luego solo numeros" +
+                "\nNo hay validación para la nacionalidad, solo verifica que no sea null" +
+                "\nNo se puede vender mas de 4 pasajes a la vez", "Ayuda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+        /// <summary>
+        /// Finaliza la venta, siempre y cuando haya espacio disponible o el crucero no haya zarpado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFinalizarVenta_Click(object sender, EventArgs e)
+        {
+            DialogResult seFinaliza = DialogResult.Cancel;
+            if (Sistema.ViajeEstaDisponible(viajeDelPasajeAVender))
+            {
+                if (Sistema.EsGrupoFamiliarPremium(this.pasajerosCargados))
+                {
+                    if (this.pasajerosCargados.Count <= viajeDelPasajeAVender.ObtenerCantidadCamarotesLibrePremium())
+                    {
+                        Sistema.AgregarClientesNuevosABaseDeDatos(this.pasajerosCargados);
+                        seFinaliza = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No hay suficientes camarotes libres de tipo premium", "!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);                       
+                    }
+                }
+                else
+                {
+                    if (this.pasajerosCargados.Count <= viajeDelPasajeAVender.ObtenerCantidadCamarotesLibreTurista())
+                    {
+                        seFinaliza = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No hay suficientes camarotes libres de tipo turista", "!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se aceptan mas pasajeros; \n(El crucero esta lleno o ya zarpó)");
+            }
+            this.DialogResult = seFinaliza;
+        }
+        #endregion
     }
 }

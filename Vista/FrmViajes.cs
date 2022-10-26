@@ -53,9 +53,10 @@ namespace Vista
 
              if (formVenta.ShowDialog() == DialogResult.OK)
              {
-                 /*List<Pasajero> pasajeros = formVenta.listaPasajerosCargado;
+                 List<Pasajero> pasajeros = formVenta.PasajerosCargados;
                  esteViaje.AgregarGrupoFamiliar(pasajeros, Sistema.EsGrupoFamiliarPremium(pasajeros));
-                 MessageBox.Show("Venta efectuada CORRECTAMENTE!", "Vendido", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+                 this.ActualizarListaViajes();
+                 MessageBox.Show("Venta efectuada correctamente!", "Vendido", MessageBoxButtons.OK, MessageBoxIcon.Information);
              }
         }
         #endregion
