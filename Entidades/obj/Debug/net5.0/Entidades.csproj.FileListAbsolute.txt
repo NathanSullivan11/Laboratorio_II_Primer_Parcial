@@ -9,3 +9,4 @@ C:\Users\Usuario\source\repos\Recuperatorio.Sullivan.Nathan\Entidades\bin\Debug\
 C:\Users\Usuario\source\repos\Recuperatorio.Sullivan.Nathan\Entidades\obj\Debug\net5.0\Entidades.dll
 C:\Users\Usuario\source\repos\Recuperatorio.Sullivan.Nathan\Entidades\obj\Debug\net5.0\ref\Entidades.dll
 C:\Users\Usuario\source\repos\Recuperatorio.Sullivan.Nathan\Entidades\obj\Debug\net5.0\Entidades.pdb
+C:\Users\Usuario\source\repos\Recuperatorio.Sullivan.Nathan\Entidades\obj\Debug\net5.0\Entidades.csproj.AssemblyReference.cache

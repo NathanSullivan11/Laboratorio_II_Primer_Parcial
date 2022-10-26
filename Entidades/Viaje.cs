@@ -88,6 +88,11 @@ namespace Entidades
         #endregion
 
         #region Indexador
+        /// <summary>
+        /// Indexá por la lista de pasajeros del viaje
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public Pasajero this[int index]
         {
             get 
@@ -101,7 +106,7 @@ namespace Entidades
         }
         #endregion
 
-        #region Metodos getters
+        #region Métodos getters
         public List<Pasajero> ObtenerListaPasajeros()
         {
             return this.listaPasajeros;
@@ -152,7 +157,12 @@ namespace Entidades
         }
         #endregion
 
-        #region Metodos para asignar pasajeros a camarotes
+        #region Métodos para asignar pasajeros a camarotes
+        /// <summary>
+        /// Le asigna un camarote a un pasajero, dependiendo si es premium o turista
+        /// </summary>
+        /// <param name="pasajero"></param>
+        /// <returns></returns>
         private bool AsignarCamaroteAPasajero(Pasajero pasajero)
         {
             bool seAgregoAlCamarote = false;
@@ -173,7 +183,12 @@ namespace Entidades
             }
             return seAgregoAlCamarote;
         }
-
+        /// <summary>
+        /// Le asigna un camarote a un pasajero, dependiendo si son premiums o turistas
+        /// </summary>
+        /// <param name="grupoPasajeros"></param>
+        /// <param name="sonPremium"></param>
+        /// <returns></returns>
         private bool AsignarCamaroteAGrupoFamiliar(List<Pasajero> grupoPasajeros, bool sonPremium)
         {
             bool seAgregaronAlCamarote = false;
@@ -182,7 +197,6 @@ namespace Entidades
             {
                 if (this.AgregarGrupoPasajerosACamarotePremiumDisponible(grupoPasajeros))
                 {
-                    //this.crucero.ObtenerListaCamarotesPremium().Add(new Camarote(grupoPasajeros));
                     seAgregaronAlCamarote = true;
                 }
             }
@@ -190,7 +204,6 @@ namespace Entidades
             {
                 if (this.AgregarGrupoPasajerosACamaroteTuristaDisponible(grupoPasajeros))
                 {
-                    //this.crucero.ObtenerListaCamarotesTurista().Add(new Camarote(grupoPasajeros));
                     seAgregaronAlCamarote = true;
                 }
             }
@@ -259,7 +272,12 @@ namespace Entidades
         }
         #endregion
 
-        #region Metodos para agregar pasajeros al viaje
+        #region Métodos para agregar pasajeros al viaje
+        /// <summary>
+        /// Agregá un pasajero al viaje, siempre y cuando haya un camarote del tipo de servicio requerido disponible, y que haya capacidad en bodega para el equipaje
+        /// </summary>
+        /// <param name="pasajero"></param>
+        /// <returns></returns>
         public bool AgregarPasajero(Pasajero pasajero)
         {
             bool seAgrego = false;
@@ -274,7 +292,12 @@ namespace Entidades
 
             return seAgrego;
         }
-
+        /// <summary>
+        /// Agregá un grupo familiar al viaje, siempre y cuando haya un camarote del tipo de servicio requerido disponible, y que haya capacidad en bodega para el equipaje
+        /// </summary>
+        /// <param name="pasajeros"></param>
+        /// <param name="sonPremium"></param>
+        /// <returns></returns>
         public bool AgregarGrupoFamiliar(List<Pasajero> pasajeros, bool sonPremium)
         {
             bool seAgregaron = false;
@@ -300,7 +323,12 @@ namespace Entidades
         }
         #endregion
 
-        #region Metodo para agregar equipaje
+        #region Método para agregar equipaje
+        /// <summary>
+        /// Agregá el equipaje a bodega, siempre y cuando no exceda el límite del crucero
+        /// </summary>
+        /// <param name="pesoEquipaje"></param>
+        /// <returns></returns>
         public bool AgregarEquipaje(int pesoEquipaje)
         {
             if (this.HayCapacidadEnBodega(pesoEquipaje))
@@ -312,7 +340,7 @@ namespace Entidades
         }
         #endregion
 
-        #region Metodos para calcular ganancias
+        #region Métodos para calcular ganancias
         /// <summary>
         /// Acumula lo facturado de un grupo familiar, al total de lo recaudado del viaje
         /// </summary>
@@ -350,6 +378,10 @@ namespace Entidades
             }
         }    
 
+        /// <summary>
+        /// Calcula la duración random del viaje, si es regional (entre 72 y 360) o si extra regional (entre 480 y 720)
+        /// </summary>
+        /// <returns></returns>
         private int CalcularDuracion()
         {
             Random duracionRandom = new Random();
@@ -364,7 +396,10 @@ namespace Entidades
             }
             return duracion;
         }
-
+        /// <summary>
+        /// Calcula el costo base del pasaje dependiendo de la duración y del destino (regional o extraregional)
+        /// </summary>
+        /// <returns></returns>
         private float CalcularCostoBase()
         {
             float costoBase;
@@ -385,7 +420,7 @@ namespace Entidades
             return (valor + pesoEquipaje) <= this.crucero.CapacidadMaximaBodega;
         }
 
-        #region Metodos override
+        #region Métodos override
         public override int GetHashCode()
         {
             return base.GetHashCode();

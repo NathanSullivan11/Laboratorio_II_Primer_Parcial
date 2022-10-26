@@ -16,7 +16,7 @@ namespace Entidades
         }
         #endregion
 
-        #region Metodos Login
+        #region Métodos Login
         public static Usuario LoguearUsuario(string user, string password)
         {
             Usuario usuarioLogueado = null;
@@ -90,6 +90,11 @@ namespace Entidades
         #endregion
 
         #region Ordenamiento de diccionarios (FACTURACION y CANTIDAD DE VIAJES)
+        /// <summary>
+        /// Ordena el diccionario de destinos por facturacin, ascendente o descendentemente
+        /// </summary>
+        /// <param name="orden"></param>
+        /// <returns></returns>
         public static Dictionary<string, float> OrdenarDiccionarioDestinosFacturacion(int orden)
         {
             List<KeyValuePair<string,float>> listaDiccionarioDestinosFacturacion = Sistema.ObtenerDiccionarioDestinosFacturacion().ToList();
@@ -111,7 +116,12 @@ namespace Entidades
             }
             return diccionarioOrdenado;
         }
-
+        /// <summary>
+        /// Compara dos llave-valor, y retorná 1 dependiendo si el primero es mayor, -1 si el segundo es mayor o 0 si son iguales. Para poder ordenar ascendentemente
+        /// </summary>
+        /// <param name="keyValue1"></param>
+        /// <param name="keyValue2"></param>
+        /// <returns></returns>
         public static int CompararFacturacionDestinosAscendente(KeyValuePair<string, float> keyValue1, KeyValuePair<string, float> keyValue2)
         {
             int comparacion = 0;
@@ -126,7 +136,12 @@ namespace Entidades
             }
             return comparacion;
         }
-
+        /// <summary>
+        /// Compara dos llave-valor, y retorná 1 dependiendo si el primero es mayor, -1 si el segundo es mayor o 0 si son iguales. Para poder ordenar descendentemente
+        /// </summary>
+        /// <param name="keyValue1"></param>
+        /// <param name="keyValue2"></param>
+        /// <returns></returns>
         public static int CompararFacturacionDestinosDescendente(KeyValuePair<string, float> keyValue1, KeyValuePair<string, float> keyValue2)
         {
             int comparacion = 0;
@@ -141,7 +156,11 @@ namespace Entidades
             }
             return comparacion;
         }
-
+        /// <summary>
+        /// Ordena el diccionario de destinos por cantidad de viajes, ascendente o descendentemente
+        /// </summary>
+        /// <param name="orden"></param>
+        /// <returns></returns>
         public static Dictionary<string, int> OrdenarDiccionarioDestinosCantidadViajes(int orden)
         {
             List<KeyValuePair<string, int>> listaDiccionarioDestinosCantidadViajes = Sistema.ObtenerDiccionarioDestinosCantidadViajes().ToList();
@@ -163,7 +182,12 @@ namespace Entidades
             }
             return diccionarioOrdenado;
         }
-
+        /// <summary>
+        /// Compara dos llave-valor, y retorná 1 dependiendo si el primero es mayor, -1 si el segundo es mayor o 0 si son iguales. Para poder ordenar ascendentemente
+        /// </summary>
+        /// <param name="keyValue1"></param>
+        /// <param name="keyValue2"></param>
+        /// <returns></returns>
         public static int CompararCantidadViajesDestinosAscendente(KeyValuePair<string, int> keyValue1, KeyValuePair<string, int> keyValue2)
         {
             int comparacion = 0;
@@ -178,7 +202,12 @@ namespace Entidades
             }
             return comparacion;
         }
-
+        /// <summary>
+        /// Compara dos llave-valor, y retorná 1 dependiendo si el primero es mayor, -1 si el segundo es mayor o 0 si son iguales. Para poder ordenar ascendentemente
+        /// </summary>
+        /// <param name="keyValue1"></param>
+        /// <param name="keyValue2"></param>
+        /// <returns></returns>
         public static int CompararCantidadViajesDestinosDescendente(KeyValuePair<string, int> keyValue1, KeyValuePair<string, int> keyValue2)
         {
             int comparacion = 0;
@@ -195,7 +224,7 @@ namespace Entidades
         }
         #endregion
 
-        #region Metodos getters
+        #region Métodos getters
 
         public static List<Crucero> ObtenerCrucerosDisponibles()
         {
@@ -259,7 +288,7 @@ namespace Entidades
         }
         #endregion
 
-        #region Metodos para viajes
+        #region Métodos para viajes
 
         public static bool ViajeEstaDisponible(Viaje viaje)
         {
@@ -359,7 +388,7 @@ namespace Entidades
         }
         #endregion
 
-        #region Metodos para cruceros    
+        #region Métodos para cruceros    
         /// <summary>
         /// Verifica que un crucero este disponible en determinada fecha
         /// </summary>
@@ -395,13 +424,19 @@ namespace Entidades
 
         #endregion
 
-        #region Metodos para pasajeros
+        #region Métodos para pasajeros
 
         public static bool EsGrupoFamiliarPremium(List<Pasajero> grupoFamiliar)
         {
             return grupoFamiliar[0].EsPremium;
         }
-
+        /// <summary>
+        /// Filtra los pasajeros de un viaje por nombre, y si es premium o turista
+        /// </summary>
+        /// <param name="esteViaje"></param>
+        /// <param name="nombre"></param>
+        /// <param name="soloPremium"></param>
+        /// <returns></returns>
         public static List<Pasajero> FiltrarPasajerosPorNombre(Viaje esteViaje, string nombre, bool soloPremium)
         {
             List<Pasajero> auxLista = new List<Pasajero>();
@@ -423,7 +458,13 @@ namespace Entidades
 
             return auxLista;
         }
-
+        /// <summary>
+        /// Filtra los pasajeros de un viaje por apellido, y si es premium o turista
+        /// </summary>
+        /// <param name="esteViaje"></param>
+        /// <param name="apellido"></param>
+        /// <param name="soloPremium"></param>
+        /// <returns></returns>
         public static List<Pasajero> FiltrarPasajerosPorApellido(Viaje esteViaje, string apellido, bool soloPremium)
         {
             List<Pasajero> auxLista = new List<Pasajero>();
@@ -445,7 +486,13 @@ namespace Entidades
 
             return auxLista;
         }
- 
+        /// <summary>
+        /// Filtra los pasajeros de un viaje por numero de pasaporte, y si es premium o turista
+        /// </summary>
+        /// <param name="esteViaje"></param>
+        /// <param name="nroPasaporte"></param>
+        /// <param name="soloPremium"></param>
+        /// <returns></returns>
         public static List<Pasajero> FiltrarPasajerosPorPasaporte(Viaje esteViaje, string nroPasaporte, bool soloPremium)
         {
             List<Pasajero> auxLista = new List<Pasajero>();
@@ -467,7 +514,13 @@ namespace Entidades
 
             return auxLista;
         }
-
+        /// <summary>
+        /// Filtra los pasajeros de un viaje por edad, y si es premium o turista
+        /// </summary>
+        /// <param name="esteViaje"></param>
+        /// <param name="edad"></param>
+        /// <param name="soloPremium"></param>
+        /// <returns></returns>
         public static List<Pasajero> FiltrarPasajerosPorEdad(Viaje esteViaje, string edad, bool soloPremium)
         {
             List<Pasajero> auxLista = new List<Pasajero>();
@@ -489,6 +542,11 @@ namespace Entidades
 
             return auxLista;
         }
+        /// <summary>
+        /// Filtra los pasajeros de un viaje por servicio, premium o turista
+        /// </summary>
+        /// <param name="esteViaje"></param>
+        /// <returns></returns>
         public static List<Pasajero> FiltrarPasajerosPremium(Viaje esteViaje)
         {
             List<Pasajero> auxLista = new List<Pasajero>();
@@ -505,7 +563,7 @@ namespace Entidades
         }
         #endregion
 
-        #region Metodos para clientes
+        #region Métodos para clientes
 
         public static void AgregarClientesNuevosABaseDeDatos(List<Pasajero> listaPasajeros)
         {
@@ -514,7 +572,11 @@ namespace Entidades
                 Sistema.AgregarCliente(auxPasajero.ObtenerCliente());
             }
         }
-
+        /// <summary>
+        ///¨Verificá si el cliente ya existe en la base de datos, por su dni
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <returns></returns>
         public static Cliente ClienteExisteEnBaseDeDatos(int dni)
         {
             Cliente clienteExistente = null;
@@ -528,7 +590,11 @@ namespace Entidades
             }
             return clienteExistente;
         }
-
+        /// <summary>
+        /// Ordená una lista de clientes según criterios (Id, Cantidad de viajes, Dni)
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <param name="criterio"></param>
         public static void OrdenarClientes(List<Cliente> cliente, string criterio)
         {
            if(!string.IsNullOrEmpty(criterio))
@@ -562,14 +628,18 @@ namespace Entidades
         {
             return cliente1.Dni - cliente2.Dni;
         }
-
-        public static List<Cliente> FiltrarClientesPorDni(string numero)
+        /// <summary>
+        /// Filtra el listado de clientes por dni
+        /// </summary>
+        /// <param name="numero"></param>
+        /// <returns></returns>
+        public static List<Cliente> FiltrarClientesPorDni(string dni)
         {
             List<Cliente> auxLista = new List<Cliente>();
 
             foreach (Cliente auxCliente in BaseDeDatos.ListaClientes)
             {
-                if (auxCliente.Dni.ToString().StartsWith(numero))
+                if (auxCliente.Dni.ToString().StartsWith(dni))
                 {
                     auxLista.Add(auxCliente);
 
@@ -580,7 +650,13 @@ namespace Entidades
 
         #endregion
 
-        #region Metodos para pasaportes
+        #region Métodos para pasaportes
+        /// <summary>
+        /// Verificá que el pasaporte no este repetido en la lista de pasajeros de determinado viaje
+        /// </summary>
+        /// <param name="pasaporte"></param>
+        /// <param name="esteViaje"></param>
+        /// <returns></returns>
         public static bool PasaporteEstaRepetido(Pasaporte pasaporte, Viaje esteViaje)
         {
             bool estaRepetido = false;
@@ -598,7 +674,7 @@ namespace Entidades
         }
         #endregion
 
-        #region Metodos recaudaciones
+        #region Métodos recaudaciones
 
         public static float CalcularRecaudacionTotalViajes()
         {

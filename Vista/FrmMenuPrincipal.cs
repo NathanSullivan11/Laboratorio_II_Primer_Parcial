@@ -32,7 +32,7 @@ namespace Vista
         }
         #endregion
 
-        #region Instancias de formularios
+        #region Evento para instanciar formularios
         private void btn_CuentaUsuario_Click(object sender, EventArgs e)
         {
             FrmCuentaUsuario formCuentaUsuario = new FrmCuentaUsuario(usuarioLogueado);
@@ -119,7 +119,7 @@ namespace Vista
         }
         #endregion
 
-        #region Configuraciones varias
+        #region Configuraciones para visualizar los formularios correctamente
         private void OcultarSubMenuEstadisticas()
         {
             if (this.panel_SubMenuEstadisticas.Visible == true)
@@ -162,7 +162,7 @@ namespace Vista
         }
         #endregion
 
-        #region Funcionalidad de botones de la barra superior
+        #region Eventos de los botones pertenecientes A la barra superior
         private void pbox_Minimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -193,7 +193,7 @@ namespace Vista
         }
         #endregion
 
-        #region Funcionalidades para el cierre del formulario
+        #region Eventos para el cierre del formulario
         private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("¿Desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
@@ -211,7 +211,6 @@ namespace Vista
             this.Close();
         }
         #endregion
-
      
     }
 

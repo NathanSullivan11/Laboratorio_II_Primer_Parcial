@@ -20,7 +20,11 @@
         public int CantidadViajes { get => this.cantidadViajes; }
         #endregion
 
-        #region Metodos
+        #region Métodos
+        /// <summary>
+        /// Le suma un viaje al cliente
+        /// </summary>
+        /// <param name="cliente"></param>
         public static void SumarleUnViajeACliente(Cliente cliente)
         {
             cliente.cantidadViajes++;

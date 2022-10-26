@@ -35,7 +35,7 @@ namespace Entidades
         public int CantidadPasajeros { get => this.pasajeros.Count; }
         #endregion
 
-        #region Metodos
+        #region Métodos
         public override string ToString()
         {
             return $"Cantidad de camarotes ocupados: {this.CantidadPasajeros}";

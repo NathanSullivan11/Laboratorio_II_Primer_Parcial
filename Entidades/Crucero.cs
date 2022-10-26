@@ -59,7 +59,7 @@ namespace Entidades
         public bool EstaEnUso { set => estaEnUso = value; }
         #endregion
 
-        #region Metodos getters
+        #region Métodos getters
         public bool CruceroEstaEnUso()
         {
             return this.estaEnUso;
@@ -99,7 +99,7 @@ namespace Entidades
             return sb.ToString();
         }
 
-        #region Metodos override
+        #region Métodos override
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

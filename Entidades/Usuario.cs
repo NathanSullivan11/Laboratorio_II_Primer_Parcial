@@ -22,15 +22,13 @@
         public string Password { get => this.password; set => password = value; }
         public string Mail { get => mail; set => mail = value; }
         #endregion
-
-        #region Metodo
+       
         public bool CheckearPassword(string password)
         {
             return this.Password == password;
-        }
-        #endregion
+        }    
 
-        #region Metodos override
+        #region Métodos override
         /// <summary>
         /// GetHashCode()
         /// </summary>

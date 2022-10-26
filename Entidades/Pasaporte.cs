@@ -28,7 +28,7 @@ namespace Entidades
         public string FechaDeCaducidad { get => fechaDeCaducidad.ToShortDateString(); }
         #endregion
 
-        #region Metodos
+        #region Métodos
         public static bool EstaEnReglaPasaporte(DateTime fechaCaducidad)
         {
             if (fechaCaducidad.CompareTo(DateTime.Today) >= 0)

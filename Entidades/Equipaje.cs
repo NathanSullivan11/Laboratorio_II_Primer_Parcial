@@ -34,7 +34,7 @@ namespace Entidades
         }
         #endregion
 
-        #region Metodos
+        #region Métodos
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

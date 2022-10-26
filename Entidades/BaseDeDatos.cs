@@ -12,8 +12,8 @@ namespace Entidades
         static List<Cliente> listaClientes;
         static List<Viaje> listaViajesActivos;
         static List<Viaje> listaViajesFinalizados;
-        static List<Pasajero> listaModeloPasajeros;
-        static List<Pasaporte> listaModeloPasaportes;
+        static List<Pasajero> listaModeloPasajeros;   // Lista de pasajeros que facilitará el hardcodea de viajes
+        static List<Pasaporte> listaModeloPasaportes; // Lista de pasaportes que facilitará el hardcodea de pasajeros
 
         static List<Viaje> listaTodosLosViajes;
         static Dictionary<string, float> diccionarioDestinosFacturacion;
@@ -64,7 +64,7 @@ namespace Entidades
         public static Dictionary<string, int> DiccionarioHorasViajadasPorCrucero { get => diccionarioHorasViajadasPorCrucero; }
         #endregion
 
-        #region Metodos diccionarios
+        #region Métodos diccionarios
 
         private static void InicializarDiccionarioHorasViajadasPorCrucero()
         {
@@ -158,13 +158,13 @@ namespace Entidades
 
         private static void HardcodearCruceros()
         {
-            listaCruceros.Add(new Crucero("AA7893-LS", "Fragata", 300, 7500, true, false, false, false, 0));
-            listaCruceros.Add(new Crucero("AA4264-RG", "Chatarra", 450, 9000, true, false, false, false, 0));
+            listaCruceros.Add(new Crucero("AA7893-LS", "Fragata", 280, 5000, true, false, false, false, 0));
+            listaCruceros.Add(new Crucero("AA4264-RG", "Chatarra", 450, 6000, true, false, false, false, 0));
             listaCruceros.Add(new Crucero("AA4565-BH", "Deluxe", 600, 10750, true, true, false, false, 1));
             listaCruceros.Add(new Crucero("AA1264-UI", "Jose Pedro", 700, 11000, true, true, false, true, 1));
             listaCruceros.Add(new Crucero("AA9748-PO", "Velador", 850, 12500, true, true, true, true, 2));
-            listaCruceros.Add(new Crucero("AA5487-QW", "Fragata", 250, 6250, true, false, false, false, 0));
-            listaCruceros.Add(new Crucero("AA3709-VF", "Fragata", 550, 9000, true, false, true, false, 0));
+            listaCruceros.Add(new Crucero("AA5487-QW", "Fragata", 250, 5000, true, false, false, false, 0));
+            listaCruceros.Add(new Crucero("AA3709-VF", "Espacial", 550, 10000, true, false, true, false, 0));
         }
 
         private static void HardcodearClientes()

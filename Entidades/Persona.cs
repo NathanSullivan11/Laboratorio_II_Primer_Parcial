@@ -30,7 +30,7 @@
         public int Dni { get => dni; }
         #endregion
 
-        #region Metodos
+        #region Métodos
         public override int GetHashCode()
         {
             return this.dni;

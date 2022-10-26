@@ -266,7 +266,7 @@ namespace Vista
             this.tableLayoutPanel_BusquedaPorDni.ColumnCount = 3;
             this.tableLayoutPanel_BusquedaPorDni.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.9759F));
             this.tableLayoutPanel_BusquedaPorDni.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.02409F));
-            this.tableLayoutPanel_BusquedaPorDni.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
+            this.tableLayoutPanel_BusquedaPorDni.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
             this.tableLayoutPanel_BusquedaPorDni.Controls.Add(this.lblBuscarPorDni, 0, 0);
             this.tableLayoutPanel_BusquedaPorDni.Controls.Add(this.txtFiltroPorDni, 1, 0);
             this.tableLayoutPanel_BusquedaPorDni.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -293,7 +293,7 @@ namespace Vista
             // txtFiltroPorDni
             // 
             this.txtFiltroPorDni.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtFiltroPorDni.Location = new System.Drawing.Point(144, 3);
+            this.txtFiltroPorDni.Location = new System.Drawing.Point(143, 3);
             this.txtFiltroPorDni.Name = "txtFiltroPorDni";
             this.txtFiltroPorDni.Size = new System.Drawing.Size(183, 23);
             this.txtFiltroPorDni.TabIndex = 21;
@@ -945,7 +945,7 @@ namespace Vista
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(1142, 650);
             this.Name = "FrmVentaPasaje";
-            this.Text = "FrmVentaPasaje";
+            this.Text = "Venta de pasajes";
             this.Load += new System.EventHandler(this.FrmVentaPasaje_Load);
             this.gboxDatosCliente.ResumeLayout(false);
             this.gboxDatosCliente.PerformLayout();

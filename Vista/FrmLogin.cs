@@ -13,7 +13,7 @@ namespace Vista
         }
         #endregion
 
-        #region Funcionalidades para iniciar sesión
+        #region Métodos y eventos para loguear al usuario
         private void btn_Ingresar_Click(object sender, EventArgs e)
         {
             if(!this.TextBoxEstanVacios())
@@ -46,19 +46,6 @@ namespace Vista
         }
         #endregion
 
-        #region Validaciones
-        private bool TextBoxEstanVacios()
-        {
-            return string.IsNullOrEmpty(tbox_Usuario.Text) || string.IsNullOrEmpty(tbox_Password.Text);
-        }
-
-        private void LimpiarCampos()
-        {
-            this.tbox_Usuario.Clear();
-            this.tbox_Password.Clear();
-        }
-        #endregion
-
         #region Evento para mostrar mensaje de error
         private void MostrarMensajeError(string mensaje)
         {
@@ -77,7 +64,20 @@ namespace Vista
         }
         #endregion
 
-        #region Funcionalidad para cerrado de aplicación
+        #region Validaciones
+        private bool TextBoxEstanVacios()
+        {
+            return string.IsNullOrEmpty(tbox_Usuario.Text) || string.IsNullOrEmpty(tbox_Password.Text);
+        }
+
+        private void LimpiarCampos()
+        {
+            this.tbox_Usuario.Clear();
+            this.tbox_Password.Clear();
+        }
+        #endregion
+
+        #region Evento para cerrado de aplicación
         private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("¿Desea cerrar la aplicacion?", "Cierre de aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)

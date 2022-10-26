@@ -34,7 +34,7 @@ namespace Entidades
         public int Edad { get => this.cliente.Edad; }
         #endregion
 
-        #region Metodos
+        #region Métodos getters
         public Equipaje ObtenerEquipaje()
         {
             return this.equipaje;
@@ -44,7 +44,9 @@ namespace Entidades
         {
             return this.cliente;
         }
+        #endregion
 
+        #region Método override
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder("");
