@@ -28,6 +28,9 @@
     <Compile Update="FrmMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmVentaPasaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmViajes.cs">
       <SubType>Form</SubType>
     </Compile>

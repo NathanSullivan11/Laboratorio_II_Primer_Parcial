@@ -37,9 +37,13 @@ namespace Entidades
         public static bool EsValidoNumeroPasaporte(string nroPasaporte)
         {
             bool esValido = false;
-            
-            if (!string.IsNullOrEmpty(nroPasaporte))
+
+            if (string.IsNullOrEmpty(nroPasaporte) || nroPasaporte.Length < 7)
             {
+                return false;
+            }
+            else
+            { 
                 esValido = true;
 
                 for (int i = 0; i < nroPasaporte.Length; i++)
@@ -60,9 +64,8 @@ namespace Entidades
                             break;
                         }
                     }
-
-
                 }
+                
             }
             return esValido;
         }

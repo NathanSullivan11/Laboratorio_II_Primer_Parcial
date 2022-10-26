@@ -47,16 +47,16 @@ namespace Vista
         #region Evento para vender pasajes
         private void btnVenderPasaje_Click(object sender, EventArgs e)
         {
-            //Viaje esteViaje = BaseDeDatos.ListaViajesActivos.ElementAt(this.dgvViajesActivos.CurrentCell.RowIndex);
+            Viaje esteViaje = BaseDeDatos.ListaViajesActivos.ElementAt(this.dgvViajesActivos.CurrentCell.RowIndex);
 
-            /* FrmVentaPasaje formVenta = new FrmVentaPasaje(esteViaje);
+            FrmVentaPasaje formVenta = new FrmVentaPasaje(esteViaje);
 
              if (formVenta.ShowDialog() == DialogResult.OK)
              {
-                 List<Pasajero> pasajeros = formVenta.listaPasajerosCargado;
+                 /*List<Pasajero> pasajeros = formVenta.listaPasajerosCargado;
                  esteViaje.AgregarGrupoFamiliar(pasajeros, Sistema.EsGrupoFamiliarPremium(pasajeros));
-                 MessageBox.Show("Venta efectuada CORRECTAMENTE!", "Vendido", MessageBoxButtons.OK, MessageBoxIcon.Information);
-             }*/
+                 MessageBox.Show("Venta efectuada CORRECTAMENTE!", "Vendido", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+             }
         }
         #endregion
 
