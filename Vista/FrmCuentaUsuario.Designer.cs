@@ -253,6 +253,7 @@ namespace Vista
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Configuración de cuenta";
+            this.Load += new System.EventHandler(this.FrmCuentaUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbox_Regresar)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

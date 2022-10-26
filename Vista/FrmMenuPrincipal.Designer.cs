@@ -53,12 +53,14 @@ namespace Vista
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pboxLogoChico = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_Estadisticas = new System.Windows.Forms.Button();
             this.btn_Viajes = new System.Windows.Forms.Button();
             this.btn_Clientes = new System.Windows.Forms.Button();
             this.panel_Central = new System.Windows.Forms.Panel();
+            this.lblBienvenvida = new System.Windows.Forms.Label();
+            this.pboxLogoGrande = new System.Windows.Forms.PictureBox();
             this.panel_BarraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_Maximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_Ayuda)).BeginInit();
@@ -69,7 +71,9 @@ namespace Vista
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_CerrarSesion)).BeginInit();
             this.panel_SubMenuEstadisticas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLogoChico)).BeginInit();
+            this.panel_Central.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLogoGrande)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_BarraSuperior
@@ -160,7 +164,7 @@ namespace Vista
             this.panel_Lateral.Controls.Add(this.panel3);
             this.panel_Lateral.Controls.Add(this.panel2);
             this.panel_Lateral.Controls.Add(this.panel1);
-            this.panel_Lateral.Controls.Add(this.pictureBox1);
+            this.panel_Lateral.Controls.Add(this.pboxLogoChico);
             this.panel_Lateral.Controls.Add(this.label3);
             this.panel_Lateral.Controls.Add(this.btn_Estadisticas);
             this.panel_Lateral.Controls.Add(this.btn_Viajes);
@@ -350,15 +354,15 @@ namespace Vista
             this.panel1.Size = new System.Drawing.Size(5, 37);
             this.panel1.TabIndex = 10;
             // 
-            // pictureBox1
+            // pboxLogoChico
             // 
-            this.pictureBox1.Image = global::Vista.Properties.Resources.Costa_logo_20211;
-            this.pictureBox1.Location = new System.Drawing.Point(-2, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(202, 117);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pboxLogoChico.Image = global::Vista.Properties.Resources.Costa_logo_20211;
+            this.pboxLogoChico.Location = new System.Drawing.Point(-2, 6);
+            this.pboxLogoChico.Name = "pboxLogoChico";
+            this.pboxLogoChico.Size = new System.Drawing.Size(202, 117);
+            this.pboxLogoChico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pboxLogoChico.TabIndex = 1;
+            this.pboxLogoChico.TabStop = false;
             // 
             // label3
             // 
@@ -429,11 +433,34 @@ namespace Vista
             // panel_Central
             // 
             this.panel_Central.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.panel_Central.Controls.Add(this.lblBienvenvida);
+            this.panel_Central.Controls.Add(this.pboxLogoGrande);
             this.panel_Central.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Central.Location = new System.Drawing.Point(200, 35);
             this.panel_Central.Name = "panel_Central";
             this.panel_Central.Size = new System.Drawing.Size(966, 634);
             this.panel_Central.TabIndex = 2;
+            // 
+            // lblBienvenvida
+            // 
+            this.lblBienvenvida.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblBienvenvida.AutoSize = true;
+            this.lblBienvenvida.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblBienvenvida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(176)))), ((int)(((byte)(37)))));
+            this.lblBienvenvida.Location = new System.Drawing.Point(311, 274);
+            this.lblBienvenvida.Name = "lblBienvenvida";
+            this.lblBienvenvida.Size = new System.Drawing.Size(0, 24);
+            this.lblBienvenvida.TabIndex = 9;
+            // 
+            // pboxLogoGrande
+            // 
+            this.pboxLogoGrande.Image = global::Vista.Properties.Resources.Costa_logo_2021_svg;
+            this.pboxLogoGrande.Location = new System.Drawing.Point(185, 93);
+            this.pboxLogoGrande.Name = "pboxLogoGrande";
+            this.pboxLogoGrande.Size = new System.Drawing.Size(541, 362);
+            this.pboxLogoGrande.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pboxLogoGrande.TabIndex = 1;
+            this.pboxLogoGrande.TabStop = false;
             // 
             // FrmMenuPrincipal
             // 
@@ -467,13 +494,16 @@ namespace Vista
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_CerrarSesion)).EndInit();
             this.panel_SubMenuEstadisticas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLogoChico)).EndInit();
+            this.panel_Central.ResumeLayout(false);
+            this.panel_Central.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLogoGrande)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
+        
         private System.Windows.Forms.Panel panel_BarraSuperior;
         private System.Windows.Forms.PictureBox pbox_Maximizar;
         private System.Windows.Forms.PictureBox pbox_Minimizar;
@@ -496,11 +526,13 @@ namespace Vista
         private System.Windows.Forms.Button btn_EstadisticasCruceros;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pbox_CerrarSesion;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pboxLogoChico;
         private System.Windows.Forms.Button btnCuentaUsuario;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblUsuarioLogueado;
         private System.Windows.Forms.PictureBox pbox_Ayuda;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label lblBienvenvida;
+        private System.Windows.Forms.PictureBox pboxLogoGrande;
     }
 }

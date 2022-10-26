@@ -23,6 +23,7 @@ namespace Vista
             InitializeComponent();
             this.formLogin = formLogin;
             this.usuarioLogueado = usuarioLogueado;
+            this.mensajeAyuda = "Seleccione algun menú o submenú y vuelva a hacerme click!\nMi texto cambia dependendiendo que formulario este abierto";
         }
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
@@ -130,8 +131,14 @@ namespace Vista
         private void VaciarPanelCentral()
         {
             if (this.panel_Central.Controls.Count > 0)
-            {
-                this.panel_Central.Controls.RemoveAt(0);
+            {              
+                foreach(Control item in this.panel_Central.Controls)
+                {
+                    if(item is Form)
+                    {
+                        this.panel_Central.Controls.Remove(item);
+                    }
+                }
             }
         }
         /// <summary>
@@ -144,6 +151,7 @@ namespace Vista
             esteForm.Dock = DockStyle.Fill;
             this.panel_Central.Controls.Add(esteForm);
             this.panel_Central.Tag = esteForm;
+            this.pboxLogoGrande.Visible = false;
             esteForm.Show();
         }
 
@@ -203,6 +211,8 @@ namespace Vista
             this.Close();
         }
         #endregion
+
+     
     }
 
 }

@@ -63,12 +63,12 @@ namespace Vista
             // 
             // pbox_Logo
             // 
-            this.pbox_Logo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pbox_Logo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbox_Logo.Image = global::Vista.Properties.Resources.Costa_logo_2021_svg;
-            this.pbox_Logo.Location = new System.Drawing.Point(91, 13);
+            this.pbox_Logo.Location = new System.Drawing.Point(3, 3);
             this.pbox_Logo.MaximumSize = new System.Drawing.Size(381, 204);
             this.pbox_Logo.Name = "pbox_Logo";
-            this.pbox_Logo.Size = new System.Drawing.Size(188, 146);
+            this.pbox_Logo.Size = new System.Drawing.Size(365, 156);
             this.pbox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbox_Logo.TabIndex = 0;
             this.pbox_Logo.TabStop = false;

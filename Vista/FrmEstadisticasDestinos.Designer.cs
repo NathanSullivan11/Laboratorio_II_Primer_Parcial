@@ -37,25 +37,61 @@ namespace Vista
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cmbBox_Opciones
             // 
-
-            this.cmbBox_Opciones.Location = new System.Drawing.Point(105, 38);
+            this.cmbBox_Opciones.Items.AddRange(new object[] {
+            "Id",
+            "Cantidad de viajes",
+            "Dni",
+            "Id",
+            "Cantidad de viajes",
+            "Dni",
+            "Id",
+            "Cantidad de viajes",
+            "Dni",
+            "Id",
+            "Cantidad de viajes",
+            "Dni",
+            "Id",
+            "Cantidad de viajes",
+            "Dni",
+            "Id",
+            "Cantidad de viajes",
+            "Dni",
+            "Id",
+            "Cantidad de viajes",
+            "Dni",
+            "Id",
+            "Cantidad de viajes",
+            "Dni",
+            "Id",
+            "Cantidad de viajes",
+            "Dni",
+            "Id",
+            "Cantidad de viajes",
+            "Dni",
+            "Id",
+            "Cantidad de viajes",
+            "Dni",
+            "Id",
+            "Cantidad de viajes",
+            "Dni"});
+            this.cmbBox_Opciones.Location = new System.Drawing.Point(116, 40);
             // 
             // rbtnOrdenAscendente
             // 
             this.rbtnOrdenAscendente.Checked = true;
-            this.rbtnOrdenAscendente.Location = new System.Drawing.Point(441, 30);
+            this.rbtnOrdenAscendente.Location = new System.Drawing.Point(470, 32);
             // 
             // rbtnOrdenDescendente
             // 
-            this.rbtnOrdenDescendente.Location = new System.Drawing.Point(672, 30);
+            this.rbtnOrdenDescendente.Location = new System.Drawing.Point(715, 32);
             this.rbtnOrdenDescendente.TabStop = false;
             // 
             // btnOrdenar
             // 
             this.btnOrdenar.FlatAppearance.BorderSize = 0;
-            this.btnOrdenar.Location = new System.Drawing.Point(911, 30);
+            this.btnOrdenar.Location = new System.Drawing.Point(969, 32);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -103,7 +139,7 @@ namespace Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1460, 881);
+            this.ClientSize = new System.Drawing.Size(1543, 917);
             this.Name = "FrmEstadisticasDestinos";
             this.Text = "FrmEstadisticasDestinos";
             this.ResumeLayout(false);

@@ -173,7 +173,6 @@ namespace Vista
         /// </summary>
         private void VerificarClienteIngresado()
         {
-            bool retorno = false;
             Cliente clienteExistente = Sistema.ClienteExisteEnBaseDeDatos(Int32.Parse(this.txtDniCliente.Text));
             if (clienteExistente != null)
             {

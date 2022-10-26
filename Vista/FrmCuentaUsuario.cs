@@ -134,5 +134,6 @@ namespace Vista
             this.DialogResult = DialogResult.OK;
         }
         #endregion
+
     }
 }
